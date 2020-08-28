@@ -41,6 +41,18 @@ const Index = data => {
           </div>
         </div>
       </section>
+      {/* <section className="container ">
+        <div className="intro-container">
+          <h1 className="intro-banner-title">What do we want?</h1>
+          <p className="intro-banner-desc">
+            We want to spread the word that Ukraine's organics market is open
+            for business! Our main business offices are located in Blackburn
+            (UK), where we are working hard to form partnerships and create
+            connections between the UK and the Ukraine Why the Ukraine?
+          </p>
+        </div>
+      </section> */}
+
       <section className="container">
         <div className="intro-container">
           <h1 className="intro-banner-title">Certified organic</h1>
@@ -54,16 +66,86 @@ const Index = data => {
       </section>
       <section className="container" id="contact">
         <div className="intro-container">
-          <h1 className="intro-banner-title">Get in Touch</h1>
+          <h1 className="intro-banner-title">Want to get in Touch?</h1>
           <p className="intro-banner-desc">
-            Our main business offices are located in Blackburn (UK), where our
-            team is focussed on creating new partnerhips and spreading the word
-            that Ukraine's organics market is open for business!
+            We'd love to hear from you! Contact us if you have any questions, we
+            would be happy to help answer them.
           </p>
 
           <div className="contact-feed">
-            <Contact></Contact>
-            <Contact></Contact>
+            <div className="contact-card">
+              <header className="contact-card-header">
+                <h1 className="contact-card-title">United Kindgom</h1>
+              </header>
+              <section className="contact-card-excerpt">
+                <div className="contact-card-address">
+                  <span>ProOrganica Limited </span>
+                  <span>10 Buncer Lane Blackburn </span>
+                  <span>BB2 6SE </span>
+                  <span>United Kingdom</span>
+                </div>
+                <div className="contact-card-contacts">
+                  <span className="highlight-content">Graham Bonfield: </span>
+                  <span> Director </span>
+
+                  <span className="highlight-content">
+                    Luba Michailova Irina Sholokhova:{" "}
+                  </span>
+                  <span>Strategic Development </span>
+                  <span className="highlight-content">David Jack:</span>
+                  <span>
+                    Business Development Sales and Marketing Support UK{" "}
+                  </span>
+                </div>
+              </section>
+              <footer className="contact-card-footer">
+                <div className="contact-card-footer-left">
+                  Email:
+                  <a
+                    className="highlight-content"
+                    href="mailto:info@proorganica.com"
+                  >
+                    info@proorganica.com
+                  </a>
+                </div>
+                <div className="contact-card-footer-right">
+                  Ukraine Tel: +380 67 544-93-37
+                </div>
+              </footer>
+            </div>
+            <div className="contact-card">
+              <header className="contact-card-header">
+                <h1 className="contact-card-title">Ukraine</h1>
+              </header>
+              <section className="contact-card-excerpt">
+                <div className="contact-card-address">
+                  <span>ProOrganica Ukraine </span>
+                  <span>LLC Naberezhno-Luhova Str. 12 </span>
+                  <span>04071 </span>
+                  <span> Kyiv</span>
+                </div>
+                <div className="contact-card-contacts">
+                  <span className="highlight-content">Eugene Blokhin:</span>
+                  <span>Logistic and Marketing Support Ukraine</span>
+                  <span className="highlight-content">Irina Sholokhova: </span>
+                  <span>Quality and Certification Support Ukraine UK</span>
+                </div>
+              </section>
+              <footer className="contact-card-footer">
+                <div className="contact-card-footer-left">
+                  Email:
+                  <a
+                    className="highlight-content"
+                    href="mailto:info@proorganica.com"
+                  >
+                    info@proorganica.com
+                  </a>
+                </div>
+                <div className="contact-card-footer-right">
+                  Ukraine Tel: +380 67 544-93-37
+                </div>
+              </footer>
+            </div>
 
             {/* <div>
               <h2>ProOrganica Ukraine</h2>

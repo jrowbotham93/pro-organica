@@ -1,3 +1,8 @@
+const result = require("dotenv").config();
+if (result.error) {
+  throw result.error;
+}
+
 module.exports = {
   siteMetadata: {
     title: `ProOrganica`,
@@ -25,16 +30,16 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.ico`, // This path is relative to the root of the site.
+        icon: `src/images/proorganica-white.png`, // This path is relative to the root of the site.
       },
     },
     {
       resolve: "gatsby-source-cosmicjs",
       options: {
-        bucketSlug: `proorganica`,
+        bucketSlug: `${process.env.COSMIC_BUCKET}`,
         objectTypes: [`pages`],
         apiAccess: {
-          read_key: `OkyNXMZVgGEH99l0MO6RIdGbK31piArSUhbUVo8fIw4MYbz7Fy`,
+          read_key: `${process.env.COSMIC_READ_KEY}`,
         },
         localMedia: true,
       },

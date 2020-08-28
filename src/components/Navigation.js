@@ -57,12 +57,12 @@ Navigation.defaultProps = {
 };
 
 Navigation.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
+  // data: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     title: PropTypes.string.isRequired,
+  //     slug: PropTypes.string.isRequired,
+  //   }).isRequired
+  // ).isRequired,
   navClass: PropTypes.string,
 };
 

@@ -22,7 +22,8 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
 
   const currentPage = window.location.pathname.split("/");
   const location = `/${currentPage[1]}`;
-  const logo = data.allImageSharp.edges.map(i => i.node)[0];
+  // const logo = data.allImageSharp.edges.map(i => i.node)[0];
+  console.log(data);
   return (
     <>
       <Helmet>
@@ -48,7 +49,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                   <Navigation navClass={"site-nav-item"} />
                 </div>
                 <div className="site-mast-right">
-                  <Img fixed={logo && logo.fixed} />
+                  {/* <Img fixed={logo && logo.fixed} /> */}
                 </div>
               </div>
               {isHome ? (
@@ -166,15 +167,6 @@ const DefaultLayoutSettingsQuery = props => (
                     }
                   }
                 }
-              }
-            }
-          }
-        }
-        allImageSharp {
-          edges {
-            node {
-              fixed(quality: 100, height: 50) {
-                ...GatsbyImageSharpFixed
               }
             }
           }
