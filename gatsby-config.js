@@ -1,4 +1,5 @@
-const result = require("dotenv").config();
+const result = require("dotenv").config({ silent: true });
+
 if (result.error) {
   throw result.error;
 }
