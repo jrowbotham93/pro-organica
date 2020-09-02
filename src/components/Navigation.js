@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+// import { window } from "browser-monads";
 import { Link, StaticQuery, graphql } from "gatsby";
 
 /**
@@ -15,39 +16,28 @@ import { Link, StaticQuery, graphql } from "gatsby";
 
 const Navigation = ({ data, navClass }) => {
   const pages = data.allCosmicjsPages.edges;
-  const currentLocation = window.location.pathname.split("/");
-  const location = `/${currentLocation[1]}`;
-
-  const urlGenerator = navItem => {
-    const slug = navItem.node.slug.toLowerCase().includes("home")
-      ? ""
-      : navItem.node.slug;
-    return `${location === "" ? "" : location}/${slug}`;
-  };
 
   return (
     <>
-      {pages.map((navItem, i) => {
-        if (navItem.node.slug.match(/^\s?http(s?)/gi)) {
+      <Link className={navClass} to={"/"}>
+        Home
+      </Link>
+      {pages
+        .filter(i => i.node.slug != "home")
+        .map((navItem, i) => {
           return (
-            <a
+            <Link
               className={navClass}
-              href={navItem.slug}
+              to={`${navItem.node.locale}/${navItem.node.slug}`.replace(
+                "en-GB",
+                ""
+              )}
               key={i}
-              target="_blank"
-              rel="noopener noreferrer"
             >
-              {navItem.title}
-            </a>
-          );
-        } else {
-          return (
-            <Link className={navClass} to={urlGenerator(navItem)} key={i}>
               {navItem.node.title}
             </Link>
           );
-        }
-      })}{" "}
+        })}
     </>
   );
 };

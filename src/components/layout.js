@@ -1,11 +1,10 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { window } from "browser-monads";
 import { Link, StaticQuery, graphql } from "gatsby";
 
-import Img from "gatsby-image";
-
 import "../styles/app.css";
-import { Navigation, Header } from ".";
+import { Navigation, Header, Image } from ".";
 
 /**
  * Main layout component
@@ -17,13 +16,13 @@ import { Navigation, Header } from ".";
  */
 
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
-  const [pageData] = data.allCosmicjsPages.edges;
+  const [pageData] = data && data.allCosmicjsPages.edges;
   const { node } = pageData;
+  console.log(pageData);
 
   const currentPage = window.location.pathname.split("/");
-  const location = `/${currentPage[1]}`;
-  // const logo = data.allImageSharp.edges.map(i => i.node)[0];
-  console.log(data);
+  const location = currentPage[1];
+
   return (
     <>
       <Helmet>
@@ -37,11 +36,15 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
           {/* The main header section on top of the screen */}
           <header
             className="site-head"
-            style={{
-              ...(isHome && {
-                backgroundImage: `url(${node.metadata.home_banner_image.local.childImageSharp.fluid.src})`,
-              }),
-            }}
+            // style={{
+            //   ...(isHome && {
+            //     backgroundImage: `url(${
+            //       node.metadata.home_banner_image &&
+            //       node.metadata.home_banner_image.local.childImageSharp.fluid
+            //         .src
+            //     })`,
+            //   }),
+            // }}
           >
             <div className="container">
               <div className="site-mast">
@@ -49,7 +52,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                   <Navigation navClass={"site-nav-item"} />
                 </div>
                 <div className="site-mast-right">
-                  {/* <Img fixed={logo && logo.fixed} /> */}
+                  <Image />
                 </div>
               </div>
               {isHome ? (
@@ -63,27 +66,28 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
               <nav className="site-nav">
                 <div className="site-nav-left">
                   <div className="site-foot-nav-left"> </div>
-                  <div className="site-nav-item">
-                    <Link
-                      className="site-nav-button"
-                      to={`${location === "" ? "" : location}/#contact`}
-                    >
-                      Contact us
-                    </Link>
-                  </div>
+                  {isHome ? (
+                    <div className="site-nav-item">
+                      <Link
+                        className="site-nav-button"
+                        to={`${location === "" ? "" : location}/#contact`}
+                      >
+                        Contact us
+                      </Link>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div className="site-nav-right">
                   {" "}
                   <Link
                     className="site-nav-item"
-                    to={`/uk-UA/${currentPage[2]}`}
+                    to={`/uk-UA/${currentPage[1]}`}
                   >
                     Українська
                   </Link>
-                  <Link
-                    className="site-nav-item"
-                    to={`/en-GB/${currentPage[2]}`}
-                  >
+                  <Link className="site-nav-item" to={`/`}>
                     English
                   </Link>
                 </div>
@@ -116,9 +120,7 @@ const DefaultLayoutSettingsQuery = props => (
   <StaticQuery
     query={graphql`
       {
-        allCosmicjsPages(
-          filter: { slug: { eq: "home" }, locale: { eq: "en-GB" } }
-        ) {
+        allCosmicjsPages(filter: { slug: { eq: "home" } }) {
           edges {
             node {
               slug

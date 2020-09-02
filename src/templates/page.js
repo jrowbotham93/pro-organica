@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { SEO, Layout } from "../components";
 
-const Page = ({ data }) => {
-  const { content, title, metadata } = data.pageContext.page;
+const Page = data => {
+  const { content, title, metadata } = data && data.pageContext.page;
 
   return (
     <>
@@ -23,7 +23,7 @@ const Page = ({ data }) => {
             <section className="post-full-content">
               <h1 className="content-title">{title}</h1>
 
-              {/* The main page content */}
+              {/* The main page content  */}
               <section
                 className="content-body load-external-scripts"
                 dangerouslySetInnerHTML={{ __html: content }}

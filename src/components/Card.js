@@ -23,7 +23,7 @@ const Card = pages => {
         <h2 className="post-card-title">{title}</h2>
       </header>
       <section className="post-card-excerpt">
-        {metadata.excerpt && metadata.excerpt.substring(0, 100)}.....
+        {metadata.excerpt && metadata.excerpt}
       </section>
       <footer className="post-card-footer">
         <div className="post-card-footer-left">

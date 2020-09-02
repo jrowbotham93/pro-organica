@@ -5,8 +5,8 @@ const createLanguagesObject = languages => {
   }, {});
 };
 
-const localizeUrl = (language, url) => {
-  return `/${language}${url}`;
+const localizeUrl = (language, defaultLangKey, url) => {
+  return `/${language}${url}`.replace(`/${defaultLangKey}`, "");
 };
 
 module.exports = {

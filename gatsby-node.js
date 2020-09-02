@@ -1,4 +1,5 @@
 const langs = ["en-GB", "uk-UA"];
+const defaultLanguage = "en-GB";
 
 const path = require(`path`);
 const {
@@ -83,7 +84,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   langs.forEach(language => {
     createPage({
-      path: localizeUrl(language, `/`),
+      path: localizeUrl(language, defaultLanguage, `/`),
       component: indexTemplate,
       context: {
         index: index[language],
@@ -98,7 +99,7 @@ exports.createPages = async ({ actions, graphql }) => {
           .filter(i => i.locale === language)
           .forEach(i => {
             createPage({
-              path: localizeUrl(language, `/${i.slug}`),
+              path: localizeUrl(language, defaultLanguage, `/${i.slug}`),
               component: pageTemplate,
               context: {
                 page: i,

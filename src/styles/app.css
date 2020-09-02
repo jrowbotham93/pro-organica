@@ -25,11 +25,11 @@ what's here to work the way you'd like it to.
   --color-bg: #f5f5f5;
   --color-gr: #7ebd4c;
   --color-lgr: #81bb46;
+  --color-pgr: #3b6456;
 
   /* Fonts */
-  --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   --font-mono: Menlo, Courier, monospace;
   --font-montserrat: "Montserrat", Arial, sans-serif;
   --font-light: 100;
@@ -311,8 +311,8 @@ html {
 body {
   overflow-x: hidden;
   color: #3c484e;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
   font-size: 1.5rem;
   line-height: 1.6em;
   font-weight: 400;
@@ -676,7 +676,7 @@ h6 {
   padding-top: 10px;
   padding-bottom: 10px;
   color: #fff;
-  background: var(--color-base);
+  background: var(--color-pgr);
   opacity: 0.9;
   background-position: center;
   background-size: cover;
@@ -785,7 +785,7 @@ h6 {
   justify-content: center;
   margin: 0 auto;
   align-items: center;
-  padding: 3vw 0;
+  /* padding: 3vw 0; */
 }
 
 .grey-bg {
@@ -803,7 +803,7 @@ h6 {
 
 .intro-banner-desc {
   margin: 5px 0 0 0;
-  padding-bottom: 4vw;
+  padding-bottom: 5vw;
   font-size: 2.4rem;
   line-height: 1.3em;
   opacity: 0.7;
@@ -818,15 +818,15 @@ h6 {
 .post-feed {
   display: grid;
   justify-content: space-between;
-  grid-gap: 30px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 60px;
+  grid-template-columns: 1fr 1fr;
 }
 
-@media (max-width: 980px) {
+/* @media (max-width: 980px) {
   .post-feed {
     grid-template-columns: 1fr 1fr;
   }
-}
+} */
 @media (max-width: 680px) {
   .post-feed {
     grid-template-columns: 1fr;
@@ -852,14 +852,14 @@ h6 {
 .post-card-title {
   margin: 0 0 10px 0;
   font-size: 2.8rem;
-  font-weight: 500;
-  font-family: var(--font-montserrat);
+  opacity: 0.7;
 }
 
 .post-card-excerpt {
   padding: 0.5em 0;
-  font-size: 1.8rem;
-  line-height: 1.55em;
+  font-size: 2.4rem;
+  line-height: 1.3em;
+  opacity: 0.7;
 }
 
 .post-card-image {
@@ -910,6 +910,24 @@ h6 {
   width: 26px;
 }
 
+.certification-feed {
+  display: grid;
+  justify-content: space-between;
+  grid-gap: 60px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 980px) {
+  .certification-feed {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 680px) {
+  .certification-feed {
+    grid-template-columns: 1fr;
+  }
+}
+
 .certification-card {
   color: inherit;
   text-decoration: none;
@@ -935,7 +953,7 @@ h6 {
 
 .certification-card-image {
   margin: 0 0 20px 0;
-  width: auto;
+  width: 300px;
   background: var(--color-secondary) no-repeat center center;
   background-size: cover;
 }
@@ -962,14 +980,14 @@ h6 {
   display: grid;
   justify-content: space-between;
   grid-gap: 60px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-/* @media (max-width: 980px) {
+@media (max-width: 980px) {
   .contact-feed {
     grid-template-columns: 1fr 1fr;
   }
-} */
+}
 @media (max-width: 680px) {
   .contact-feed {
     grid-template-columns: 1fr;
@@ -1164,7 +1182,7 @@ h6 {
   padding: 20px 0 40px 0;
   color: rgba(255, 255, 255, 0.7);
   font-size: 1.3rem;
-  background: var(--color-base);
+  background: var(--color-pgr);
 }
 
 .site-foot-nav {

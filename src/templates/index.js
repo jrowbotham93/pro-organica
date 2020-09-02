@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Card, Certification, SEO, Contact } from "../components";
+import { Layout, Card, Certification, SEO } from "../components";
 
 const Index = data => {
   const { index } = data.pageContext;
@@ -32,7 +32,9 @@ const Index = data => {
       <section className="container ">
         <div className="intro-container">
           <h1 className="intro-banner-title">What do we do?</h1>
-          <p className="intro-banner-desc">{home_banner_description}</p>
+          <p className="intro-banner-desc">
+            {home_banner_description && home_banner_description}
+          </p>
           <div className="post-feed">
             {index &&
               index
@@ -52,24 +54,28 @@ const Index = data => {
           </p>
         </div>
       </section> */}
+      <hr></hr>
 
       <section className="container">
         <div className="intro-container">
           <h1 className="intro-banner-title">Certified organic</h1>
-          <p className="intro-banner-desc">{accreditation}</p>
-          <div className="post-feed">
-            {certifications.map((i, index) => (
-              <Certification key={index} data={i} />
-            ))}
+          <p className="intro-banner-desc">{accreditation && accreditation}</p>
+          <div className="certification-feed">
+            {certifications &&
+              certifications.map((i, index) => (
+                <Certification key={index} data={i} />
+              ))}
           </div>
         </div>
       </section>
+      <hr></hr>
       <section className="container" id="contact">
         <div className="intro-container">
-          <h1 className="intro-banner-title">Want to get in Touch?</h1>
+          <h1 className="intro-banner-title">Want to get in touch?</h1>
           <p className="intro-banner-desc">
-            We'd love to hear from you! Contact us if you have any questions, we
-            would be happy to help answer them.
+            Our main offices are located in Blackburn in the UK. We also have
+            production facilities for dehulling, cleaning, sorting and packaging
+            of grains in Ukraine.
           </p>
 
           <div className="contact-feed">
@@ -98,20 +104,7 @@ const Index = data => {
                   </span>
                 </div>
               </section>
-              <footer className="contact-card-footer">
-                <div className="contact-card-footer-left">
-                  Email:
-                  <a
-                    className="highlight-content"
-                    href="mailto:info@proorganica.com"
-                  >
-                    info@proorganica.com
-                  </a>
-                </div>
-                <div className="contact-card-footer-right">
-                  Ukraine Tel: +380 67 544-93-37
-                </div>
-              </footer>
+              <footer className="contact-card-footer"></footer>
             </div>
             <div className="contact-card">
               <header className="contact-card-header">
@@ -131,6 +124,21 @@ const Index = data => {
                   <span>Quality and Certification Support Ukraine UK</span>
                 </div>
               </section>
+              <footer className="contact-card-footer"></footer>
+            </div>
+            <div className="contact-card">
+              <header className="contact-card-header">
+                <h1 className="contact-card-title">Get in touch!</h1>
+              </header>
+              <section className="contact-card-excerpt">
+                <span className="highlight-content">
+                  We'd love to hear from you!{" "}
+                </span>
+                <span>
+                  Contact us if you have any questions, we would be happy to
+                  help answer them.
+                </span>
+              </section>
               <footer className="contact-card-footer">
                 <div className="contact-card-footer-left">
                   Email:
@@ -146,21 +154,6 @@ const Index = data => {
                 </div>
               </footer>
             </div>
-
-            {/* <div>
-              <h2>ProOrganica Ukraine</h2>
-              <div>
-                ProOrganica Ukraine Processor and Supply partner CHEMEX LIMITED,
-                LLC Naberezhno-Luhova Str. 12 Kyiv 04071
-              </div>
-              <div>
-                Eugene Blokhin: Logistic and Marketing Support Ukraine Irina
-                Sholokhova: Quality and Certification Support Ukraine
-              </div>
-              <div>
-                Ukraine Tel: +380 67 544-93-37 Email: info@proorganica.com
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
