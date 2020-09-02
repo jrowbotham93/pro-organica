@@ -16,10 +16,6 @@ import { Navigation, Header, Image } from ".";
  */
 
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
-  const [pageData] = data && data.allCosmicjsPages.edges;
-  const { node } = pageData;
-  console.log(pageData);
-
   const currentPage = window.location.pathname.split("/");
   const location = currentPage[1];
 
@@ -27,7 +23,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     <>
       <Helmet>
         <html lang="en" />
-        {/* <style type="text/css">{`${site.codeinjection_styles}`}</style> */}
         <body className={bodyClass} />
       </Helmet>
 
@@ -58,9 +53,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
               {isHome ? (
                 <div className="site-banner">
                   <Header siteTitle="We are proactive, professional, and progressive."></Header>
-                  {/* <p className="site-banner-desc">
-
-                  </p> */}
                 </div>
               ) : null}
               <nav className="site-nav">
@@ -106,7 +98,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
           <footer className="site-foot">
             <div className="site-foot-nav container">
               <div className="site-foot-nav-right">
-                <Navigation navClass="site-foot-nav-item" />
+                <Navigation navClass="site-foot-nav-item" />© 2020 ProOrganica
               </div>
             </div>
           </footer>

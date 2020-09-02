@@ -43,17 +43,7 @@ const Index = data => {
           </div>
         </div>
       </section>
-      {/* <section className="container ">
-        <div className="intro-container">
-          <h1 className="intro-banner-title">What do we want?</h1>
-          <p className="intro-banner-desc">
-            We want to spread the word that Ukraine's organics market is open
-            for business! Our main business offices are located in Blackburn
-            (UK), where we are working hard to form partnerships and create
-            connections between the UK and the Ukraine Why the Ukraine?
-          </p>
-        </div>
-      </section> */}
+
       <hr></hr>
 
       <section className="container">

@@ -1,14 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import { window } from "browser-monads";
+import { window } from "browser-monads";
 import { Link, StaticQuery, graphql } from "gatsby";
 
 /**
  * Navigation component
  *
- * The Navigation component takes an array of your Ghost
- * navigation property that is fetched from the settings.
- * It differentiates between absolute (external) and relative link (internal).
+ * The Navigation component takes an array of the page slugs fetched from the cms.
  * You can pass it a custom class for your own styles, but it will always fallback
  * to a `site-nav-item` class.
  *
@@ -28,10 +26,12 @@ const Navigation = ({ data, navClass }) => {
           return (
             <Link
               className={navClass}
-              to={`${navItem.node.locale}/${navItem.node.slug}`.replace(
-                "en-GB",
-                ""
-              )}
+              // HACKY: check to see whether Ukrainan in the url and then append uk-UA / leave empty for GB
+              to={`${
+                window.location.pathname.split("/")[1] == "uk-UA"
+                  ? "/uk-UA"
+                  : ""
+              }/${navItem.node.slug}`.replace("en-GB", "")}
               key={i}
             >
               {navItem.node.title}
