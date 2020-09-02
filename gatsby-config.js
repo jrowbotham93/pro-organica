@@ -37,10 +37,10 @@ module.exports = {
     {
       resolve: "gatsby-source-cosmicjs",
       options: {
-        bucketSlug: `${process.env.COSMIC_BUCKET}`,
+        bucketSlug: `proorganica`,
         objectTypes: [`pages`],
         apiAccess: {
-          read_key: `${process.env.COSMIC_READ_KEY}`,
+          read_key: `OkyNXMZVgGEH99l0MO6RIdGbK31piArSUhbUVo8fIw4MYbz7Fy`,
         },
         localMedia: true,
       },
