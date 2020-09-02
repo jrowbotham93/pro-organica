@@ -3,10 +3,12 @@ module.exports = {
     title: `ProOrganica`,
     description: `Read about the company ProOrganica, who they are, what they're aiming to achieve and the products and services they offer. `,
     author: `James Rowbotham`,
-    url: "https://www.proorganica.com",
+    siteUrl: "https://www.proorganica.com",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
