@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageFluid } from "../components";
+import { ImageFluid } from ".";
 import PropTypes from "prop-types";
 
 const Certification = ({ data }) => {
