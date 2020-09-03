@@ -1,18 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
 import { SEO, Layout } from "../components";
 
 const Page = data => {
   const { content, title, metadata } = data && data.pageContext.page;
-
   return (
     <>
-      <Helmet>
-        {/* <style type="text/css">{`${page.codeinjection_styles}`}</style> */}
-      </Helmet>
       <Layout>
-        <SEO title={title} />
+        <SEO
+          title={title}
+          description={`This page is about proorganica: ${metadata.excerpt}`}
+        />
         <div className="container">
           <article className="content">
             {metadata.main_image && (
@@ -41,7 +39,7 @@ Page.propTypes = {
     title: PropTypes.string.isRequired,
     html: PropTypes.string.isRequired,
     main_image: PropTypes.string,
-  }).isRequired,
+  }),
 };
 
 export default Page;

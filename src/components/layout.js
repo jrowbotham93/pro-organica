@@ -1,10 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { window } from "browser-monads";
+import { useLocation } from "@reach/router";
 import { Link, StaticQuery, graphql } from "gatsby";
-
-import "../styles/app.css";
 import { Navigation, Header, Image } from ".";
+import "../styles/app.css";
 
 /**
  * Main layout component
@@ -16,7 +15,8 @@ import { Navigation, Header, Image } from ".";
  */
 
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
-  const currentPage = window.location.pathname.split("/");
+  const { pathname } = useLocation();
+  const currentPage = pathname.split("/");
   const location = currentPage[1];
 
   return (
@@ -98,8 +98,9 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
           <footer className="site-foot">
             <div className="site-foot-nav container">
               <div className="site-foot-nav-right">
-                <Navigation navClass="site-foot-nav-item" />© 2020 ProOrganica
+                <Navigation navClass="site-foot-nav-item" />
               </div>
+              © 2020 ProOrganica
             </div>
           </footer>
         </div>

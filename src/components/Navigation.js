@@ -21,14 +21,14 @@ const Navigation = ({ data, navClass }) => {
         Home
       </Link>
       {pages
-        .filter(i => i.node.slug != "home")
+        .filter(i => i.node.slug !== "home")
         .map((navItem, i) => {
           return (
             <Link
               className={navClass}
               // HACKY: check to see whether Ukrainan in the url and then append uk-UA / leave empty for GB
               to={`${
-                window.location.pathname.split("/")[1] == "uk-UA"
+                window.location.pathname.split("/")[1] === "uk-UA"
                   ? "/uk-UA"
                   : ""
               }/${navItem.node.slug}`.replace("en-GB", "")}

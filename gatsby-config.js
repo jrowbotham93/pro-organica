@@ -1,9 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: `ProOrganica`,
+    titleTemplate: "%s · ProOrganica - Premium Organics from Ukraine",
     description: `Read about the company ProOrganica, who they are, what they're aiming to achieve and the products and services they offer. `,
     author: `James Rowbotham`,
-    siteUrl: "https://www.proorganica.com",
+    image: `src/images/proorganica.png`,
+    siteUrl: `https://www.proorganica.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

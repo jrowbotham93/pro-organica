@@ -1,4 +1,5 @@
 import React from "react";
+import { ImageFluid } from "../components";
 import PropTypes from "prop-types";
 
 const Certification = ({ data }) => {
@@ -9,10 +10,14 @@ const Certification = ({ data }) => {
           href={data.cert && data.cert.url}
           target="_blank"
           className="certification-card"
+          rel="noreferrer"
         >
           <section>
             <div className="certification-card-image">
-              <img src={data.img && data.img.url} alt="certificate" />
+              <ImageFluid
+                filename={data.img && data.img}
+                alt="certificate for organics"
+              />
             </div>
           </section>
         </a>

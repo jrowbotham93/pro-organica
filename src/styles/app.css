@@ -28,8 +28,9 @@ what's here to work the way you'd like it to.
   --color-pgr: #3b6456;
 
   /* Fonts */
-  --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   --font-mono: Menlo, Courier, monospace;
   --font-montserrat: "Montserrat", Arial, sans-serif;
   --font-light: 100;
@@ -311,8 +312,8 @@ html {
 body {
   overflow-x: hidden;
   color: #3c484e;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 1.5rem;
   line-height: 1.6em;
   font-weight: 400;
@@ -686,7 +687,7 @@ h6 {
   display: inline-block;
   padding: 5px 10px;
   color: #fff;
-  opacity: 0.8;
+  opacity: 0.9;
   font-weight: 600;
   font-size: 1.7rem;
 }
@@ -732,7 +733,7 @@ h6 {
   color: white;
   font-size: 4rem;
   line-height: 1.3em;
-  opacity: 0.6;
+  opacity: 0.9;
 }
 
 .site-banner-desc {
@@ -931,7 +932,7 @@ h6 {
 .certification-card {
   color: inherit;
   text-decoration: none;
-  border: 3px solid black;
+  border: 2px solid #37393b;
 }
 
 .certification-card:hover {

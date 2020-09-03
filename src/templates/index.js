@@ -9,26 +9,29 @@ const Index = data => {
       accreditation,
       certification_european,
       certification_united_kingdom,
-      certification_united_kingdom_image,
-      certification_european_image,
       certification_cor_image,
-      certification_cor,
     },
   } = index.filter(i => i.slug.toLowerCase() === "home")[0];
   const certifications = [
-    { cert: certification_european, img: certification_european_image },
+    {
+      cert: certification_european,
+      img: "prorganica-organic-certificate(EU).jpg",
+    },
     {
       cert: certification_united_kingdom,
-      img: certification_united_kingdom_image,
+      img: "prorganica-organic-certificate(UK).jpg",
     },
     {
       cert: certification_cor_image,
-      img: certification_cor,
+      img: "prorganica-organic-certificate(COR).jpg",
     },
   ];
   return (
     <Layout isHome={true}>
-      <SEO title="Home" />
+      <SEO
+        title="Home"
+        description="This is the homepage for the proorganica site"
+      />
       <section className="container ">
         <div className="intro-container">
           <h1 className="intro-banner-title">What do we do?</h1>
@@ -43,9 +46,7 @@ const Index = data => {
           </div>
         </div>
       </section>
-
       <hr></hr>
-
       <section className="container">
         <div className="intro-container">
           <h1 className="intro-banner-title">Certified organic</h1>
