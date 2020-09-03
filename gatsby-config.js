@@ -1,3 +1,7 @@
+require("dotenv").config({});
+
+const { COSMIC_BUCKET, COSMIC_READ_KEY } = process.env;
+
 module.exports = {
   siteMetadata: {
     title: `ProOrganica`,
@@ -35,16 +39,14 @@ module.exports = {
     {
       resolve: "gatsby-source-cosmicjs",
       options: {
-        bucketSlug: `proorganica`,
+        bucketSlug: COSMIC_BUCKET,
         objectTypes: [`pages`],
         apiAccess: {
-          read_key: `OkyNXMZVgGEH99l0MO6RIdGbK31piArSUhbUVo8fIw4MYbz7Fy`,
+          read_key: COSMIC_READ_KEY,
         },
         localMedia: true,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
   ],
 };
