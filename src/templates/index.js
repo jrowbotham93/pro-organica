@@ -1,28 +1,34 @@
 import React from "react";
-import { Layout, Card, Certification, SEO } from "../components";
+import { Layout, Card, Certification, SEO, Contact } from "../components";
 
 const Index = data => {
   const { index } = data.pageContext;
   const {
     metadata: {
       home_banner_description,
-      accreditation,
-      certification_european,
-      certification_united_kingdom,
-      certification_cor_image,
+      certification,
+      certification_eu,
+      certification_uk,
+      certification_cor,
+      certification_header,
+      products,
+      products_table,
+      contact_us,
+      contact_details,
+      get_in_touch,
     },
   } = index.filter(i => i.slug.toLowerCase() === "home")[0];
   const certifications = [
     {
-      cert: certification_european,
+      cert: certification_eu,
       img: "prorganica-organic-certificate(EU).jpg",
     },
     {
-      cert: certification_united_kingdom,
+      cert: certification_uk,
       img: "prorganica-organic-certificate(UK).jpg",
     },
     {
-      cert: certification_cor_image,
+      cert: certification_cor,
       img: "prorganica-organic-certificate(COR).jpg",
     },
   ];
@@ -49,8 +55,21 @@ const Index = data => {
       <hr></hr>
       <section className="container">
         <div className="intro-container">
-          <h1 className="intro-banner-title">Certified organic</h1>
-          <p className="intro-banner-desc">{accreditation && accreditation}</p>
+          <h1 className="intro-banner-title">Products</h1>
+          <p className="intro-banner-desc"> {products && products}</p>
+          <div
+            className="content-body load-external-scripts"
+            dangerouslySetInnerHTML={{ __html: products_table }}
+          />
+        </div>
+      </section>
+      <hr></hr>
+      <section className="container">
+        <div className="intro-container">
+          <h1 className="intro-banner-title">
+            {certification_header && certification_header}
+          </h1>
+          <p className="intro-banner-desc">{certification && certification}</p>
           <div className="certification-feed">
             {certifications &&
               certifications.map((i, index) => (
@@ -62,89 +81,13 @@ const Index = data => {
       <hr></hr>
       <section className="container" id="contact">
         <div className="intro-container">
-          <h1 className="intro-banner-title">Want to get in touch?</h1>
-          <p className="intro-banner-desc">
-            Our main offices are located in Blackburn in the UK. We also have
-            production facilities for dehulling, cleaning, sorting and packaging
-            of grains in Ukraine.
-          </p>
-
+          <h1 className="intro-banner-title">Get in touch</h1>
+          <p className="intro-banner-desc">{get_in_touch && get_in_touch}</p>
           <div className="contact-feed">
-            <div className="contact-card">
-              <header className="contact-card-header">
-                <h1 className="contact-card-title">United Kindgom</h1>
-              </header>
-              <section className="contact-card-excerpt">
-                <div className="contact-card-address">
-                  <span>ProOrganica Limited </span>
-                  <span>10 Buncer Lane Blackburn </span>
-                  <span>BB2 6SE </span>
-                  <span>United Kingdom</span>
-                </div>
-                <div className="contact-card-contacts">
-                  <span className="highlight-content">Graham Bonfield: </span>
-                  <span> Director </span>
-
-                  <span className="highlight-content">
-                    Luba Michailova Irina Sholokhova:{" "}
-                  </span>
-                  <span>Strategic Development </span>
-                  <span className="highlight-content">David Jack:</span>
-                  <span>
-                    Business Development Sales and Marketing Support UK{" "}
-                  </span>
-                </div>
-              </section>
-              <footer className="contact-card-footer"></footer>
-            </div>
-            <div className="contact-card">
-              <header className="contact-card-header">
-                <h1 className="contact-card-title">Ukraine</h1>
-              </header>
-              <section className="contact-card-excerpt">
-                <div className="contact-card-address">
-                  <span>ProOrganica Ukraine </span>
-                  <span>LLC Naberezhno-Luhova Str. 12 </span>
-                  <span>04071 </span>
-                  <span> Kyiv</span>
-                </div>
-                <div className="contact-card-contacts">
-                  <span className="highlight-content">Eugene Blokhin:</span>
-                  <span>Logistic and Marketing Support Ukraine</span>
-                  <span className="highlight-content">Irina Sholokhova: </span>
-                  <span>Quality and Certification Support Ukraine UK</span>
-                </div>
-              </section>
-              <footer className="contact-card-footer"></footer>
-            </div>
-            <div className="contact-card">
-              <header className="contact-card-header">
-                <h1 className="contact-card-title">Get in touch!</h1>
-              </header>
-              <section className="contact-card-excerpt">
-                <span className="highlight-content">
-                  We'd love to hear from you!{" "}
-                </span>
-                <span>
-                  Contact us if you have any questions, we would be happy to
-                  help answer them.
-                </span>
-              </section>
-              <footer className="contact-card-footer">
-                <div className="contact-card-footer-left">
-                  Email:
-                  <a
-                    className="highlight-content"
-                    href="mailto:info@proorganica.com"
-                  >
-                    info@proorganica.com
-                  </a>
-                </div>
-                <div className="contact-card-footer-right">
-                  Ukraine Tel: +380 67 544-93-37
-                </div>
-              </footer>
-            </div>
+            {contact_details.contact &&
+              contact_details.contact.map((contact, i) => (
+                <Contact key={i} data={contact} />
+              ))}
           </div>
         </div>
       </section>

@@ -30,14 +30,12 @@ exports.createPages = async ({ actions, graphql }) => {
               imgix_url
             }
             metadata {
+              products
+              products_table
               excerpt
               certification
-              accreditation
-              certification_european {
-                url
-                imgix_url
-              }
-              certification_cor_image {
+              certification_header
+              certification_eu {
                 url
                 imgix_url
               }
@@ -45,16 +43,7 @@ exports.createPages = async ({ actions, graphql }) => {
                 url
                 imgix_url
               }
-              certification_european_image {
-                url
-                imgix_url
-              }
-              certification
-              certification_united_kingdom {
-                imgix_url
-                url
-              }
-              certification_united_kingdom_image {
+              certification_uk {
                 imgix_url
                 url
               }
@@ -67,6 +56,31 @@ exports.createPages = async ({ actions, graphql }) => {
                 imgix_url
               }
               home_banner_description
+              contact_us
+              get_in_touch
+
+              contact_details {
+                contact {
+                  address {
+                    address
+                    building
+                    city
+                    country
+                    postcode
+                    street
+                  }
+                  contacts {
+                    email
+                    name
+                    position
+                    telephone
+                  }
+                  country
+                  email
+                  telephone
+                  name
+                }
+              }
             }
           }
         }

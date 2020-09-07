@@ -13,7 +13,7 @@ import Img from "gatsby-image";
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const Image = z => {
+const Image = () => {
   const data = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "proorganica-white.png" }) {

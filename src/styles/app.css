@@ -28,9 +28,8 @@ what's here to work the way you'd like it to.
   --color-pgr: #3b6456;
 
   /* Fonts */
-  --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   --font-mono: Menlo, Courier, monospace;
   --font-montserrat: "Montserrat", Arial, sans-serif;
   --font-light: 100;
@@ -150,10 +149,7 @@ q:after {
   content: "";
   content: none;
 }
-table {
-  border-spacing: 0;
-  border-collapse: collapse;
-}
+
 img {
   max-width: 100%;
 }
@@ -289,12 +285,32 @@ textarea {
   overflow: auto;
 }
 table {
-  border-spacing: 0;
   border-collapse: collapse;
+  margin: 25px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  border-radius: 10px;
 }
-td,
-th {
-  padding: 0;
+thead tr {
+  background-color: rgb(103, 177, 84);
+  color: #ffffff;
+  text-align: left;
+}
+th,
+td {
+  padding: 12px 15px;
+}
+tbody tr {
+  border-bottom: thin solid #dddddd;
+  border-radius: 10px;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+  border-bottom: 2px solid rgb(103, 177, 84);
 }
 
 /* Defaults
@@ -312,8 +328,8 @@ html {
 body {
   overflow-x: hidden;
   color: #3c484e;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
   font-size: 1.5rem;
   line-height: 1.6em;
   font-weight: 400;
@@ -932,7 +948,7 @@ h6 {
 .certification-card {
   color: inherit;
   text-decoration: none;
-  border: 2px solid #37393b;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .certification-card:hover {
@@ -981,19 +997,19 @@ h6 {
   display: grid;
   justify-content: space-between;
   grid-gap: 60px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 @media (max-width: 980px) {
   .contact-feed {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 680px) {
-  .contact-feed {
     grid-template-columns: 1fr;
   }
 }
+/* @media (max-width: 680px) {
+  .contact-feed {
+    grid-template-columns: 1fr;
+  }
+} */
 
 .contact-card {
   color: inherit;
@@ -1012,11 +1028,12 @@ h6 {
 }
 
 .contact-card-title {
-  margin: 0 0 10px 0;
+  margin: 0;
   font-size: 2.1rem;
   font-weight: 700;
   opacity: 0.7;
   font-family: var(--font-montserrat);
+  padding-left: 20px;
 }
 
 .contact-card-excerpt {
@@ -1024,15 +1041,34 @@ h6 {
   line-height: 1.55em;
 }
 .contact-card-contacts {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-gap: 5rem;
   padding: 0.5em 0;
-  line-height: 1.55em;
+  grid-template-columns: 200px 200px;
+  border-left: 2px solid var(--color-lgr);
+  padding-left: 20px;
+}
+
+@media (max-width: 680px) {
+  .contact-card-contacts {
+    display: grid;
+    grid-gap: 5rem;
+    padding: 0.5em 0;
+    grid-template-columns: 200px;
+    border-left: 2px solid var(--color-lgr);
+    padding-left: 20px;
+  }
+}
+
+.contact-card-contacts-item {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
 }
 .contact-card-address {
   display: flex;
   flex-direction: column;
-  padding: 0.5em 0;
+  padding: 0.5em 20px;
   line-height: 1.55em;
 }
 

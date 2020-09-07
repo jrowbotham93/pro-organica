@@ -119,16 +119,19 @@ const DefaultLayoutSettingsQuery = props => (
               slug
               locale
               content
+              title
               created_by
               created
               metafields {
                 imgix_url
               }
               metadata {
+                products
+                products_table
                 excerpt
-                accreditation
-                home_banner_description
-                certification_cor_image {
+                certification
+                certification_header
+                certification_eu {
                   url
                   imgix_url
                 }
@@ -136,30 +139,42 @@ const DefaultLayoutSettingsQuery = props => (
                   url
                   imgix_url
                 }
-                certification_european {
-                  url
-                  imgix_url
-                }
-                certification_european_image {
-                  url
-                  imgix_url
-                }
-                certification
-                certification_united_kingdom {
+                certification_uk {
                   imgix_url
                   url
                 }
-                certification_united_kingdom_image {
-                  imgix_url
+                main_image {
                   url
+                  imgix_url
                 }
                 home_banner_image {
-                  local {
-                    childImageSharp {
-                      fluid(quality: 100) {
-                        ...GatsbyImageSharpFluid
-                      }
+                  url
+                  imgix_url
+                }
+                home_banner_description
+                contact_us
+                get_in_touch
+
+                contact_details {
+                  contact {
+                    address {
+                      address
+                      building
+                      city
+                      country
+                      postcode
+                      street
                     }
+                    contacts {
+                      email
+                      name
+                      position
+                      telephone
+                    }
+                    country
+                    email
+                    telephone
+                    name
                   }
                 }
               }
