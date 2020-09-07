@@ -19,7 +19,7 @@ const Image = () => {
       file(relativePath: { eq: "proorganica-white.png" }) {
         childImageSharp {
           fixed(width: 150) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_noBase64
           }
         }
       }

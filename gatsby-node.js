@@ -15,6 +15,7 @@ const pageTemplate = path.resolve(`./src/templates/page.js`);
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
+
   const result = await graphql(`
     {
       allCosmicjsPages {

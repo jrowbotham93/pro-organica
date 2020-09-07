@@ -12,12 +12,14 @@ import "../styles/app.css";
  * It also provides the header, footer as well as the main
  * styles, and meta data for each page.
  *
- */
+ **/
 
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
   const { pathname } = useLocation();
   const currentPage = pathname.split("/");
   const location = currentPage[1];
+
+  const { edges } = data.allCosmicjsPages;
 
   return (
     <>
@@ -31,15 +33,14 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
           {/* The main header section on top of the screen */}
           <header
             className="site-head"
-            // style={{
-            //   ...(isHome && {
-            //     backgroundImage: `url(${
-            //       node.metadata.home_banner_image &&
-            //       node.metadata.home_banner_image.local.childImageSharp.fluid
-            //         .src
-            //     })`,
-            //   }),
-            // }}
+            style={{
+              ...(isHome && {
+                backgroundImage: `url(${
+                  edges &&
+                  edges.map(i => i.node.metadata.home_banner_image.url)[0]
+                })`,
+              }),
+            }}
           >
             <div className="container">
               <div className="site-mast">
@@ -47,29 +48,24 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                   <Navigation navClass={"site-nav-item"} />
                 </div>
                 <div className="site-mast-right">
-                  <Image />
+                  <Image loading="eager" />
                 </div>
               </div>
               {isHome ? (
                 <div className="site-banner">
-                  <Header siteTitle="We are proactive, professional, and progressive."></Header>
+                  <Header siteTitle="We are proactive, professional, progressive."></Header>
+                  <Link
+                    className="site-nav-button"
+                    to={`${location === "" ? "" : location}/#contact`}
+                  >
+                    Contact us
+                  </Link>
                 </div>
               ) : null}
               <nav className="site-nav">
                 <div className="site-nav-left">
                   <div className="site-foot-nav-left"> </div>
-                  {isHome ? (
-                    <div className="site-nav-item">
-                      <Link
-                        className="site-nav-button"
-                        to={`${location === "" ? "" : location}/#contact`}
-                      >
-                        Contact us
-                      </Link>
-                    </div>
-                  ) : (
-                    ""
-                  )}
+                  {isHome ? <div className="site-nav-item"></div> : ""}
                 </div>
                 <div className="site-nav-right">
                   {" "}

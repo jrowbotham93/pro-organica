@@ -10,7 +10,7 @@ const Contact = ({ data }) => {
       <section className="contact-card-excerpt">
         <h1></h1>
         <div className="contact-card-address">
-          <span>{address.building}</span>
+          <span className="highlight-text">{address.building}</span>
           {/* {address.address && <span>{address.address}</span>} */}
           <span>{address.street}</span>
           <span>{address.postcode}</span>

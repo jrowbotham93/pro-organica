@@ -6,13 +6,12 @@ const Header = ({ siteTitle }) => (
   <header
     style={{
       marginBottom: `1.45rem`,
-      width: `80%`,
     }}
   >
     <div
       style={{
         margin: `0 auto`,
-        textAlign: `left`,
+        textAlign: `center`,
       }}
     >
       <h1 style={{ margin: 0 }}>
@@ -24,7 +23,7 @@ const Header = ({ siteTitle }) => (
             fontFamily: `Avenir Next, Helvetica Neue, Helvetica, Arial, sans-serif`,
             fontWeight: 700,
             textDecoration: `none`,
-            fontSize: `4.9rem`,
+            fontSize: `3.9rem`,
           }}
         >
           {siteTitle}

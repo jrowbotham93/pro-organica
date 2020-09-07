@@ -13,7 +13,6 @@ const Index = data => {
       certification_header,
       products,
       products_table,
-      contact_us,
       contact_details,
       get_in_touch,
     },
