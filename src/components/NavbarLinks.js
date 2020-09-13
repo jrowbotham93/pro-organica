@@ -1,0 +1,69 @@
+import React from "react";
+import styled from "styled-components";
+import { Link } from "gatsby";
+import { window } from "browser-monads";
+
+const NavItem = styled(Link)`
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 1vw;
+  transition: all 200ms ease-in;
+  position: relative;
+  font-weight: 600;
+  font-size: 1.7rem;
+
+  :after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0%;
+    content: ".";
+    color: transparent;
+    background: white;
+    height: 1px;
+    transition: all 0.4s ease-in;
+  }
+
+  :hover {
+    color: white;
+    ::after {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 1300px) {
+    padding: 20px 0;
+    font-size: 1.5rem;
+    z-index: 6;
+  }
+`;
+const NavbarLinks = ({ pages }) => {
+  return (
+    <>
+      <NavItem to="/">Home</NavItem>
+      {pages
+        .filter(i => i.node.slug !== "home")
+        .map((navItem, i) => {
+          return (
+            <NavItem
+              //   className={navClass}
+              // HACKY: check to see whether Ukrainan in the url and then append uk-UA / leave empty for GB
+              to={`${
+                window.location.pathname.split("/")[1] === "uk-UA"
+                  ? "/uk-UA"
+                  : ""
+              }/${navItem.node.slug}`.replace("en-GB", "")}
+              key={i}
+            >
+              {navItem.node.title}
+            </NavItem>
+          );
+        })}
+    </>
+  );
+};
+
+export default NavbarLinks;

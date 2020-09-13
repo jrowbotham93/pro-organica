@@ -53,7 +53,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
               </div>
               {isHome ? (
                 <div className="site-banner">
-                  <Header siteTitle="We are proactive, professional, progressive."></Header>
+                  <Header siteTitle="PROactive, PROfessional, PROgressive."></Header>
                   <Link
                     className="site-nav-button"
                     to={`${location === "" ? "" : location}/#contact`}
@@ -94,9 +94,26 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
           <footer className="site-foot">
             <div className="site-foot-nav container">
               <div className="site-foot-nav-right">
-                <Navigation navClass="site-foot-nav-item" />
+                {/* <Navigation navClass="site-foot-nav-item" /> */}
+
+                <div className="site-foot-row">
+                  <div className="site-foot-col">
+                    {" "}
+                    <strong>About</strong>
+                    <p>
+                      Formed in 2018, ProOrganica is the latest addition to
+                      Chemex's growing portfolio of business ventures focussed
+                      on the sourcing, handling, and supplying of organic
+                      produce in Ukraine.
+                    </p>
+                  </div>
+
+                  <div className="site-foot-col">
+                    <Image fixed />
+                    Copyright © 2020 All right reserved by ProOrganica{" "}
+                  </div>
+                </div>
               </div>
-              © 2020 ProOrganica
             </div>
           </footer>
         </div>
@@ -115,6 +132,7 @@ const DefaultLayoutSettingsQuery = props => (
               slug
               locale
               content
+
               title
               created_by
               created
@@ -125,6 +143,7 @@ const DefaultLayoutSettingsQuery = props => (
                 products
                 products_table
                 excerpt
+                who_are_we
                 certification
                 certification_header
                 certification_eu {

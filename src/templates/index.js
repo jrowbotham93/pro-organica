@@ -11,12 +11,14 @@ const Index = data => {
       certification_uk,
       certification_cor,
       certification_header,
+      who_are_we,
       products,
       products_table,
       contact_details,
       get_in_touch,
     },
   } = index.filter(i => i.slug.toLowerCase() === "home")[0];
+
   const certifications = [
     {
       cert: certification_eu,
@@ -31,6 +33,15 @@ const Index = data => {
       img: "prorganica-organic-certificate(COR).jpg",
     },
   ];
+
+  const about = new RegExp("Our values|Our story", "gi");
+  const business = new RegExp(
+    "What we offer|Why Ukraine|Our customers|About us",
+    "gi"
+  );
+
+  const card = reg => index.filter(i => i.title.match(reg));
+
   return (
     <Layout isHome={true}>
       <SEO
@@ -38,37 +49,56 @@ const Index = data => {
         description="This is the homepage for the proorganica site"
       />
       <section className="container ">
-        <div className="intro-container">
-          <h1 className="intro-banner-title">What do we do?</h1>
-          <p className="intro-banner-desc">
+        <div className="central-container">
+          <h1 className="central-banner-title">What do we do?</h1>
+
+          <p className="central-banner-desc">
             {home_banner_description && home_banner_description}
           </p>
+
           <div className="post-feed">
-            {index &&
-              index
-                .filter(i => i.title.toLowerCase() !== "home")
-                .map((i, index) => <Card key={index} data={i} />)}
+            {card(business).map((i, index) => (
+              <Card key={index} data={i} />
+            ))}
           </div>
         </div>
       </section>
       <hr></hr>
       <section className="container">
-        <div className="intro-container">
-          <h1 className="intro-banner-title">Products</h1>
-          <p className="intro-banner-desc"> {products && products}</p>
-          <div
-            className="content-body load-external-scripts"
-            dangerouslySetInnerHTML={{ __html: products_table }}
-          />
+        <div className="central-container">
+          <h1 className="central-banner-title">Products</h1>
+          <p className="central-banner-desc"> {products && products}</p>
+
+          <div className="table-wrapper">
+            <div
+              className="content-body load-external-scripts"
+              dangerouslySetInnerHTML={{ __html: products_table }}
+            />
+          </div>
+        </div>
+      </section>
+      <hr></hr>
+      <section className="container ">
+        <div className="central-container">
+          <h1 className="central-banner-title">Who are we?</h1>
+          <p className="central-banner-desc">{who_are_we && who_are_we}</p>
+
+          <div className="post-feed">
+            {card(about).map((i, index) => (
+              <Card key={index} data={i} />
+            ))}
+          </div>
         </div>
       </section>
       <hr></hr>
       <section className="container">
-        <div className="intro-container">
-          <h1 className="intro-banner-title">
+        <div className="central-container">
+          <h1 className="central-banner-title">
             {certification_header && certification_header}
           </h1>
-          <p className="intro-banner-desc">{certification && certification}</p>
+          <p className="central-banner-desc">
+            {certification && certification}
+          </p>
           <div className="certification-feed">
             {certifications &&
               certifications.map((i, index) => (
@@ -79,9 +109,11 @@ const Index = data => {
       </section>
       <hr></hr>
       <section className="container" id="contact">
-        <div className="intro-container">
-          <h1 className="intro-banner-title">Get in touch</h1>
-          <p className="intro-banner-desc">{get_in_touch && get_in_touch}</p>
+        <div className="central-container">
+          <h1 className="central-banner-title">Get in touch</h1>
+          <p className="central-banner-desc">{get_in_touch && get_in_touch}</p>
+          <hr></hr>
+
           <div className="contact-feed">
             {contact_details.contact &&
               contact_details.contact.map((contact, i) => (

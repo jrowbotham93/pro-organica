@@ -1,24 +1,22 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
+import styled from "styled-components";
+const LogoWrap = styled.div`
+  margin: auto 0;
+  flex: 0 1 36px;
 
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `useStaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
- */
+  @media (max-width: 768px) and (orientation: landscape) {
+    flex: 0 1 25px;
+  }
+`;
 
 const Image = () => {
   const data = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "proorganica-white.png" }) {
         childImageSharp {
-          fixed(width: 150) {
+          fixed(width: 120) {
             ...GatsbyImageSharpFixed_noBase64
           }
         }
@@ -26,7 +24,11 @@ const Image = () => {
     }
   `);
 
-  return <Img fixed={data.file && data.file.childImageSharp.fixed} />;
+  return (
+    <LogoWrap as={Link} to="/">
+      <Img fixed={data.file && data.file.childImageSharp.fixed} />{" "}
+    </LogoWrap>
+  );
 };
 
 export default Image;

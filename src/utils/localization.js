@@ -6,7 +6,9 @@ const createLanguagesObject = languages => {
 };
 
 const localizeUrl = (language, defaultLangKey, url) => {
-  return `/${language}${url}`.replace(`/${defaultLangKey}`, "");
+  let localURL = `/${language}${url}`.replace(`/${defaultLangKey}`, "");
+  localUrl = localURL.replace("undefined", "").replace("home", "");
+  return localURL;
 };
 
 module.exports = {

@@ -1,44 +1,113 @@
-import React from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
+import NavbarLinks from "./NavbarLinks";
 import PropTypes from "prop-types";
-import { window } from "browser-monads";
-import { Link, StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 
-/**
- * Navigation component
- *
- * The Navigation component takes an array of the page slugs fetched from the cms.
- * You can pass it a custom class for your own styles, but it will always fallback
- * to a `site-nav-item` class.
- *
- */
+const Nav = styled.nav`
+  height: 10vh;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  z-index: 2;
+  align-self: center;
+
+  @media (max-width: 1300px) {
+    height: 8vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    left: 0;
+  }
+`;
+
+const Toggle = styled.div`
+  display: none;
+  height: 100%;
+  cursor: pointer;
+
+  @media (max-width: 1300px) {
+    display: flex;
+  }
+`;
+
+const Navbox = styled.div`
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: center;
+
+  @media (max-width: 1300px) {
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    padding-top: 10vh;
+    background-color: #3b6456;
+    transition: all 0.3s ease-in;
+    left: ${props => (props.open ? "-100%" : "0")};
+  }
+`;
+
+const Hamburger = styled.div`
+  background-color: white;
+  width: 30px;
+  height: 3px;
+  transition: all 0.3s linear;
+  align-self: center;
+  position: relative;
+  transform: ${props => (props.open ? "rotate(-45deg)" : "inherit")};
+
+  ::before,
+  ::after {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    content: "";
+    position: absolute;
+    transition: all 0.3s linear;
+  }
+
+  ::before {
+    transform: ${props =>
+      props.open ? "rotate(-90deg) translate(-10px, 0px)" : "rotate(0deg)"};
+    top: -10px;
+  }
+
+  ::after {
+    opacity: ${props => (props.open ? "0" : "1")};
+    transform: ${props => (props.open ? "rotate(90deg) " : "rotate(0deg)")};
+    top: 10px;
+  }
+`;
 
 const Navigation = ({ data, navClass }) => {
+  const [navbarOpen, setNavbarOpen] = useState(false);
   const pages = data.allCosmicjsPages.edges;
 
   return (
-    <>
-      <Link className={navClass} to={"/"}>
-        Home
-      </Link>
-      {pages
-        .filter(i => i.node.slug !== "home")
-        .map((navItem, i) => {
-          return (
-            <Link
-              className={navClass}
-              // HACKY: check to see whether Ukrainan in the url and then append uk-UA / leave empty for GB
-              to={`${
-                window.location.pathname.split("/")[1] === "uk-UA"
-                  ? "/uk-UA"
-                  : ""
-              }/${navItem.node.slug}`.replace("en-GB", "")}
-              key={i}
-            >
-              {navItem.node.title}
-            </Link>
-          );
-        })}
-    </>
+    <Nav>
+      <Toggle
+        navbarOpen={navbarOpen}
+        onClick={() => setNavbarOpen(!navbarOpen)}
+      >
+        {navbarOpen ? <Hamburger open /> : <Hamburger />}
+      </Toggle>
+      {navbarOpen ? (
+        <Navbox>
+          <NavbarLinks pages={pages && pages} />
+        </Navbox>
+      ) : (
+        <Navbox open>
+          <NavbarLinks pages={pages && pages} />
+        </Navbox>
+      )}
+    </Nav>
   );
 };
 
@@ -47,12 +116,12 @@ Navigation.defaultProps = {
 };
 
 Navigation.propTypes = {
-  // data: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     title: PropTypes.string.isRequired,
-  //     slug: PropTypes.string.isRequired,
-  //   }).isRequired
-  // ).isRequired,
+  data: PropTypes.objectOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      slug: PropTypes.string,
+    })
+  ).isRequired,
   navClass: PropTypes.string,
 };
 

@@ -9,7 +9,9 @@ const Page = data => {
       <Layout>
         <SEO
           title={title}
-          description={`This page is about proorganica: ${metadata.excerpt}`}
+          description={`This page is about proorganica: ${
+            metadata.excerpt && metadata.excerpt
+          }`}
         />
         <div className="container">
           <article className="content">

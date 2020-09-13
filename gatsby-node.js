@@ -31,6 +31,7 @@ exports.createPages = async ({ actions, graphql }) => {
               imgix_url
             }
             metadata {
+              who_are_we
               products
               products_table
               excerpt
@@ -59,7 +60,6 @@ exports.createPages = async ({ actions, graphql }) => {
               home_banner_description
               contact_us
               get_in_touch
-
               contact_details {
                 contact {
                   address {
