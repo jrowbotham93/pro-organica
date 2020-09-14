@@ -59,6 +59,7 @@ const NavbarLinks = ({ pages }) => {
                   : ""
               }/${navItem.node.slug}`.replace("en-GB", "")}
               key={i}
+              aria-current={navItem.node.title}
             >
               {navItem.node.title}
             </NavItem>
