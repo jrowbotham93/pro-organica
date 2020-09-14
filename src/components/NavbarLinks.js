@@ -13,6 +13,7 @@ const NavItem = styled(Link)`
   position: relative;
   font-weight: 600;
   font-size: 1.7rem;
+  padding-top: 20px;
 
   :after {
     position: absolute;
@@ -23,7 +24,7 @@ const NavItem = styled(Link)`
     content: ".";
     color: transparent;
     background: white;
-    height: 1px;
+    height: 2px;
     transition: all 0.4s ease-in;
   }
 
@@ -31,15 +32,16 @@ const NavItem = styled(Link)`
     color: white;
     ::after {
       width: 100%;
+      cursor: pointer;
     }
   }
 
   @media (max-width: 1300px) {
-    padding: 20px 0;
     font-size: 1.5rem;
     z-index: 6;
   }
 `;
+
 const NavbarLinks = ({ pages }) => {
   return (
     <>

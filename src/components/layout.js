@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { Link, StaticQuery, graphql } from "gatsby";
-import { Navigation, Header, Image } from ".";
+import { Navigation, Hero, Image, Header } from ".";
 import "../styles/app.css";
 
 /**
@@ -19,8 +19,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
   const currentPage = pathname.split("/");
   const location = currentPage[1];
 
-  const { edges } = data.allCosmicjsPages;
-
   return (
     <>
       <Helmet>
@@ -31,56 +29,48 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
       <div className="viewport">
         <div className="viewport-top">
           {/* The main header section on top of the screen */}
-          <header
-            className="site-head"
-            style={{
-              ...(isHome && {
-                backgroundImage: `url(${
-                  edges &&
-                  edges.map(i => i.node.metadata.home_banner_image.url)[0]
-                })`,
-              }),
-            }}
-          >
-            <div className="container">
-              <div className="site-mast">
-                <div className="site-mast-left">
-                  <Navigation navClass={"site-nav-item"} />
+          <header className="site-head">
+            <Hero home={isHome}>
+              <div className="container">
+                <div className="site-mast">
+                  <div className="site-mast-left">
+                    <Navigation navClass={"site-nav-item"} />
+                  </div>
+                  <div className="site-mast-right">
+                    <Image loading="eager" />
+                  </div>
                 </div>
-                <div className="site-mast-right">
-                  <Image loading="eager" />
-                </div>
-              </div>
-              {isHome ? (
-                <div className="site-banner">
-                  <Header siteTitle="PROactive, PROfessional, PROgressive."></Header>
-                  <Link
-                    className="site-nav-button"
-                    to={`${location === "" ? "" : location}/#contact`}
-                  >
-                    Contact us
-                  </Link>
-                </div>
-              ) : null}
-              <nav className="site-nav">
-                <div className="site-nav-left">
-                  <div className="site-foot-nav-left"> </div>
-                  {isHome ? <div className="site-nav-item"></div> : ""}
-                </div>
-                <div className="site-nav-right">
-                  {" "}
-                  <Link
-                    className="site-nav-item"
-                    to={`/uk-UA/${currentPage[1]}`}
-                  >
-                    Українська
-                  </Link>
-                  <Link className="site-nav-item" to={`/`}>
-                    English
-                  </Link>
-                </div>
-              </nav>
-            </div>
+                {isHome ? (
+                  <div className="site-banner">
+                    <Header siteTitle="PROactive PROfessional PROgressive"></Header>
+                    <Link
+                      className="site-nav-button"
+                      to={`${location === "" ? "" : location}/#contact`}
+                    >
+                      Contact us
+                    </Link>
+                  </div>
+                ) : null}
+                <nav className="site-nav">
+                  <div className="site-nav-left">
+                    <div className="site-foot-nav-left"> </div>
+                    {isHome ? <div className="site-nav-item"></div> : ""}
+                  </div>
+                  <div className="site-nav-right">
+                    {" "}
+                    <Link
+                      className="site-nav-item"
+                      to={`/uk-UA/${currentPage[1]}`}
+                    >
+                      Українська
+                    </Link>
+                    <Link className="site-nav-item" to={`/`}>
+                      English
+                    </Link>
+                  </div>
+                </nav>
+              </div>{" "}
+            </Hero>
           </header>
 
           <main className="site-main">
@@ -104,7 +94,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                       Formed in 2018, ProOrganica is the latest addition to
                       Chemex's growing portfolio of business ventures focussed
                       on the sourcing, handling, and supplying of organic
-                      produce in Ukraine.
+                      produce from Ukraine to the.
                     </p>
                   </div>
 

@@ -6,10 +6,11 @@ import { StaticQuery, graphql } from "gatsby";
 
 const Nav = styled.nav`
   height: 10vh;
+  opacity: 1;
   display: flex;
   position: relative;
   justify-content: space-between;
-  z-index: 2;
+  z-index: 10;
   align-self: center;
 
   @media (max-width: 1300px) {
@@ -26,7 +27,7 @@ const Toggle = styled.div`
   height: 100%;
   cursor: pointer;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1000px) {
     display: flex;
   }
 `;
@@ -37,20 +38,18 @@ const Navbox = styled.div`
   justify-content: flex-end;
   align-items: center;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1000px) {
     flex-direction: column;
     position: fixed;
     width: 100%;
-    padding: 0;
-    margin: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
     justify-content: flex-start;
-    padding-top: 10vh;
     background-color: #3b6456;
     transition: all 0.3s ease-in;
+    top: 0;
     left: ${props => (props.open ? "-100%" : "0")};
+    z-index: 1;
+    display: flex;
+    justify-content: center;
   }
 `;
 
@@ -62,6 +61,7 @@ const Hamburger = styled.div`
   align-self: center;
   position: relative;
   transform: ${props => (props.open ? "rotate(-45deg)" : "inherit")};
+  z-index: 99;
 
   ::before,
   ::after {
@@ -71,18 +71,21 @@ const Hamburger = styled.div`
     content: "";
     position: absolute;
     transition: all 0.3s linear;
+    z-index: 1;
   }
 
   ::before {
     transform: ${props =>
       props.open ? "rotate(-90deg) translate(-10px, 0px)" : "rotate(0deg)"};
     top: -10px;
+    z-index: 1;
   }
 
   ::after {
     opacity: ${props => (props.open ? "0" : "1")};
     transform: ${props => (props.open ? "rotate(90deg) " : "rotate(0deg)")};
     top: 10px;
+    z-index: 1;
   }
 `;
 
@@ -100,6 +103,7 @@ const Navigation = ({ data, navClass }) => {
       </Toggle>
       {navbarOpen ? (
         <Navbox>
+          {/* <Escape onClick={() => setNavbarOpen(!navbarOpen)} /> */}
           <NavbarLinks pages={pages && pages} />
         </Navbox>
       ) : (

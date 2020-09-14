@@ -21,7 +21,7 @@ const Header = ({ siteTitle }) => (
             color: `white`,
             opacity: `0.9`,
             fontFamily: `Avenir Next, Helvetica Neue, Helvetica, Arial, sans-serif`,
-            fontWeight: 620,
+            fontWeight: 650,
             textDecoration: `none`,
             fontSize: `3.2rem`,
           }}
