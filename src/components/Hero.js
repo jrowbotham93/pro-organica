@@ -2,7 +2,10 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 
-const Hero = ({ home, children }) => {
+//  pass down opacity state which is set in navigation components
+//  the gatsby bg image uses 0.99 opacity which makes the full page nav
+//  transparent. Use the preserveStackingContext to toggle between 0.99 & 1 opacity
+const Hero = ({ home, children, opacity }) => {
   const { allFile } = useStaticQuery(graphql`
     query {
       allFile(filter: { relativePath: { eq: "proorganica-hero.jpg" } }) {
@@ -28,7 +31,7 @@ const Hero = ({ home, children }) => {
             allFile.edges[0].node.childImageSharp &&
             allFile.edges[0].node.childImageSharp.fluid
           }
-          preserveStackingContext={false}
+          preserveStackingContext={opacity}
           fadeIn="eager"
         >
           {children}

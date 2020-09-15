@@ -6,5 +6,6 @@ export { default as SEO } from "./seo";
 export { default as Header } from "./header";
 export { default as Image } from "./image";
 export { default as ImageFluid } from "./imageFluid";
+export { default as ImageCard } from "./imageCard";
 export { default as Contact } from "./Contact";
 export { default as Hero } from "./Hero";

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { Link, StaticQuery, graphql } from "gatsby";
@@ -15,10 +15,10 @@ import "../styles/app.css";
  **/
 
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
+  const [overlay, setOverlay] = useState(false);
   const { pathname } = useLocation();
   const currentPage = pathname.split("/");
   const location = currentPage[1];
-
   return (
     <>
       <Helmet>
@@ -26,19 +26,19 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
         <body className={bodyClass} />
       </Helmet>
 
-      <div className="viewport">
+      <div className="viewport ">
         <div className="viewport-top">
           {/* The main header section on top of the screen */}
           <header className="site-head">
-            <Hero home={isHome}>
+            <Hero home={isHome} opacity={overlay}>
               <div className="container">
                 <div className="site-mast">
-                  <div className="site-mast-left">
-                    <Navigation navClass={"site-nav-item"} />
-                  </div>
-                  <div className="site-mast-right">
-                    <Image loading="eager" />
-                  </div>
+                  <Navigation
+                    setBackgroundOpacity={() => setOverlay(!overlay)}
+                    overlay={overlay}
+                    navClass={"site-nav-item"}
+                  />
+                  <Image loading="eager" />
                 </div>
                 {isHome ? (
                   <div className="site-banner">

@@ -1,9 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { SEO, Layout } from "../components";
+import { Link } from "gatsby";
+import { SEO, Layout, ImageCard } from "../components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Page = data => {
-  const { content, title, metadata } = data && data.pageContext.page;
+  const { slug, content, title, metadata } = data && data.pageContext.page;
+  const slugs = [
+    "our-story",
+    "our-values",
+    "why-ukraine",
+    "what-we-offer",
+    "our-customers",
+    "about",
+  ];
+  const randomizedSlug = s => {
+    let slug = slugs.filter(i => !s.includes(i));
+    return slug[(slug.length * Math.random()) | 0];
+  };
+  const randomSlug = randomizedSlug(slug);
   return (
     <>
       <Layout>
@@ -17,7 +33,11 @@ const Page = data => {
           <article className="content">
             {metadata.main_image && (
               <figure className="post-feature-image">
-                <img src={metadata.main_image.url} alt={title} />
+                <ImageCard
+                  className="post-card-image"
+                  alt={title}
+                  filename={metadata && metadata.main_image.url}
+                ></ImageCard>
               </figure>
             )}
             <section className="post-full-content">
@@ -28,7 +48,15 @@ const Page = data => {
                 className="content-body load-external-scripts"
                 dangerouslySetInnerHTML={{ __html: content }}
               />
-            </section>
+            </section>{" "}
+            <div className="content-footer">
+              {" "}
+              <div> Next </div>
+              <Link className="highlight-content" to={`/${randomSlug}`}>
+                {randomSlug.replace("-", " ")}{" "}
+                <FontAwesomeIcon icon={faArrowRight} />{" "}
+              </Link>
+            </div>{" "}
           </article>
         </div>
       </Layout>

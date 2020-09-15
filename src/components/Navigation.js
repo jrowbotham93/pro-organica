@@ -13,7 +13,7 @@ const Nav = styled.nav`
   z-index: 10;
   align-self: center;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1500px) {
     height: 8vh;
     top: 0;
     left: 0;
@@ -27,7 +27,7 @@ const Toggle = styled.div`
   height: 100%;
   cursor: pointer;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1500px) {
     display: flex;
   }
 `;
@@ -38,7 +38,7 @@ const Navbox = styled.div`
   justify-content: flex-end;
   align-items: center;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1500px) {
     flex-direction: column;
     position: fixed;
     width: 100%;
@@ -89,7 +89,7 @@ const Hamburger = styled.div`
   }
 `;
 
-const Navigation = ({ data, navClass }) => {
+const Navigation = ({ data, navClass, setBackgroundOpacity }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const pages = data.allCosmicjsPages.edges;
 
@@ -97,13 +97,15 @@ const Navigation = ({ data, navClass }) => {
     <Nav>
       <Toggle
         navbarOpen={navbarOpen}
-        onClick={() => setNavbarOpen(!navbarOpen)}
+        onClick={() => {
+          setNavbarOpen(!navbarOpen);
+          setBackgroundOpacity();
+        }}
       >
         {navbarOpen ? <Hamburger open /> : <Hamburger />}
       </Toggle>
       {navbarOpen ? (
         <Navbox>
-          {/* <Escape onClick={() => setNavbarOpen(!navbarOpen)} /> */}
           <NavbarLinks pages={pages && pages} />
         </Navbox>
       ) : (

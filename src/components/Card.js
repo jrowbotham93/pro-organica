@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import { ImageCard } from ".";
 
 const Card = pages => {
   const {
@@ -12,12 +13,11 @@ const Card = pages => {
     <Link to={url} className="post-card">
       <header className="post-card-header">
         {metadata.main_image && (
-          <div
+          <ImageCard
             className="post-card-image"
-            style={{
-              backgroundImage: `url(${metadata.main_image.url})`,
-            }}
-          ></div>
+            alt={title}
+            filename={metadata && metadata.main_image.url}
+          ></ImageCard>
         )}
         <h2 className="post-card-title">{title}</h2>
       </header>
