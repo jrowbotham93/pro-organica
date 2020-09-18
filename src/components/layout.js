@@ -5,16 +5,7 @@ import { Link, StaticQuery, graphql } from "gatsby";
 import { Navigation, Hero, Image, Header } from ".";
 import "../styles/app.css";
 
-/**
- * Main layout component
- *
- * The Layout component wraps around each page and template.
- * It also provides the header, footer as well as the main
- * styles, and meta data for each page.
- *
- **/
-
-const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
+const DefaultLayout = ({ children, bodyClass, isHome }) => {
   const [overlay, setOverlay] = useState(false);
   const { pathname } = useLocation();
   const currentPage = pathname.split("/");
@@ -52,21 +43,28 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                   </div>
                 ) : null}
                 <nav className="site-nav">
-                  <div className="site-nav-left">
-                    <div className="site-foot-nav-left"> </div>
-                    {isHome ? <div className="site-nav-item"></div> : ""}
-                  </div>
+                  <div className="site-nav-left"></div>
                   <div className="site-nav-right">
-                    {" "}
                     <Link
                       className="site-nav-item"
-                      to={`/uk-UA/${currentPage[1]}`}
+                      to={
+                        currentPage[1] == "uk-UA"
+                          ? ""
+                          : currentPage[1] !== "uk-UA"
+                          ? `/uk-UA/${currentPage[1]}`
+                          : "uk-UA"
+                      }
                     >
                       Українська
                     </Link>
-                    <Link className="site-nav-item" to={`/`}>
+                    <Link
+                      className="site-nav-item"
+                      to={`/${
+                        currentPage[1] !== "uk-UA" ? currentPage[1] : ""
+                      }`}
+                    >
                       English
-                    </Link>
+                    </Link>{" "}
                   </div>
                 </nav>
               </div>{" "}
@@ -82,26 +80,21 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
         <div className="viewport-bottom">
           {/* The footer at the very bottom of the screen */}
           <footer className="site-foot">
-            <div className="site-foot-nav container">
-              <div className="site-foot-nav-right">
-                {/* <Navigation navClass="site-foot-nav-item" /> */}
-
-                <div className="site-foot-row">
-                  <div className="site-foot-col">
-                    {" "}
-                    <strong>About</strong>
-                    <p>
-                      Formed in 2018, ProOrganica is the latest addition to
-                      Chemex's growing portfolio of business ventures focussed
-                      on the sourcing, handling, and supplying of organic
-                      produce from Ukraine to the.
-                    </p>
-                  </div>
-
-                  <div className="site-foot-col">
-                    <Image fixed />
-                    Copyright © 2020 All right reserved by ProOrganica{" "}
-                  </div>
+            <div className="container">
+              <div className="site-foot-row">
+                <div className="site-foot-col">
+                  {" "}
+                  <strong className="darken-text">About</strong>
+                  <p>
+                    Formed in 2018, ProOrganica is the latest addition to
+                    Chemex's growing portfolio of business ventures focussed on
+                    the sourcing, handling, and supplying of organic produce
+                    from Ukraine to the.
+                  </p>
+                </div>
+                <div className="site-foot-col">
+                  <Image fixed />
+                  Copyright © 2020 All right reserved by ProOrganica{" "}
                 </div>
               </div>
             </div>

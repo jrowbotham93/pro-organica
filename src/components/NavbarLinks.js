@@ -51,7 +51,6 @@ const NavbarLinks = ({ pages }) => {
         .map((navItem, i) => {
           return (
             <NavItem
-              //   className={navClass}
               // HACKY: check to see whether Ukrainan in the url and then append uk-UA / leave empty for GB
               to={`${
                 window.location.pathname.split("/")[1] === "uk-UA"

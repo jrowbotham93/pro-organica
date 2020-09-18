@@ -35,7 +35,7 @@ const ImageCard = ({ filename, alt }) => {
             className="img-general"
             alt={alt}
             fluid={image.node.local.childImageSharp.fluid}
-            fadeIn="eager"
+            fadeIn={true}
           ></Img>
         );
       }}
