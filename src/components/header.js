@@ -5,7 +5,7 @@ import React from "react";
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      marginBottom: `1.45rem`,
+      marginTop: `3vw`,
     }}
   >
     <div
@@ -23,7 +23,7 @@ const Header = ({ siteTitle }) => (
             fontFamily: `Avenir Next, Helvetica Neue, Helvetica, Arial, sans-serif`,
             fontWeight: 650,
             textDecoration: `none`,
-            fontSize: `3.2rem`,
+            fontSize: `2.7rem`,
           }}
         >
           {siteTitle}

@@ -91,7 +91,7 @@ const Index = data => {
         </div>
       </section>
       <hr></hr>
-      <section className="container">
+      <section className="container" id="certification">
         <div className="central-container">
           <h1 className="central-banner-title">
             {certification_header && certification_header}

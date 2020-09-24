@@ -32,8 +32,10 @@ const Page = data => {
         />
         <div className="container">
           <article className="content">
+            <h1 className="content-title">{title && title}</h1>
+            <i>{metadata.excerpt && metadata.excerpt}</i>
             {metadata.main_image && (
-              <figure className="post-feature-image">
+              <figure className="post-feature-image padding-horizontal-2">
                 <ImageCard
                   className="post-card-image"
                   alt={title}
@@ -42,8 +44,6 @@ const Page = data => {
               </figure>
             )}
             <section className="post-full-content">
-              <h1 className="content-title">{title}</h1>
-
               {/* The main page content  */}
               <section
                 className="content-body load-external-scripts"
@@ -52,7 +52,6 @@ const Page = data => {
             </section>{" "}
             <div className="content-footer">
               {" "}
-              <div> Next </div>
               <Link className="highlight-content" to={`/${randomSlug}`}>
                 {randomSlug.replace("-", " ")}{" "}
                 <FontAwesomeIcon icon={faArrowRight} />{" "}

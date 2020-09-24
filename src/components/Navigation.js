@@ -5,21 +5,16 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 
 const Nav = styled.nav`
-  height: 10vh;
   opacity: 1;
   display: flex;
   position: relative;
-  justify-content: space-between;
   z-index: 10;
   align-self: center;
-
-  @media (max-width: 1500px) {
-    height: 8vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    left: 0;
-  }
+  height: 8vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
 `;
 
 const Toggle = styled.div`
@@ -27,30 +22,24 @@ const Toggle = styled.div`
   height: 100%;
   cursor: pointer;
 
-  @media (max-width: 1500px) {
-    display: flex;
-  }
+  display: flex;
 `;
 
 const Navbox = styled.div`
   display: flex;
   height: 100%;
-  justify-content: flex-end;
   align-items: center;
-
-  @media (max-width: 1500px) {
-    flex-direction: column;
-    position: fixed;
-    width: 100%;
-    justify-content: flex-start;
-    background-color: #3b6456;
-    transition: all 0.3s ease-in;
-    top: 0;
-    left: ${props => (props.open ? "-100%" : "0")};
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-  }
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  justify-content: flex-start;
+  background-color: #3b6456;
+  transition: all 0.3s ease-in;
+  top: 0;
+  left: ${props => (props.open ? "-100%" : "0")};
+  z-index: 1;
+  display: flex;
+  justify-content: center;
 `;
 
 const Hamburger = styled.div`

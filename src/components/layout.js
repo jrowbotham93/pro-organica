@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Link, StaticQuery, graphql } from "gatsby";
 import { Navigation, Hero, Image, Header } from ".";
 import "../styles/app.css";
@@ -22,7 +24,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
           {/* The main header section on top of the screen */}
           <header className="site-head">
             <Hero home={isHome} opacity={overlay}>
-              <div className="container">
+              <div className="container-site-head">
                 <div className="site-mast">
                   <Navigation
                     setBackgroundOpacity={() => setOverlay(!overlay)}
@@ -34,6 +36,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                 {isHome ? (
                   <div className="site-banner">
                     <Header siteTitle="PROactive PROfessional PROgressive"></Header>
+
                     <Link
                       className="site-nav-button"
                       to={`${location === "" ? "" : location}/#contact`}
@@ -42,6 +45,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                     </Link>
                   </div>
                 ) : null}
+
                 <nav className="site-nav">
                   <div className="site-nav-left"></div>
                   <div className="site-nav-right">
@@ -80,21 +84,44 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
         <div className="viewport-bottom">
           {/* The footer at the very bottom of the screen */}
           <footer className="site-foot">
-            <div className="container">
-              <div className="site-foot-row">
-                <div className="site-foot-col">
+            <div className="container-site-head">
+              <div className="site-foot-grid">
+                <div className="site-foot-logo">
+                  <Image fixed />{" "}
+                  <p>Copyright © 2018-2020 All right reserved by ProOrganica</p>
+                  <p className="highlight-content"> Made by Animated Spoon</p>
+                </div>
+                <div className="site-foot-about">
                   {" "}
                   <strong className="darken-text">About</strong>
                   <p>
-                    Formed in 2018, ProOrganica is the latest addition to
-                    Chemex's growing portfolio of business ventures focussed on
-                    the sourcing, handling, and supplying of organic produce
-                    from Ukraine to the.
+                    ProOrganica specializes in the sourcing, handling, and
+                    supplying of organic produce from Ukraine to the rest of the
+                    world.
                   </p>
                 </div>
-                <div className="site-foot-col">
-                  <Image fixed />
-                  Copyright © 2020 All right reserved by ProOrganica{" "}
+
+                <div className="site-foot-contact">
+                  <strong className="darken-text">Contact</strong>
+                  <p>
+                    Drop us an email if you have questions about any of our
+                    products or services
+                  </p>
+                  <a
+                    className="highlight-content"
+                    href={`mailto:info@proorganica.com`}
+                  >
+                    {" "}
+                    <FontAwesomeIcon
+                      icon={faEnvelope}
+                    /> info@proorganica.com{" "}
+                  </a>
+                </div>
+                <div className="site-foot-quick-links">
+                  {" "}
+                  <strong className="darken-text">Quick Links</strong>
+                  <Link to={`/#certification`}>Certification</Link>
+                  <Link to={`/#contact`}>Contact </Link>
                 </div>
               </div>
             </div>
