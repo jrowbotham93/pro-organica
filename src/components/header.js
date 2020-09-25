@@ -15,17 +15,7 @@ const Header = ({ siteTitle }) => (
       }}
     >
       <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            opacity: `0.9`,
-            fontFamily: `Avenir Next, Helvetica Neue, Helvetica, Arial, sans-serif`,
-            fontWeight: 650,
-            textDecoration: `none`,
-            fontSize: `2.7rem`,
-          }}
-        >
+        <Link to="/" className="header-main">
           {siteTitle}
         </Link>
       </h1>
