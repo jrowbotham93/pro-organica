@@ -103,10 +103,13 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                 </div>
                 <div className="site-foot-site site-col">
                   <strong className="highlight-content">Site</strong>
-                  <Link to="https://proorganica.com/sitemap.xml">
+                  <a href="https://proorganica.com/sitemap.xml" target="_blank">
                     Sitemap
-                  </Link>{" "}
-                  <a href="https://jrowbotham93/proorganica" target="_blank">
+                  </a>
+                  <a
+                    href="https://github.com/jrowbotham93/pro-organica"
+                    target="_blank"
+                  >
                     Github
                   </a>
                 </div>
