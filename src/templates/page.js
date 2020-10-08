@@ -24,12 +24,7 @@ const Page = data => {
   return (
     <>
       <Layout>
-        <SEO
-          title={title}
-          description={`This page is about proorganica: ${
-            metadata.excerpt && metadata.excerpt
-          }`}
-        />
+        <SEO title={title} description={metadata.excerpt && metadata.excerpt} />
         <div className="container">
           <article className="content">
             <h1 className="content-title lighten">{title && title}</h1>

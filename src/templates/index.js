@@ -44,10 +44,7 @@ const Index = data => {
 
   return (
     <Layout isHome={true}>
-      <SEO
-        title="Home"
-        description="This is the homepage for the proorganica site"
-      />
+      <SEO title="Home" description="Homepage for proOrganica" />
       <section className="container ">
         <div className="central-container">
           <h1 className="central-banner-title">What do we do?</h1>

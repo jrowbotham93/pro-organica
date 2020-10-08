@@ -103,7 +103,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                 </div>
                 <div className="site-foot-site site-col">
                   <strong className="highlight-content">Site</strong>
-                  <Link to="https://proorganica.netlify.app/sitemap.xml">
+                  <Link to="https://proorganica.com/sitemap.xml">
                     Sitemap
                   </Link>{" "}
                   <a href="https://jrowbotham93/proorganica" target="_blank">

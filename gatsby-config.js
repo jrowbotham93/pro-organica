@@ -10,7 +10,7 @@ module.exports = {
     author: `James Rowbotham`,
     image: `src/images/proorganica.png`,
     siteTitle: `proorganica`,
-    siteUrl: `https://proorganica.netlify.app/`,
+    siteUrl: `https://proorganica.com/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -27,8 +27,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://proorganica.netlify.app/",
-        sitemap: "https://proorganica.netlify.app/sitemap.xml",
+        host: "https://proorganica.com/",
+        sitemap: "https://proorganica.com/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
