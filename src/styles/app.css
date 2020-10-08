@@ -302,7 +302,7 @@ textarea {
 table {
   border-collapse: collapse;
   margin: 25px 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 20px rgba(0, 0, 0, 0.2);
   text-align: left;
   border-radius: 10px;
   display: inline-block;
@@ -311,9 +311,10 @@ table {
   border: 0;
 }
 thead tr {
-  background-color: rgb(103, 177, 84);
-  color: #ffffff;
+  background-color: var(--color-gr);
+  color: white;
   text-align: left;
+  font-weight: bold;
 }
 th,
 td {
@@ -329,7 +330,7 @@ tbody tr:nth-of-type(even) {
 }
 
 tbody tr:last-of-type {
-  border-bottom: 2px solid rgb(103, 177, 84);
+  border-bottom: 2px solid var(--color-lgr);
 }
 
 /* Defaults
