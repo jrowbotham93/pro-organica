@@ -88,7 +88,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
               <div className="site-foot-grid">
                 <div className="site-foot-logo site-col">
                   <Image fixed />
-                  <Link to="our-values">
+                  <Link to="/our-values">
                     {" "}
                     Proactive | Professional | Progressive{" "}
                   </Link>

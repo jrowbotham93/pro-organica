@@ -8,7 +8,7 @@ const NotFoundPage = () => (
     <div className="container">
       <h1>Page not found!</h1>
       <p>You just hit a route that doesn&#39;t exist....</p>
-      <Link to="/en-GB">Head home</Link>
+      <Link to="/">Head home</Link>
     </div>
   </Layout>
 );
