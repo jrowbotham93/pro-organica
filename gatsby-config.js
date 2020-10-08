@@ -9,7 +9,8 @@ module.exports = {
     description: `Read about the company ProOrganica, who they are, what they're aiming to achieve and the products and services they offer. `,
     author: `James Rowbotham`,
     image: `src/images/proorganica.png`,
-    siteUrl: `https://www.proorganica.com`,
+    siteTitle: `proorganica`,
+    siteUrl: `https://proorganica.netlify.app/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -26,8 +27,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://www.proorganica.com",
-        sitemap: "https://www.proorganica.com/sitemap.xml",
+        host: "https://proorganica.netlify.app/",
+        sitemap: "https://proorganica.netlify.app/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },

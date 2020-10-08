@@ -24,13 +24,12 @@ what's here to work the way you'd like it to.
   --color-tertiary: #f5f5f5;
   --color-bg: #f5f5f5;
   --color-gr: #7ebd4c;
-  --color-lgr: #81bb46;
+  --color-lgr: #bce98f;
   --color-pgr: #3b6456;
 
   /* Fonts */
-  --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   --font-mono: Menlo, Courier, monospace;
   --font-montserrat: "Montserrat", Arial, sans-serif;
   --font-light: 100;
@@ -187,10 +186,7 @@ em,
 dfn {
   font-style: italic;
 }
-h1 {
-  margin: 0.67em 0;
-  font-size: 2em;
-}
+
 small {
   font-size: 80%;
   padding: 50px 0;
@@ -344,16 +340,15 @@ html {
   overflow-y: scroll;
   font-size: 62.5%;
   background: var(--color-base);
-
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
   overflow-x: hidden;
   color: #3c484e;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 16px;
   line-height: 1.6em;
   font-weight: 400;
   font-style: normal;
@@ -457,7 +452,7 @@ dd {
 blockquote {
   margin: 0.3em 0 1.8em;
   padding: 0 1.6em 0 1.6em;
-  border-left: #cbeafb 0.5em solid;
+  border-left: var(--color-lgr) 0.5em solid;
 }
 
 blockquote p {
@@ -496,10 +491,13 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  color: var(--color-base);
   line-height: 1.15;
   font-weight: 700;
   text-rendering: optimizeLegibility;
+}
+
+.lighten {
+  opacity: 0.8;
 }
 
 h1 {
@@ -507,7 +505,7 @@ h1 {
   font-size: 4rem;
   font-weight: 700;
 }
-@media (max-width: 500px) {
+@media (max-width: 680px) {
   h1 {
     font-size: 2rem;
   }
@@ -517,7 +515,7 @@ h2 {
   margin: 1.5em 0 0.5em 0;
   font-size: 2rem;
 }
-@media (max-width: 500px) {
+@media (max-width: 680px) {
   h2 {
     font-size: 1.8rem;
   }
@@ -528,7 +526,7 @@ h3 {
   font-size: 1.8rem;
   font-weight: 500;
 }
-@media (max-width: 500px) {
+@media (max-width: 680px) {
   h3 {
     font-size: 1.7rem;
   }
@@ -554,28 +552,6 @@ h6 {
 
 /* Layout
 /* ---------------------------------------------------------- */
-
-.header-main {
-  color: white;
-  opacity: 0.9;
-  font-weight: 750;
-  text-decoration: none;
-  font-size: 3.7rem;
-}
-
-@media (min-width: 1500px) {
-  .header-main {
-    font-weight: 750;
-    font-size: 4.7rem;
-  }
-}
-
-@media (min-width: 670px) {
-  .header-main {
-    font-weight: 650;
-    font-size: 2.7rem;
-  }
-}
 
 .viewport {
   display: flex;
@@ -803,6 +779,12 @@ h6 {
   align-content: center;
   align-items: center;
 }
+@media (max-width: 680px) {
+  .site-banner {
+    margin: 0 auto;
+    padding: 24vw 2vw;
+  }
+}
 
 .site-banner-title {
   margin: 0;
@@ -845,6 +827,15 @@ h6 {
   text-align: center;
   margin-top: 3vw;
 }
+@media (max-width: 680px) {
+  .site-nav-button {
+    display: block;
+    padding: 8px 15px;
+    margin: 0.4em auto;
+    margin-top: 2vw;
+    font-size: 1.5rem;
+  }
+}
 
 @media (min-width: 1500px) {
   .site-nav-button {
@@ -883,7 +874,6 @@ h6 {
   opacity: 0.7;
   font-size: 3.5rem;
   line-height: 1.3em;
-  background: linear-gradient(110deg, white 50%, #d0e6b9 50%);
 }
 @media (max-width: 768px) {
   .central-banner-title {
@@ -895,6 +885,46 @@ h6 {
   .central-banner-title {
     font-size: 2.8rem;
     opacity: 0.7;
+  }
+}
+
+.central-banner-desc {
+  margin: 22px 0 0 0;
+  padding-bottom: 5vw;
+  font-size: 2.5rem;
+  line-height: 1.3em;
+  opacity: 0.7;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .central-banner-desc {
+    font-size: 2.2rem;
+    padding-bottom: 9vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .central-banner-desc {
+    font-size: 1.9rem;
+    padding-bottom: 12vw;
+  }
+}
+
+.central-banner-title-white {
+  margin: 0;
+  padding-top: 1vw;
+  font-size: 3.5rem;
+  line-height: 1.3em;
+}
+@media (max-width: 768px) {
+  .central-banner-title-white {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .central-banner-title-white {
+    font-size: 2.8rem;
   }
 }
 
@@ -1203,53 +1233,66 @@ h6 {
 .highlight-content {
   color: #9bcf48;
   font-weight: 500;
+  padding: 5px 0;
 }
 
 /* Footer
 /* ---------------------------------------------------------- */
 
 .site-foot {
-  padding: 20px 0 40px 0;
+  padding: 20px 0 10px 0;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.3rem;
   background: var(--color-pgr);
+}
+.site-foot-rights-reserved {
+  padding: 0;
+}
+
+@media (max-width: 680px) {
+  .site-foot-rights-reserved {
+    padding: 8vw 0 0 0;
+  }
 }
 .site-foot-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  grid-gap: 4vw;
-  grid-template-areas: "site-foot-logo  site-foot-about site-foot-contact site-foot-quick-links";
+  grid-template-columns: 3fr repeat(3, 1fr);
+  grid-gap: 2vw;
+  grid-template-areas: "site-foot-logo site-foot-quick-links site-foot-site site-foot-about";
 }
+
 @media (max-width: 680px) {
   .site-foot-grid {
+    display: grid;
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "site-foot-about"
-      "site-foot-contact"
-      "site-foot-quick-links"
-      "site-foot-logo";
+    grid-gap: 8vw;
+    grid-template-areas: "site-foot-logo" "site-foot-about" "site-foot-site" "site-foot-quick-links";
   }
+}
+.site-col {
+  display: flex;
+  flex-direction: column;
 }
 .site-foot-logo {
   grid-area: site-foot-logo;
 }
+.site-foot-logo span {
+  font-weight: 800;
+}
 .site-foot-about {
   grid-area: site-foot-about;
 }
-.site-foot-contact {
-  grid-area: site-foot-contact;
+.site-foot-site {
+  grid-area: site-foot-site;
 }
 .site-foot-quick-links {
   grid-area: site-foot-quick-links;
-  display: flex;
-  flex-direction: column;
 }
 
-.site-foot-nav a {
+.site-foot-grid a {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.site-foot-nav a:hover {
+.site-foot-grid a:hover {
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
 }
