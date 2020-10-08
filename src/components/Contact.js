@@ -23,7 +23,10 @@ const Contact = ({ data }) => {
             <div className="contact-card-contacts-item" key={key}>
               <span className="highlight-content">{contact.name}</span>
               <span> {contact.position} </span>
-              <a href={`mailto:${contact.email}`}> {contact.email} </a>
+              <a href={`mailto:${contact.email}`} rel="noreferrer">
+                {" "}
+                {contact.email}{" "}
+              </a>
               <span>{contact.telephone}</span>
             </div>
           ))}

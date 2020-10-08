@@ -1269,6 +1269,9 @@ h6 {
     grid-template-areas: "site-foot-logo" "site-foot-about" "site-foot-site" "site-foot-quick-links";
   }
 }
+.footer-values {
+  padding-top: 2vw;
+}
 .site-col {
   display: flex;
   flex-direction: column;
@@ -1276,9 +1279,7 @@ h6 {
 .site-foot-logo {
   grid-area: site-foot-logo;
 }
-.site-foot-logo span {
-  font-weight: 800;
-}
+
 .site-foot-about {
   grid-area: site-foot-about;
 }

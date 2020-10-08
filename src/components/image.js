@@ -3,29 +3,36 @@ import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 const LogoWrap = styled.div`
-  flex: 0 1 36px;
+  // flex: 0 1 36px;
 
-  @media (max-width: 768px) and (orientation: landscape) {
-    flex: 0 1 9px;
-  }
+  // @media (max-width: 768px) and (orientation: landscape) {
+  //   flex: 0 1 18px;
+  // }
 `;
 
 const Image = () => {
   const data = useStaticQuery(graphql`
-    {
-      file(relativePath: { eq: "proorganica-white.png" }) {
+    query MyQuery {
+      file(relativePath: { regex: "/proorganica-white/" }) {
         childImageSharp {
-          fixed(width: 170) {
-            ...GatsbyImageSharpFixed_noBase64
+          fluid(maxWidth: 180, maxHeight: 70) {
+            presentationWidth
+            presentationHeight
+            ...GatsbyImageSharpFluid
           }
         }
       }
     }
   `);
-
   return (
-    <LogoWrap as={Link} to="/">
-      <Img fixed={data.file && data.file.childImageSharp.fixed} />{" "}
+    <LogoWrap as={Link} to="/" alt="proorganica logo">
+      <Img
+        fluid={data.file && data.file.childImageSharp.fluid}
+        style={{
+          width: data.file.childImageSharp.fluid.presentationWidth,
+          height: data.file.childImageSharp.fluid.presentationHeight,
+        }}
+      />{" "}
     </LogoWrap>
   );
 };

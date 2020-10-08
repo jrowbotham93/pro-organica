@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link, StaticQuery, graphql } from "gatsby";
 import { Navigation, Hero, Image, Header } from ".";
 import "../styles/app.css";
@@ -31,7 +29,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                     overlay={overlay}
                     navClass={"site-nav-item"}
                   />
-                  <Image loading="eager" />
+                  <Image fluid loading="eager" />
                 </div>
                 {isHome ? (
                   <div className="site-banner">
@@ -52,7 +50,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                     <Link
                       className="site-nav-item"
                       to={
-                        currentPage[1] == "uk-UA"
+                        currentPage[1] === "uk-UA"
                           ? ""
                           : currentPage[1] !== "uk-UA"
                           ? `/uk-UA/${currentPage[1]}`
@@ -87,8 +85,8 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
             <div className="container-site-head">
               <div className="site-foot-grid">
                 <div className="site-foot-logo site-col">
-                  <Image fixed />
-                  <Link to="/our-values">
+                  <Image fluid />
+                  <Link className="footer-values" to="/our-values">
                     {" "}
                     Proactive | Professional | Progressive{" "}
                   </Link>
@@ -103,12 +101,17 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                 </div>
                 <div className="site-foot-site site-col">
                   <strong className="highlight-content">Site</strong>
-                  <a href="https://proorganica.com/sitemap.xml" target="_blank">
+                  <a
+                    href="https://proorganica.com/sitemap.xml"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     Sitemap
                   </a>
                   <a
                     href="https://github.com/jrowbotham93/pro-organica"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Github
                   </a>
@@ -124,12 +127,14 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                   <a
                     href="https://graintrade.com.ua/en/traider/chemex-ltd-id15479"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Chemex Graintrade
                   </a>
                   <a
                     href="https://find-and-update.company-information.service.gov.uk/company/11348509"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Company Ltd Details{" "}
                   </a>
