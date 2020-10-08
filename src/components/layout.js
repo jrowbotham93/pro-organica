@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link, StaticQuery, graphql } from "gatsby";
 import { Navigation, Hero, Image, Header } from ".";
 import "../styles/app.css";
@@ -86,43 +86,54 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
           <footer className="site-foot">
             <div className="container-site-head">
               <div className="site-foot-grid">
-                <div className="site-foot-logo">
-                  <Image fixed />{" "}
-                  <p>Copyright © 2018-2020 All right reserved by ProOrganica</p>
-                  <p className="highlight-content"> Made by Animated Spoon</p>
-                </div>
-                <div className="site-foot-about">
-                  {" "}
-                  <strong className="darken-text">About</strong>
-                  <p>
-                    ProOrganica specializes in the sourcing, handling, and
-                    supplying of organic produce from Ukraine to the rest of the
-                    world.
-                  </p>
-                </div>
-
-                <div className="site-foot-contact">
-                  <strong className="darken-text">Contact</strong>
-                  <p>
-                    Drop us an email if you have questions about any of our
-                    products or services
-                  </p>
-                  <a
-                    className="highlight-content"
-                    href={`mailto:info@proorganica.com`}
-                  >
+                <div className="site-foot-logo site-col">
+                  <Image fixed />
+                  <Link to="our-values">
                     {" "}
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                    /> info@proorganica.com{" "}
+                    Proactive | Professional | Progressive{" "}
+                  </Link>
+                </div>
+                <div className="site-foot-about site-col">
+                  {" "}
+                  <strong className="highlight-content">About</strong>
+                  <p>
+                    We specialize in the sourcing, handling, and supplying of
+                    organic produce from Ukraine.
+                  </p>
+                </div>
+                <div className="site-foot-site site-col">
+                  <strong className="highlight-content">Site</strong>
+                  <Link to="https://proorganica.netlify.app/sitemap.xml">
+                    Sitemap
+                  </Link>{" "}
+                  <a href="https://jrowbotham93/proorganica" target="_blank">
+                    Github
                   </a>
                 </div>
-                <div className="site-foot-quick-links">
+
+                <div className="site-foot-quick-links site-col">
                   {" "}
-                  <strong className="darken-text">Quick Links</strong>
+                  <strong className="highlight-content uppercase">
+                    Company
+                  </strong>
                   <Link to={`/#certification`}>Certification</Link>
                   <Link to={`/#contact`}>Contact </Link>
+                  <a
+                    href="https://graintrade.com.ua/en/traider/chemex-ltd-id15479"
+                    target="_blank"
+                  >
+                    Chemex Graintrade
+                  </a>
+                  <a
+                    href="https://find-and-update.company-information.service.gov.uk/company/11348509"
+                    target="_blank"
+                  >
+                    Company Ltd Details{" "}
+                  </a>
                 </div>
+              </div>
+              <div className="site-foot-rights-reserved">
+                © {new Date().getFullYear()} ProOrganica. All rights reserved
               </div>
             </div>
           </footer>
