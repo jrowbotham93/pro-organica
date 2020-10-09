@@ -23,8 +23,6 @@ const NextButton = ({ locale, title }) => {
     }
   `);
 
-  console.log(locale);
-
   useEffect(() => {
     const getNextPage = () => {
       const arrayOfPages =
