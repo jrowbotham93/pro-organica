@@ -1,26 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
 
-import { SEO, Layout, ImageCard } from "../components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { SEO, Layout, ImageCard, NextButton } from "../components";
 
 const Page = data => {
-  const { slug, content, title, metadata } = data && data.pageContext.page;
-  const slugs = [
-    "our-story",
-    "our-values",
-    "why-ukraine",
-    "what-we-offer",
-    "our-customers",
-    "about",
-  ];
-  const randomizedSlug = s => {
-    let slug = slugs.filter(i => !s.includes(i));
-    return slug[(slug.length * Math.random()) | 0];
-  };
-  const randomSlug = randomizedSlug(slug);
+  const { content, title, metadata, locale } =
+    data.pageContext && data.pageContext.page;
+
   return (
     <>
       <Layout>
@@ -46,11 +32,7 @@ const Page = data => {
               />
             </section>{" "}
             <div className="content-footer">
-              {" "}
-              <Link className="highlight-content" to={`/${randomSlug}`}>
-                {randomSlug.replace(/-/g, " ")}{" "}
-                <FontAwesomeIcon icon={faArrowRight} />{" "}
-              </Link>
+              <NextButton title={title && title} locale={locale} />
             </div>{" "}
           </article>
         </div>
