@@ -9,7 +9,7 @@ module.exports = {
     description: `Read about the company ProOrganica, who they are, what they're aiming to achieve and the products and services they offer. `,
     author: `James Rowbotham`,
     image: `src/images/proorganica.png`,
-    siteTitle: `proorganica`,
+    siteTitle: `PrOrganica`,
     siteUrl: `https://proorganica.com/`,
   },
   plugins: [

@@ -483,6 +483,7 @@ blockquote cite a {
 a {
   color: var(--color-pgr);
   text-decoration: none;
+  font-weight: 800;
 }
 
 h1,
@@ -1146,17 +1147,6 @@ h6 {
   grid-template-columns: 1fr;
 }
 
-/* @media (max-width: 980px) {
-  .contact-feed {
-    grid-template-columns: 1fr;
-  }
-} */
-/* @media (max-width: 680px) {
-  .contact-feed {
-    grid-template-columns: 1fr;
-  }
-} */
-
 .contact-card {
   color: inherit;
   text-decoration: none;
@@ -1212,6 +1202,11 @@ h6 {
   flex-direction: column;
   padding: 0.5em 20px 2em 20px;
   line-height: 1.55em;
+}
+
+.contact-card a {
+  color: #9bcf48;
+  font-weight: 500;
 }
 
 .contact-card-footer {
@@ -1297,15 +1292,6 @@ h6 {
 .site-foot-grid a:hover {
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
-}
-
-.site-foot-nav-right a {
-  display: inline-block;
-  padding: 2px 5px;
-}
-
-.site-foot-nav-right a:last-child {
-  padding-right: 0;
 }
 
 /* Components

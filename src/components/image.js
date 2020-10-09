@@ -15,7 +15,7 @@ const Image = () => {
     query MyQuery {
       file(relativePath: { regex: "/proorganica-white/" }) {
         childImageSharp {
-          fluid(maxWidth: 180, maxHeight: 70) {
+          fluid(maxWidth: 150, maxHeight: 60) {
             presentationWidth
             presentationHeight
             ...GatsbyImageSharpFluid
