@@ -1,15 +1,16 @@
 require("dotenv").config({});
 
 const { COSMIC_BUCKET, COSMIC_READ_KEY } = process.env;
+const siteTitle = `ProOrganica`;
 
 module.exports = {
   siteMetadata: {
     title: `ProOrganica`,
     titleTemplate: "%s · ProOrganica - Premium Organics from Ukraine",
-    description: `Read about the company ProOrganica, who they are, what they're aiming to achieve and the products and services they offer. `,
+    description: `Read about ProOrganica, who we are, what we are aiming to achieve and the products and services we offer. `,
     author: `James Rowbotham`,
     image: `src/images/proorganica.png`,
-    siteTitle: `PrOrganica`,
+    siteTitle,
     siteUrl: `https://proorganica.com/`,
   },
   plugins: [
@@ -37,13 +38,19 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `proOrganica`,
-        short_name: `proOrganica`,
+        name: siteTitle,
+        short_name: siteTitle,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/proorganica-fav.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.proorganica.com`,
       },
     },
     {
