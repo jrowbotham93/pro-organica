@@ -34,13 +34,13 @@ const Index = data => {
     },
   ];
 
-  const about = new RegExp("Our values|Our story", "gi");
+  const about = new RegExp("our-values|our-story", "gi");
   const business = new RegExp(
-    "What we offer|Why Ukraine|Our customers|About us",
+    "what-we-offer|why-ukraine|our-customers|about",
     "gi"
   );
 
-  const card = reg => index.filter(i => i.title.match(reg));
+  const card = reg => index.filter(i => i.slug.match(reg));
 
   return (
     <Layout isHome={true}>

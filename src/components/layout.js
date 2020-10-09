@@ -94,10 +94,8 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                 <div className="site-foot-about site-col">
                   {" "}
                   <strong className="highlight-content">About</strong>
-                  <p>
-                    We specialize in the sourcing, handling, and supplying of
-                    organic produce from Ukraine.
-                  </p>
+                  <Link to="/about">About us</Link>
+                  <Link to="/our-story">Our story</Link>
                 </div>
                 <div className="site-foot-site site-col">
                   <strong className="highlight-content">Site</strong>
@@ -140,8 +138,32 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                   </a>
                 </div>
               </div>
-              <div className="site-foot-rights-reserved">
-                © {new Date().getFullYear()} ProOrganica. All rights reserved
+              <div className="site-foot-rights-reserved site-col">
+                <span>
+                  {" "}
+                  © {new Date().getFullYear()}{" "}
+                  <a
+                    rel="norefferer"
+                    target="_blank"
+                    href="https://proorganica.com/"
+                  >
+                    {" "}
+                    ProOrganica
+                  </a>{" "}
+                  All rights reserved
+                </span>
+                <span>
+                  {" "}
+                  Made by{" "}
+                  <a
+                    rel="norefferer"
+                    target="_blank"
+                    href="https://james-rowbotham.netlify.app/"
+                  >
+                    {" "}
+                    James Rowbotham
+                  </a>
+                </span>
               </div>
             </div>
           </footer>
