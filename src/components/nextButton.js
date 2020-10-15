@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const NextButton = ({ locale, title }) => {
-  const [pageTitle, setTitle] = useState("");
-  const [pageSlug, setSlug] = useState("");
+  const [displaySlug, setSlug] = useState("");
+  const [displayTitle, setTitle] = useState("");
 
   const {
     allCosmicjsPages: { edges },
@@ -40,8 +40,11 @@ const NextButton = ({ locale, title }) => {
   });
 
   return (
-    <Link className="highlight-content" to={`/${pageSlug}`}>
-      {pageTitle} <FontAwesomeIcon icon={faArrowRight} />{" "}
+    <Link
+      className="highlight-content"
+      to={`/${locale}/${displaySlug}`.replace("en-GB")}
+    >
+      {displayTitle} <FontAwesomeIcon icon={faArrowRight} />{" "}
     </Link>
   );
 };

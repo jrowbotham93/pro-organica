@@ -5,11 +5,22 @@ import { Link, StaticQuery, graphql } from "gatsby";
 import { Navigation, Hero, Image, Header } from ".";
 import "../styles/app.css";
 
-const DefaultLayout = ({ children, bodyClass, isHome }) => {
+const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
   const [overlay, setOverlay] = useState(false);
   const { pathname } = useLocation();
   const currentPage = pathname.split("/");
   const location = currentPage[1];
+  const locale = currentPage.some(i => i === "uk-UA");
+  const currentLocale = locale ? "uk-UA" : "en-GB";
+
+  const localize = obj => {
+    return obj.edges.filter(i => i.node.locale.includes(currentLocale));
+  };
+
+  const { home, allPages } = data;
+  const pages = localize(allPages);
+  const [node] = localize(home);
+
   return (
     <>
       <Helmet>
@@ -28,6 +39,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                     setBackgroundOpacity={() => setOverlay(!overlay)}
                     overlay={overlay}
                     navClass={"site-nav-item"}
+                    location={location}
                   />
                   <Image fluid loading="eager" />
                 </div>
@@ -37,9 +49,9 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
 
                     <Link
                       className="site-nav-button"
-                      to={`${location === "" ? "" : location}/#contact`}
+                      to={`${location}/#contact`.replace("uk-UA/", "")}
                     >
-                      Contact us
+                      {node.node.metadata && node.node.metadata.contact_button}{" "}
                     </Link>
                   </div>
                 ) : null}
@@ -61,9 +73,10 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                     </Link>
                     <Link
                       className="site-nav-item"
-                      to={`/${
-                        currentPage[1] !== "uk-UA" ? currentPage[1] : ""
-                      }`}
+                      to={`/${currentPage[2] ? currentPage[2] : ""}`.replace(
+                        "undefined",
+                        ""
+                      )}
                     >
                       English
                     </Link>{" "}
@@ -81,6 +94,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
 
         <div className="viewport-bottom">
           {/* The footer at the very bottom of the screen */}
+
           <footer className="site-foot">
             <div className="container-site-head">
               <div className="site-foot-grid">
@@ -88,15 +102,19 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                   <Image fluid />
                   <Link className="footer-values" to="/our-values">
                     {" "}
-                    Proactive | Professional | Progressive{" "}
+                    <span>Proactive | Professional | Progressive </span>
                   </Link>
                 </div>
                 <div className="site-foot-about site-col">
                   {" "}
                   <strong className="highlight-content">About</strong>
-                  <Link to="/about">About us</Link>
-                  <Link to="/our-story">Our story</Link>
+                  {pages.map((i, key) => (
+                    <span key={key}>
+                      <Link to={`/${i.node.slug}`}>{i.node.title}</Link>
+                    </span>
+                  ))}
                 </div>
+
                 <div className="site-foot-site site-col">
                   <strong className="highlight-content">Site</strong>
                   <a
@@ -118,7 +136,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                 <div className="site-foot-quick-links site-col">
                   {" "}
                   <strong className="highlight-content uppercase">
-                    Company
+                    ProOrganica
                   </strong>
                   <Link to={`/#certification`}>Certification</Link>
                   <Link to={`/#contact`}>Contact </Link>
@@ -143,7 +161,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                   {" "}
                   © {new Date().getFullYear()}{" "}
                   <a
-                    rel="norefferer"
+                    rel="noreferrer"
                     target="_blank"
                     href="https://proorganica.com/"
                   >
@@ -156,7 +174,7 @@ const DefaultLayout = ({ children, bodyClass, isHome }) => {
                   {" "}
                   Made by{" "}
                   <a
-                    rel="norefferer"
+                    rel="noreferrer"
                     target="_blank"
                     href="https://james-rowbotham.netlify.app/"
                   >
@@ -177,72 +195,24 @@ const DefaultLayoutSettingsQuery = props => (
   <StaticQuery
     query={graphql`
       {
-        allCosmicjsPages(filter: { slug: { eq: "home" } }) {
+        allPages: allCosmicjsPages {
+          edges {
+            node {
+              slug
+              title
+              locale
+            }
+          }
+        }
+        home: allCosmicjsPages(filter: { slug: { eq: "home" } }) {
           edges {
             node {
               slug
               locale
               content
-
               title
-              created_by
-              created
-              metafields {
-                imgix_url
-              }
               metadata {
-                products
-                products_table
-                excerpt
-                who_are_we
-                certification
-                certification_header
-                certification_eu {
-                  url
-                  imgix_url
-                }
-                certification_cor {
-                  url
-                  imgix_url
-                }
-                certification_uk {
-                  imgix_url
-                  url
-                }
-                main_image {
-                  url
-                  imgix_url
-                }
-                home_banner_image {
-                  url
-                  imgix_url
-                }
-                home_banner_description
-                contact_us
-                get_in_touch
-
-                contact_details {
-                  contact {
-                    address {
-                      address
-                      building
-                      city
-                      country
-                      postcode
-                      street
-                    }
-                    contacts {
-                      email
-                      name
-                      position
-                      telephone
-                    }
-                    country
-                    email
-                    telephone
-                    name
-                  }
-                }
+                contact_button
               }
             }
           }

@@ -14,8 +14,13 @@ const Index = data => {
       who_are_we,
       products,
       products_table,
+      what_do_we_do_header,
+      who_are_we_header,
+      product_header,
+      get_in_touch_header,
       contact_details,
       get_in_touch,
+      read_more_button,
     },
   } = index.filter(i => i.slug.toLowerCase() === "home")[0];
 
@@ -47,7 +52,9 @@ const Index = data => {
       <SEO title="Home" description="Homepage for proOrganica" />
       <section className="container ">
         <div className="central-container">
-          <h1 className="central-banner-title">What do we do?</h1>
+          <h1 className="central-banner-title">
+            {what_do_we_do_header && what_do_we_do_header}
+          </h1>
 
           <p className="central-banner-desc">
             {home_banner_description && home_banner_description}
@@ -55,7 +62,7 @@ const Index = data => {
 
           <div className="post-feed">
             {card(business).map((i, index) => (
-              <Card key={index} data={i} />
+              <Card key={index} data={i} buttonText={read_more_button} />
             ))}
           </div>
         </div>
@@ -63,7 +70,9 @@ const Index = data => {
       <hr></hr>
       <section className="container">
         <div className="central-container">
-          <h1 className="central-banner-title">Products</h1>
+          <h1 className="central-banner-title">
+            {product_header && product_header}
+          </h1>
           <p className="central-banner-desc"> {products && products}</p>
 
           <div className="table-wrapper">
@@ -77,12 +86,14 @@ const Index = data => {
       <hr></hr>
       <section className="container ">
         <div className="central-container">
-          <h1 className="central-banner-title">Who are we?</h1>
+          <h1 className="central-banner-title">
+            {who_are_we_header && who_are_we_header}
+          </h1>
           <p className="central-banner-desc">{who_are_we && who_are_we}</p>
 
           <div className="post-feed">
             {card(about).map((i, index) => (
-              <Card key={index} data={i} />
+              <Card key={index} data={i} buttonText={read_more_button} />
             ))}
           </div>
         </div>
@@ -107,7 +118,9 @@ const Index = data => {
       <hr></hr>
       <section className="container" id="contact">
         <div className="central-container">
-          <h1 className="central-banner-title">Get in touch</h1>
+          <h1 className="central-banner-title">
+            {get_in_touch_header && get_in_touch_header}
+          </h1>
           <p className="central-banner-desc">{get_in_touch && get_in_touch}</p>
           <hr></hr>
 

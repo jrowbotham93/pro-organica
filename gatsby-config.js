@@ -6,7 +6,7 @@ const siteTitle = `ProOrganica`;
 module.exports = {
   siteMetadata: {
     title: `ProOrganica`,
-    titleTemplate: "%s · ProOrganica - Premium Organics from Ukraine",
+    titleTemplate: "%s · ProOrganica · UK | Ukraine",
     description: `Read about ProOrganica, who we are, what we are aiming to achieve and the products and services we offer. `,
     author: `James Rowbotham`,
     image: `src/images/proorganica.png`,

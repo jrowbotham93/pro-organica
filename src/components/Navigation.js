@@ -78,9 +78,12 @@ const Hamburger = styled.div`
   }
 `;
 
-const Navigation = ({ data, navClass, setBackgroundOpacity }) => {
+const Navigation = ({ data, navClass, setBackgroundOpacity, location }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const pages = data.allCosmicjsPages.edges;
+  const locale = location === "" ? "en-GB" : "uk-UA";
+  const pages = data.allCosmicjsPages.edges.filter(({ node }) =>
+    node.locale.includes(locale)
+  );
 
   return (
     <Nav>
@@ -124,12 +127,13 @@ const DefaultNavigationQuery = props => (
   <StaticQuery
     query={graphql`
       {
-        allCosmicjsPages(filter: { locale: { eq: "en-GB" } }) {
+        allCosmicjsPages {
           edges {
             node {
               slug
               locale
               title
+              locale
             }
           }
         }

@@ -59,6 +59,12 @@ exports.createPages = async ({ actions, graphql }) => {
               }
               home_banner_description
               contact_us
+              contact_button
+              read_more_button
+              what_do_we_do_header
+              who_are_we_header
+              get_in_touch_header
+              product_header
               get_in_touch
               contact_details {
                 contact {

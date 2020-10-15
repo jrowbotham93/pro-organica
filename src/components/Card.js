@@ -2,15 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { ImageCard } from ".";
+// import moment from "moment";
 
-const Card = pages => {
-  const {
-    data: { metadata, title, slug },
-  } = pages;
-  const url = `/${slug}/`;
+const Card = ({ data, buttonText }) => {
+  const { metadata, title, slug, locale } = data;
 
   return (
-    <Link to={url} className="post-card">
+    <Link to={`/${locale}/${slug}`.replace("/en-GB", "")} className="post-card">
       <header className="post-card-header">
         {metadata.main_image && (
           <ImageCard
@@ -26,7 +24,7 @@ const Card = pages => {
       </section>
       <footer className="post-card-footer">
         <div className="post-card-footer-left">
-          <button className="card-button">Read more</button>
+          <button className="card-button">{buttonText && buttonText}</button>
         </div>
         <div className="post-card-footer-right">
           {/* last updated: {moment(created).fromNow()} */}

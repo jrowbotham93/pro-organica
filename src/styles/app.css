@@ -483,7 +483,7 @@ blockquote cite a {
 a {
   color: var(--color-pgr);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 h1,
@@ -876,6 +876,7 @@ h6 {
   opacity: 0.7;
   font-size: 3.5rem;
   line-height: 1.3em;
+  text-align: center;
 }
 @media (max-width: 768px) {
   .central-banner-title {

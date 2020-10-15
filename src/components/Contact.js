@@ -11,7 +11,6 @@ const Contact = ({ data }) => {
       <section className="contact-card-excerpt">
         <div className="contact-card-address">
           <span className="highlight-text">{address.building}</span>
-          {/* {address.address && <span>{address.address}</span>} */}
           <span>{address.street}</span>
           <span>{address.postcode}</span>
           <span>{address.city} </span>
