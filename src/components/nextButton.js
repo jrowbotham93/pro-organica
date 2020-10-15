@@ -42,7 +42,7 @@ const NextButton = ({ locale, title }) => {
   return (
     <Link
       className="highlight-content"
-      to={`/${locale}/${displaySlug}`.replace("en-GB")}
+      to={`/${locale}/${displaySlug}`.replace("en-GB/", "")}
     >
       {displayTitle} <FontAwesomeIcon icon={faArrowRight} />{" "}
     </Link>
