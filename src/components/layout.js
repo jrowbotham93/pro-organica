@@ -39,7 +39,7 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
                     setBackgroundOpacity={() => setOverlay(!overlay)}
                     overlay={overlay}
                     navClass={"site-nav-item"}
-                    location={location}
+                    location={locale}
                   />
                   <Image fluid loading="eager" />
                 </div>
