@@ -5,14 +5,14 @@ import { window } from "browser-monads";
 
 const NavItem = styled(Link)`
   text-decoration: none;
-  color: white;
+  color: black;
   display: inline-block;
   white-space: nowrap;
   margin: 0 1vw;
   transition: all 200ms ease-in;
   position: relative;
   font-weight: 600;
-  font-size: 2.7rem;
+  font-size: 3.7rem;
   padding-top: 20px;
 
   :after {
@@ -29,7 +29,7 @@ const NavItem = styled(Link)`
   }
 
   :hover {
-    color: white;
+    color: grey;
     ::after {
       width: 100%;
       cursor: pointer;
@@ -37,7 +37,7 @@ const NavItem = styled(Link)`
   }
 
   @media (max-width: 1300px) {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     z-index: 6;
   }
 `;

@@ -21,7 +21,6 @@ const Toggle = styled.div`
   display: none;
   height: 100%;
   cursor: pointer;
-
   display: flex;
 `;
 
@@ -33,7 +32,7 @@ const Navbox = styled.div`
   position: fixed;
   width: 100%;
   justify-content: flex-start;
-  background-color: #3b6456;
+  background-color: #ffffff;
   transition: all 0.3s ease-in;
   top: 0;
   left: ${props => (props.open ? "-100%" : "0")};
@@ -43,7 +42,7 @@ const Navbox = styled.div`
 `;
 
 const Hamburger = styled.div`
-  background-color: white;
+  background-color: ${props => (props.open ? "black" : "white")};
   width: 30px;
   height: 3px;
   transition: all 0.3s linear;
@@ -56,7 +55,7 @@ const Hamburger = styled.div`
   ::after {
     width: 30px;
     height: 3px;
-    background-color: white;
+    background-color: ${props => (props.open ? "black" : "white")};
     content: "";
     position: absolute;
     transition: all 0.3s linear;

@@ -1,31 +1,20 @@
-import PropTypes from "prop-types";
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      marginTop: `3vw`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        textAlign: `center`,
-      }}
-    >
-      <h1 className="central-banner-title-white" style={{ margin: 0 }}>
-        {siteTitle}
-      </h1>
-    </div>
-  </header>
-);
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
+const Header = () => {
+  const data = useStaticQuery(graphql`
+    query getWhiteLogoForHeader {
+      file(relativePath: { regex: "/proorganica-logo-white.png/" }) {
+        childImageSharp {
+          fluid(maxWidth: 700) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+  return <Img fluid={data.file.childImageSharp.fluid} />;
 };
 
 export default Header;

@@ -1,15 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 const Contact = ({ data }) => {
   const { address, contacts } = data;
   return (
     <div className="contact-card">
-      <header className="contact-card-header">
-        <h1 className="contact-card-title">{data.name}</h1>
-      </header>
-
       <section className="contact-card-excerpt">
         <div className="contact-card-address">
+          <h1 className="contact-card-title">{data.name}</h1>
           <span className="highlight-text">{address.building}</span>
           <span>{address.street}</span>
           <span>{address.postcode}</span>
@@ -19,15 +16,17 @@ const Contact = ({ data }) => {
 
         <div className="contact-card-contacts">
           {contacts.map((contact, key) => (
-            <div className="contact-card-contacts-item" key={key}>
-              <span className="highlight-content">{contact.name}</span>
-              <span> {contact.position} </span>
-              <a href={`mailto:${contact.email}`} rel="noreferrer">
-                {" "}
-                {contact.email}{" "}
-              </a>
-              <span>{contact.telephone}</span>
-            </div>
+            <Fragment key={key}>
+              <div className="contact-card-contacts-item" key={key}>
+                <span className="highlight-content">{contact.name}</span>
+                <span> {contact.position} </span>
+                <a href={`mailto:${contact.email}`} rel="noreferrer">
+                  {" "}
+                  {contact.email}{" "}
+                </a>
+                <span>{contact.telephone}</span>
+              </div>
+            </Fragment>
           ))}
         </div>
       </section>
