@@ -12,8 +12,8 @@ const LogoWrap = styled.div`
 
 const Image = () => {
   const data = useStaticQuery(graphql`
-    query MyQuery {
-      file(relativePath: { regex: "/proorganica-white/" }) {
+    query getWhiteLogoForFooter {
+      file(relativePath: { regex: "/proorganica-logo-white/" }) {
         childImageSharp {
           fluid(maxWidth: 150, maxHeight: 60) {
             presentationWidth

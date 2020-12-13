@@ -8,13 +8,13 @@ import BackgroundImage from "gatsby-background-image";
 const Hero = ({ home, children, opacity }) => {
   const { allFile } = useStaticQuery(graphql`
     query {
-      allFile(filter: { relativePath: { eq: "proorganica-hero.jpg" } }) {
+      allFile(filter: { relativePath: { eq: "proorganica-home-hero.jpg" } }) {
         edges {
           node {
             relativePath
             name
             childImageSharp {
-              fluid(maxWidth: 1000) {
+              fluid(maxWidth: 2000) {
                 ...GatsbyImageSharpFluid
               }
             }
