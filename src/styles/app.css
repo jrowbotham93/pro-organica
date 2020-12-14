@@ -760,6 +760,7 @@ h6 {
 .site-nav-item:hover {
   text-decoration: none;
   opacity: 1;
+  text-decoration: underline white solid 2px;
 }
 
 .site-nav-icon {

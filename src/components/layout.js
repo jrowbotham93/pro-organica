@@ -9,17 +9,14 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
   const [overlay, setOverlay] = useState(false);
   const { pathname } = useLocation();
   const currentPage = pathname.split("/");
-  const location = currentPage[1];
   const locale = currentPage.some(i => i === "uk-UA");
   const currentLocale = locale ? "uk-UA" : "en-GB";
 
   const localize = obj => {
     return obj.edges.filter(i => i.node.locale.includes(currentLocale));
   };
-
   const { home, allPages } = data;
   const pages = localize(allPages);
-  const [node] = localize(home);
 
   return (
     <>
@@ -41,24 +38,7 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
                     navClass={"site-nav-item"}
                     location={locale}
                   />
-                  <Image fluid loading="eager" />
-                </div>
-                {isHome ? (
-                  <div className="site-banner">
-                    <Header siteTitle="PROactive PROfessional PROgressive"></Header>
-
-                    <Link
-                      className="site-nav-button"
-                      to={`${location}/#contact`.replace("uk-UA/", "")}
-                    >
-                      {node.node.metadata && node.node.metadata.contact_button}{" "}
-                    </Link>
-                  </div>
-                ) : null}
-
-                <nav className="site-nav">
-                  <div className="site-nav-left"></div>
-                  <div className="site-nav-right">
+                  <div>
                     <Link
                       className="site-nav-item"
                       to={
@@ -81,6 +61,16 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
                       English
                     </Link>{" "}
                   </div>
+                </div>
+                {isHome ? (
+                  <div className="site-banner">
+                    <Header></Header>
+                  </div>
+                ) : null}
+
+                <nav className="site-nav">
+                  <div className="site-nav-left"></div>
+                  <div className="site-nav-right"></div>
                 </nav>
               </div>{" "}
             </Hero>
@@ -100,10 +90,6 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
               <div className="site-foot-grid">
                 <div className="site-foot-logo site-col">
                   <Image fluid />
-                  <Link className="footer-values" to="/our-values">
-                    {" "}
-                    <span>Proactive | Professional | Progressive </span>
-                  </Link>
                 </div>
                 <div className="site-foot-about site-col">
                   {" "}
@@ -113,24 +99,6 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
                       <Link to={`/${i.node.slug}`}>{i.node.title}</Link>
                     </span>
                   ))}
-                </div>
-
-                <div className="site-foot-site site-col">
-                  <strong className="highlight-content">Site</strong>
-                  <a
-                    href="https://proorganica.com/sitemap.xml"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Sitemap
-                  </a>
-                  <a
-                    href="https://github.com/jrowbotham93/pro-organica"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Github
-                  </a>
                 </div>
 
                 <div className="site-foot-quick-links site-col">

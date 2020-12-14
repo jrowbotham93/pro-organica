@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 import Img from "gatsby-image";
 
-const ImageCard = ({ filename, alt }) => {
+const ImageCard = ({ filename, alt, renderLargeImage }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -30,9 +30,11 @@ const ImageCard = ({ filename, alt }) => {
         if (!image) {
           return null;
         }
+
+        const imageSize = renderLargeImage ? "img-large" : "img-general";
         return (
           <Img
-            className="img-general"
+            className={imageSize}
             alt={alt}
             fluid={image.node.local.childImageSharp.fluid}
             fadeIn={true}

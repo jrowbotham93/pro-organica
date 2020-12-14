@@ -11,11 +11,9 @@ const Index = data => {
       certification_uk,
       certification_cor,
       certification_header,
-      who_are_we,
       products,
       products_table,
       what_do_we_do_header,
-      who_are_we_header,
       product_header,
       get_in_touch_header,
       contact_details,
@@ -80,21 +78,6 @@ const Index = data => {
               className="content-body load-external-scripts"
               dangerouslySetInnerHTML={{ __html: products_table }}
             />
-          </div>
-        </div>
-      </section>
-      <hr></hr>
-      <section className="container ">
-        <div className="central-container">
-          <h1 className="central-banner-title">
-            {who_are_we_header && who_are_we_header}
-          </h1>
-          <p className="central-banner-desc">{who_are_we && who_are_we}</p>
-
-          <div className="post-feed">
-            {card(about).map((i, index) => (
-              <Card key={index} data={i} buttonText={read_more_button} />
-            ))}
           </div>
         </div>
       </section>
