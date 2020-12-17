@@ -9,7 +9,6 @@ const Address = ({
   city,
   country,
 }) => {
-  console.log(name);
   return (
     <figure className="flex-grow-one spacing-v-sm">
       <ul className="text-small">

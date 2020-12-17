@@ -10,7 +10,6 @@ const Page = data => {
     <>
       <Layout>
         <SEO title={title} description={metadata.excerpt && metadata.excerpt} />
-
         <Section>
           <article className="spacing-v-lg">
             <h1 className="page-title">{title && title}</h1>

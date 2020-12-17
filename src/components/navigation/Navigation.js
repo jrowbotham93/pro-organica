@@ -10,7 +10,6 @@ const Nav = styled.nav`
   position: relative;
   z-index: 10;
   align-self: center;
-  height: 8vh;
   top: 0;
   left: 0;
   right: 0;

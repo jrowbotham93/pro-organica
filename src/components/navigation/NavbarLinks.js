@@ -11,8 +11,6 @@ const NavItem = styled(Link)`
   margin: 0 1vw;
   transition: all 200ms ease-in;
   position: relative;
-  font-weight: 600;
-  font-size: 3.7rem;
   padding-top: 20px;
 
   :after {
