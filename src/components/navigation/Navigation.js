@@ -57,7 +57,7 @@ const Hamburger = styled.div`
     background-color: #ffffff;
     content: "";
     position: absolute;
-    transition: all 0.3s linear;
+    transition: all 0.1s linear;
     z-index: 1;
   }
 

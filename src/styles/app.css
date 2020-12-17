@@ -446,7 +446,7 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  opacity: var(--lighten-text);
+  opacity: 0.8;
   line-height: 1.15;
   font-weight: 700;
   text-rendering: optimizeLegibility;
@@ -541,7 +541,7 @@ h6 {
   margin: 0 auto;
 }
 .max-width {
-  max-width: 1120px;
+  max-width: 1500px;
 }
 .max-width-70 {
   max-width: 70%;
