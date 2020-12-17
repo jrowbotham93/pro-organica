@@ -80,7 +80,7 @@ const Index = data => {
             .filter(i => i.title !== "Home")
             .map(({ title, locale, slug, metadata }, index) => (
               <Card
-                key={index}
+                key={`${index}-${title}`}
                 title={title}
                 styling="text-align-center"
                 button
@@ -130,7 +130,7 @@ const Index = data => {
                   href="#contact"
                   button={action}
                   label={description}
-                  key={index}
+                  key={`${index}-${name}`}
                   description={action ? "" : description}
                   title={name}
                 >
@@ -171,7 +171,7 @@ const Index = data => {
                 index
               ) => (
                 <Address
-                  key={index}
+                  key={`${index}-${name}`}
                   building={building}
                   street={street}
                   name={name}
@@ -189,7 +189,7 @@ const Index = data => {
             findImageOwner(contactsList, contact_list).map(
               ({ card, name, image, position, email, telephone }, index) => {
                 return card ? (
-                  <Card key={index}>
+                  <Card key={`${index}-${name}`}>
                     <Image
                       label={`Image of ${name}, ${position} at ProOrganica`}
                       image={image.imgix_url}
@@ -202,7 +202,7 @@ const Index = data => {
                     />
                   </Card>
                 ) : (
-                  <Card key={index}>
+                  <Card key={`${index}-${name}`}>
                     <Contact
                       name={name}
                       position={position}

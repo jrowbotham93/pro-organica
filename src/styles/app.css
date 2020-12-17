@@ -290,15 +290,11 @@ p{
 
 html {
   overflow-x: hidden;
-  overflow-y: scroll;
   font-size: 62.5%;
-  background: var(--color-light-green);
   -webkit-tap-highlight-color: var(--color-black);
 }
 
 body {
-  overflow-x: hidden;
-  color: #3c484e;
   font-family: var(--font-sans-serif);
   font-size: 16px;
   line-height: 1.6em;
@@ -607,8 +603,12 @@ h6 {
 .site-banner>* {
   flex-grow: 1;
 }
-.footer, .header{
-  border: 3px var(--color-light-grey) solid;
+.footer {
+  border-top: 3px var(--color-light-grey) solid;
+  background: var(--color-light-green);
+}
+.header{
+  border-bottom: 3px var(--color-light-grey) solid;
   background: var(--color-light-green);
 }
 .header a{
@@ -617,7 +617,7 @@ h6 {
   padding: 5px 10px;
 }
 .footer a, .header a{
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .header a:hover{
   text-decoration: underline white solid 2px;
@@ -627,8 +627,11 @@ h6 {
   text-decoration: underline white solid 2px;
   opacity: 1;
 }
-.footer-bottom, .footer-rights-reserved {
-  color: var(--color-white)
+.footer-rights-reserved {
+  color: var(--color-white);
+  font-size: var(--font-x-small);
+  font-weight: var(--font-light);
+
 }
 .button-primary{
   outline: none;
