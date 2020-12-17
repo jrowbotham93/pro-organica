@@ -147,7 +147,7 @@ const Index = data => {
         description={certification}
         title={certification_header}
       >
-        <Grid className="grid-primary ">
+        <Grid id="certification" className="grid-primary ">
           {allCertification &&
             allCertification.edges.map(({ node }, index) => (
               <Card action target="_blank" rel="noreferrer" key={index}>
