@@ -1,41 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import { SEO, Layout, ImageCard, NextButton } from "../components";
+import { SEO, Layout, Image, Section } from "../components";
 
 const Page = data => {
-  const { content, title, metadata, locale } =
+  const { content, title, metadata } =
     data.pageContext && data.pageContext.page;
 
   return (
     <>
       <Layout>
         <SEO title={title} description={metadata.excerpt && metadata.excerpt} />
-        <div className="container">
-          <article className="content">
-            <h1 className="content-title lighten">{title && title}</h1>
+
+        <Section>
+          <article className="spacing-v-lg">
+            <h1 className="page-title">{title && title}</h1>
             <blockquote>{metadata.excerpt && metadata.excerpt}</blockquote>
             {metadata.main_image && (
-              <figure className="post-feature-image padding-horizontal-2">
-                <ImageCard
-                  className="post-card-image"
-                  alt={title}
-                  filename={metadata && metadata.main_image.url}
-                ></ImageCard>
+              <figure className="page-feature-image spacing-v-md">
+                <Image
+                  type="fluid"
+                  label={title}
+                  image={metadata.main_image.local.childImageSharp.fluid}
+                />
               </figure>
             )}
-            <section className="post-full-content">
-              {/* The main page content  */}
+            <section className="page-full-content">
               <section
-                className="content-body load-external-scripts"
+                className="oad-external-scripts"
                 dangerouslySetInnerHTML={{ __html: content }}
               />
-            </section>{" "}
-            <div className="content-footer">
-              <NextButton title={title && title} locale={locale} />
-            </div>{" "}
+            </section>
           </article>
-        </div>
+        </Section>
       </Layout>
     </>
   );

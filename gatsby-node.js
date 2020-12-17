@@ -31,11 +31,42 @@ exports.createPages = async ({ actions, graphql }) => {
               imgix_url
             }
             metadata {
-              who_are_we
               products
               products_table
               excerpt
               certification
+              products_list {
+                cereal_grains {
+                  url
+                  imgix_url
+                }
+                grow_to_order {
+                  url
+                  imgix_url
+                }
+                nuts {
+                  url
+                  imgix_url
+                }
+                pulses {
+                  url
+                  imgix_url
+                }
+                seed_oils {
+                  url
+                  imgix_url
+                }
+                seeds {
+                  url
+                  imgix_url
+                }
+                product_list_details {
+                  description
+                  id
+                  name
+                  action
+                }
+              }
               certification_header
               certification_eu {
                 url
@@ -50,8 +81,24 @@ exports.createPages = async ({ actions, graphql }) => {
                 url
               }
               main_image {
-                url
-                imgix_url
+                local {
+                  childImageSharp {
+                    fluid {
+                      src
+                      tracedSVG
+                      srcWebp
+                      srcSetWebp
+                      srcSet
+                      sizes
+                      presentationWidth
+                      presentationHeight
+                      originalName
+                      originalImg
+                      base64
+                      aspectRatio
+                    }
+                  }
+                }
               }
               home_banner_image {
                 url
@@ -62,10 +109,39 @@ exports.createPages = async ({ actions, graphql }) => {
               contact_button
               read_more_button
               what_do_we_do_header
-              who_are_we_header
               get_in_touch_header
               product_header
               get_in_touch
+              view_full_product_list
+              contact_list {
+                contact_list_details {
+                  id
+                  telephone
+                  position
+                  name
+                  email
+                  country
+                  card
+                }
+                address_list {
+                  building
+                  address
+                  street
+                  postcode
+                  city
+                  country
+                  name
+                  telephone
+                }
+                graham_bonfield {
+                  url
+                  imgix_url
+                }
+                luba_michailova {
+                  url
+                  imgix_url
+                }
+              }
               contact_details {
                 contact {
                   address {
@@ -75,12 +151,6 @@ exports.createPages = async ({ actions, graphql }) => {
                     country
                     postcode
                     street
-                  }
-                  contacts {
-                    email
-                    name
-                    position
-                    telephone
                   }
                   country
                   email
