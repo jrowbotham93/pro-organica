@@ -162,7 +162,11 @@ const Index = data => {
       </Section>
       <hr />
 
-      <Section description={get_in_touch} title={get_in_touch_header}>
+      <Section
+        id="contact"
+        description={get_in_touch}
+        title={get_in_touch_header}
+      >
         <Grid className="grid-secondary spacing-v-lg">
           {addressList &&
             addressList.map(
