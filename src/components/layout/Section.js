@@ -1,14 +1,14 @@
 import React from "react";
 
-const Section = ({ id, title, description, children }) => {
+const Section = ({ id, title, spacing = "v-lg", description, children }) => {
   return (
     <section
       id={id}
-      className=" block-center spacing-general max-width page spacing-v-lf"
+      className={`block-center spacing-general max-width spacing-${spacing}`}
     >
       {title && <h1 className="flex flex-center-horizontal">{title}</h1>}
       {description && (
-        <p className=" flex flex-center-horizontal text-align-center">
+        <p className="flex flex-center-horizontal text-align-center spacing-v-sm">
           {description}
         </p>
       )}

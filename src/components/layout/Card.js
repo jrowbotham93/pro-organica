@@ -15,10 +15,10 @@ const Card = ({
       <section>{children}</section>
       {title && (
         <div className="flex spacing-sm flex-column flex-center-vertical">
-          <h2 className="card-title flex-grow-one">{title}</h2>
+          <h2 className="card-title">{title}</h2>
           {button && (
             <Links
-              styling="button-primary flex flex-center-vertical flex-grow-one"
+              styling="button-primary flex flex-center-vertical"
               alt={label}
               label={label}
               href={href}

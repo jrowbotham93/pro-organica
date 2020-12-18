@@ -71,14 +71,8 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
       </header>
       <main>{children}</main>
       <Footer>
-        <Section>
-          <Grid className="grid-primary">
-            <div className="max-width-70">
-              <Image type="fluid" image={fluid} alt="white proorganica logo" />
-              <small className="footer-rights-reserved">
-                <span> © {new Date().getFullYear()} All rights reserved.</span>
-              </small>
-            </div>
+        <Section spacing="v-md">
+          <Grid className="grid-secondary">
             <div className="flex flex-column">
               {" "}
               <strong className="text-emphasis">Site</strong>
@@ -96,6 +90,15 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
               <Link to={`/#contact`}>Contact </Link>
             </div>
           </Grid>
+          <div className="flex footer-rights-reserved-container">
+            {" "}
+            <small className="footer-rights-reserved spacing">
+              <span>
+                {" "}
+                ProOrganica © {new Date().getFullYear()} All rights reserved.
+              </span>
+            </small>
+          </div>
         </Section>
       </Footer>
     </>

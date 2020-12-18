@@ -7,7 +7,7 @@ const Header = () => {
     query getWhiteLogoForHeader {
       file(relativePath: { regex: "/proorganica-logo-white-green.png/" }) {
         childImageSharp {
-          fluid(maxWidth: 700) {
+          fluid(maxWidth: 1500) {
             ...GatsbyImageSharpFluid
           }
         }

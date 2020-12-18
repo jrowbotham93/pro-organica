@@ -163,28 +163,29 @@ const Index = data => {
       <hr />
 
       <Section description={get_in_touch} title={get_in_touch_header}>
-        <div id="contact" className="flex flex-wrap spacing-v-lg">
+        <Grid className="grid-secondary spacing-v-lg">
           {addressList &&
             addressList.map(
               (
                 { address, country, city, name, building, postcode, street },
                 index
               ) => (
-                <Address
-                  key={`${index}-${name}`}
-                  building={building}
-                  street={street}
-                  name={name}
-                  postcode={postcode}
-                  city={city}
-                  country={country}
-                  address={address}
-                />
+                <Card key={`${index}-${name}`}>
+                  <Address
+                    building={building}
+                    street={street}
+                    name={name}
+                    postcode={postcode}
+                    city={city}
+                    country={country}
+                    address={address}
+                  />
+                </Card>
               )
             )}
-        </div>
+        </Grid>
 
-        <Grid className="grid-secondary">
+        <Grid className="grid-secondary ">
           {contact_list &&
             findImageOwner(contactsList, contact_list).map(
               ({ card, name, image, position, email, telephone }, index) => {

@@ -10,9 +10,9 @@ const Address = ({
   country,
 }) => {
   return (
-    <figure className="flex-grow-one spacing-v-sm">
-      <ul className="text-small">
-        <h2 className="spacing-v-sm">{name}</h2>
+    <figure>
+      <ul>
+        <h2>{name}</h2>
         <li>{address}</li>
         <li>{building}</li>
         <li>{street}</li>
