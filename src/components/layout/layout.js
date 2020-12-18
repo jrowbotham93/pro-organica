@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { Link, StaticQuery, graphql } from "gatsby";
-import { Navigation, Hero, Image, Section, Header, Grid, Footer } from "..";
+import { Navigation, Hero, Section, Header, Grid, Footer } from "..";
 
 import "../../styles/app.css";
 
@@ -12,8 +12,6 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
   const currentPage = pathname.split("/");
   const locale = currentPage.some(i => i === "uk-UA");
   const currentLocale = locale ? "uk-UA" : "en-GB";
-
-  const { fluid } = data.whiteProOrganicaLogo.childImageSharp;
 
   const localize = obj => {
     return obj.edges.filter(i => i.node.locale.includes(currentLocale));
