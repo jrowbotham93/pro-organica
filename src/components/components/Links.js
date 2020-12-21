@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "gatsby";
 
-const Links = ({ styling, internal, href, label, target }) => {
+const Links = ({
+  styling,
+  internal,
+  href,
+  label,
+  target,
+  children,
+  ...rest
+}) => {
   return (
     <>
       {internal ? (
@@ -9,8 +17,14 @@ const Links = ({ styling, internal, href, label, target }) => {
           {label}
         </Link>
       ) : (
-        <a className={styling} target={target} alt={label} href={href}>
-          {label}
+        <a
+          className={styling}
+          target={target}
+          alt={label}
+          href={href}
+          {...rest}
+        >
+          {children}
         </a>
       )}
     </>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";
 import {
   Layout,
@@ -11,6 +10,7 @@ import {
   Contact,
   Card,
   Address,
+  Links,
 } from "../components";
 
 const Index = data => {
@@ -31,30 +31,29 @@ const Index = data => {
       products_list,
       get_in_touch,
       view_full_product_list,
+      certification_list,
     },
   } = index.filter(i => i.slug.toLowerCase() === "home")[0];
-
-  const { allCertification } = useStaticQuery(graphql`
-    query getAllProductImages {
-      allCertification: allFile(
-        filter: { relativePath: { regex: "/certification/" } }
-      ) {
-        edges {
-          node {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
 
   const productList = products_list?.product_list_details;
   const contactsList = contact_list?.contact_list_details;
   const addressList = contact_list?.address_list;
+
+  //  annoying that I have to do this but cosmos cms has its limitations
+  const certsArray = [
+    {
+      pdf: certification_list.certificate_uk,
+      img: certification_list.certificate_uk_image,
+    },
+    {
+      pdf: certification_list.certificate_cors,
+      img: certification_list.certificate_cors_image,
+    },
+    {
+      pdf: certification_list.certificate_eu,
+      img: certification_list.certificate_eu_image,
+    },
+  ];
 
   const findImageOwner = (arr1, arr2) => {
     return arr1.map(item => {
@@ -147,21 +146,23 @@ const Index = data => {
         description={certification}
         title={certification_header}
       >
-        <Grid id="certification" className="grid-primary ">
-          {allCertification &&
-            allCertification.edges.map(({ node }, index) => (
-              <Card action target="_blank" rel="noreferrer" key={index}>
-                <Image
-                  type="fluid"
-                  image={node.childImageSharp.fluid}
-                  label="Certification"
-                ></Image>
+        <Grid id="certification" className="grid-primary">
+          {certsArray.map((certs, index) => {
+            return (
+              <Card key={index}>
+                <Links
+                  alt={`ProOrganica certifications`}
+                  href={certs.pdf.imgix_url}
+                  tabIndex="-1"
+                >
+                  <Image image={certs.img.imgix_url} />
+                </Links>
               </Card>
-            ))}
+            );
+          })}
         </Grid>
       </Section>
       <hr />
-
       <Section
         id="contact"
         description={get_in_touch}

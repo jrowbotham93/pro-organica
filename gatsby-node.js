@@ -113,6 +113,32 @@ exports.createPages = async ({ actions, graphql }) => {
               product_header
               get_in_touch
               view_full_product_list
+              certification_list {
+                certificate_cors {
+                  imgix_url
+                  url
+                }
+                certificate_eu {
+                  imgix_url
+                  url
+                }
+                certificate_uk {
+                  imgix_url
+                  url
+                }
+                certificate_cors_image {
+                  url
+                  imgix_url
+                }
+                certificate_eu_image {
+                  url
+                  imgix_url
+                }
+                certificate_uk_image {
+                  imgix_url
+                  url
+                }
+              }
               contact_list {
                 contact_list_details {
                   id
