@@ -153,7 +153,7 @@ const Index = data => {
                 <Links
                   alt={`ProOrganica certifications`}
                   href={certs.pdf.imgix_url}
-                  tabIndex="-1"
+                  target="_blank"
                 >
                   <Image image={certs.img.imgix_url} />
                 </Links>
