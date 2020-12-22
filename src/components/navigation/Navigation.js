@@ -14,6 +14,7 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   left: 0;
+  height: 25px;
 `;
 
 const Toggle = styled.div`
