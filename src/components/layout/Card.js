@@ -14,11 +14,11 @@ const Card = ({
     <div className="card">
       <section>{children}</section>
       {title && (
-        <div className="flex spacing-sm flex-column flex-center-vertical">
-          <h2 className="card-title">{title}</h2>
+        <div className="spacing-sm flex spacing-v-sm flex-column flex-center-vertical">
+          <h2 className="card-title spacing-v-sm">{title}</h2>
           {button && (
             <Links
-              styling="button-primary flex flex-center-vertical"
+              styling="spacing-v-sm button-primary flex flex-center-vertical"
               alt={label}
               label={label}
               href={href}
@@ -26,7 +26,9 @@ const Card = ({
               internal
             />
           )}
-          {description && <p className="card-description">{description}</p>}
+          {description && (
+            <p className="spacing-sm card-description">{description}</p>
+          )}
         </div>
       )}
     </div>
