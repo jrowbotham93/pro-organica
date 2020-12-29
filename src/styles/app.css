@@ -7,7 +7,7 @@
   /* Base Colours */
   --color-white: #ffffff;
   --color-off-white: #fafafa;
-  --color-light-grey: #f5f5f5;
+  --color-light-grey: #dad8d8;
   --color-med-grey: #c9c9c9;
 
   /* Branding Colours */
@@ -782,7 +782,7 @@ h6 {
 }
 .card{
   border-radius: 0.25em;
-  border: 2px var(--color-light-grey) solid;
+  border: 1px var(--color-light-grey) solid;
 }
 .card-title{
   padding:0;
