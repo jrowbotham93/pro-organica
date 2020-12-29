@@ -14,7 +14,7 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   left: 0;
-  height: 25px;
+  height: 50px;
 `;
 
 const Toggle = styled.div`
@@ -22,6 +22,11 @@ const Toggle = styled.div`
   height: 100%;
   cursor: pointer;
   display: flex;
+  width: 50px;
+  height: 50px;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 const Navbox = styled.div`
@@ -85,14 +90,13 @@ const Navigation = ({ data, navClass, setBackgroundOpacity, location }) => {
   );
 
   return (
-    <Nav>
-      <Toggle
-        navbarOpen={navbarOpen}
-        onClick={() => {
-          setNavbarOpen(!navbarOpen);
-          setBackgroundOpacity();
-        }}
-      >
+    <Nav
+      onClick={() => {
+        setNavbarOpen(!navbarOpen);
+        setBackgroundOpacity();
+      }}
+    >
+      <Toggle navbarOpen={navbarOpen}>
         {navbarOpen ? <Hamburger open /> : <Hamburger />}
       </Toggle>
       {navbarOpen ? (

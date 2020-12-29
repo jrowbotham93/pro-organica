@@ -783,7 +783,6 @@ h6 {
 .card{
   border-radius: 0.25em;
   border: 2px var(--color-light-grey) solid;
-  overflow: scroll;
 }
 .card-title{
   padding:0;
