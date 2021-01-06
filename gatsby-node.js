@@ -176,6 +176,7 @@ exports.createPages = async ({ actions, graphql }) => {
                   url
                   imgix_url
                 }
+              }
               
               contact_details {
                 contact {
