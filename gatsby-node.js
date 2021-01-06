@@ -159,15 +159,24 @@ exports.createPages = async ({ actions, graphql }) => {
                   name
                   telephone
                 }
-                graham_bonfield {
-                  url
-                  imgix_url
-                }
+            
                 luba_michailova {
                   url
                   imgix_url
                 }
-              }
+                pavel_gukov {
+                  url
+                  imgix_url
+                }
+                eugene_blokhin {
+                  url
+                  imgix_url
+                }
+                iryna_sholokhova {
+                  url
+                  imgix_url
+                }
+              
               contact_details {
                 contact {
                   address {
