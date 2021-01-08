@@ -163,6 +163,7 @@ const Index = data => {
         </Grid>
       </Section>
       <hr />
+
       <Section
         id="contact"
         description={get_in_touch}

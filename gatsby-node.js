@@ -44,7 +44,7 @@ exports.createPages = async ({ actions, graphql }) => {
                   url
                   imgix_url
                 }
-                nuts {
+                flour {
                   url
                   imgix_url
                 }
@@ -159,7 +159,7 @@ exports.createPages = async ({ actions, graphql }) => {
                   name
                   telephone
                 }
-            
+
                 luba_michailova {
                   url
                   imgix_url
@@ -177,7 +177,7 @@ exports.createPages = async ({ actions, graphql }) => {
                   imgix_url
                 }
               }
-              
+
               contact_details {
                 contact {
                   address {

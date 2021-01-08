@@ -48,7 +48,7 @@ const Navbox = styled.div`
 
 const Hamburger = styled.div`
   background-color: #ffffff;
-  width: 30px;
+  width: 25px;
   height: 3px;
   transition: all 0.3s linear;
   align-self: center;
@@ -58,13 +58,46 @@ const Hamburger = styled.div`
 
   ::before,
   ::after {
-    width: 30px;
+    width: 25px;
     height: 3px;
     background-color: #ffffff;
     content: "";
     position: absolute;
     transition: all 0.1s linear;
     z-index: 1;
+  }
+
+  @media (min-width: 37.5em) {
+    width: 30px;
+    height: 3px;
+
+    ::before,
+    ::after {
+      width: 30px;
+      height: 3px;
+    }
+  }
+
+  @media (min-width: 48em) {
+    width: 35px;
+    height: 4px;
+
+    ::before,
+    ::after {
+      width: 35px;
+      height: 4px;
+    }
+  }
+
+  @media (min-width: 60em) {
+    width: 40px;
+    height: 4px;
+
+    ::before,
+    ::after {
+      width: 40px;
+      height: 4px;
+    }
   }
 
   ::before {

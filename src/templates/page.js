@@ -11,7 +11,7 @@ const Page = data => {
       <Layout>
         <SEO title={title} description={metadata.excerpt && metadata.excerpt} />
         <Section>
-          <article className="spacing-v-lg">
+          <article className="spacing-v-sm">
             <h1 className="page-title">{title && title}</h1>
             <blockquote>{metadata.excerpt && metadata.excerpt}</blockquote>
             {metadata.main_image && (
