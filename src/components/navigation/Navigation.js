@@ -14,7 +14,6 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   left: 0;
-  height: 50px;
 `;
 
 const Toggle = styled.div`
@@ -23,7 +22,7 @@ const Toggle = styled.div`
   cursor: pointer;
   display: flex;
   width: 50px;
-  height: 50px;
+  height: 25px;
   :hover {
     cursor: pointer;
   }
@@ -49,7 +48,7 @@ const Navbox = styled.div`
 const Hamburger = styled.div`
   background-color: #ffffff;
   width: 25px;
-  height: 3px;
+  height: 4px;
   transition: all 0.3s linear;
   align-self: center;
   position: relative;
@@ -59,7 +58,7 @@ const Hamburger = styled.div`
   ::before,
   ::after {
     width: 25px;
-    height: 3px;
+    height: 4px;
     background-color: #ffffff;
     content: "";
     position: absolute;
