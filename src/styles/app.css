@@ -458,6 +458,10 @@ p {
   opacity: var(--lighten-text);
 }
 
+.font-green {
+  color: var(--color-light-green);
+}
+
 h1,
 h2,
 h3,

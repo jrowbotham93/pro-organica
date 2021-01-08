@@ -13,7 +13,7 @@ const Address = ({
   return (
     <figure>
       <ul>
-        <h2>{name}</h2>
+        <h2 className="font-green">{name}</h2>
         <li>{address}</li>
         <li>{building}</li>
         <li>{street}</li>
