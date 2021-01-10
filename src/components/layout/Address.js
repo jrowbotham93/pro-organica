@@ -8,7 +8,6 @@ const Address = ({
   postcode,
   city,
   country,
-  onClick,
 }) => {
   return (
     <figure>

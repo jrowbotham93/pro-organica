@@ -26,6 +26,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Montserrat:400, 400i, 700, 700i`],
+      },
+    },
+
+    {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://proorganica.com/",
