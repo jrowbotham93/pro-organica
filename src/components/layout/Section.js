@@ -6,7 +6,11 @@ const Section = ({ id, title, spacing = "v-lg", description, children }) => {
       id={id}
       className={`block-center spacing-general max-width spacing-${spacing}`}
     >
-      {title && <h1 className="flex flex-center-horizontal">{title}</h1>}
+      {title && (
+        <>
+          <h1 className="flex flex-center-horizontal">{title}</h1> <hr />
+        </>
+      )}
       {description && (
         <p className="flex flex-center-horizontal text-align-center spacing-v-sm">
           {description}

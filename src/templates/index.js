@@ -32,12 +32,16 @@ const Index = data => {
       get_in_touch,
       view_full_product_list,
       certification_list,
+      affiliates_list,
+      affiliates,
+      affiliate_header,
     },
   } = index.filter(i => i.slug.toLowerCase() === "home")[0];
 
   const productList = products_list?.product_list_details;
   const contactsList = contact_list?.contact_list_details;
   const addressList = contact_list?.address_list;
+  const affiliateList = Object.entries(affiliates_list);
 
   //  annoying that I have to do this but cosmos cms has its limitations
   const certsArray = [
@@ -91,6 +95,7 @@ const Index = data => {
                     type="fluid"
                     image={metadata.main_image.local.childImageSharp.fluid}
                     alt="Links to content pages"
+                    styles="border-radius-top"
                   />
                 </Link>
               </Card>
@@ -133,7 +138,11 @@ const Index = data => {
                   description={action ? "" : description}
                   title={name}
                 >
-                  <Image alt="product images" image={image.imgix_url} />
+                  <Image
+                    alt="product images"
+                    styles="border-radius-top"
+                    image={image.imgix_url}
+                  />
                 </Card>
               )
             )}
@@ -157,6 +166,19 @@ const Index = data => {
                 >
                   <Image image={certs.img.imgix_url} />
                 </Links>
+              </Card>
+            );
+          })}
+        </Grid>
+      </Section>
+      <hr />
+
+      <Section title={affiliate_header} description={affiliates}>
+        <Grid className="grid-tertiary spacing-v-lg">
+          {affiliateList.map((affiliate, index) => {
+            return (
+              <Card key={index} className="flex flex-center-vertical">
+                <Image label="affiliate logo" image={affiliate[1].imgix_url} />
               </Card>
             );
           })}
@@ -200,6 +222,7 @@ const Index = data => {
                     <Image
                       label={`Image of ${name}, ${position} at ProOrganica`}
                       image={image.imgix_url}
+                      styles="border-radius-top"
                     />
                     <Contact
                       name={name}

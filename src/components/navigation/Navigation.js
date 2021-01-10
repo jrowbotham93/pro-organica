@@ -47,11 +47,13 @@ const Navbox = styled.div`
 
 const Hamburger = styled.div`
   background-color: #ffffff;
+  opacity: 0.8;
   width: 25px;
   height: 4px;
   transition: all 0.3s linear;
   align-self: center;
   position: relative;
+  border-radius: 20px;
   transform: ${props => (props.open ? "rotate(-45deg)" : "inherit")};
   z-index: 99;
 
@@ -64,6 +66,7 @@ const Hamburger = styled.div`
     position: absolute;
     transition: all 0.1s linear;
     z-index: 1;
+    border-radius: 20px;
   }
 
   @media (min-width: 37.5em) {
@@ -90,12 +93,12 @@ const Hamburger = styled.div`
 
   @media (min-width: 60em) {
     width: 40px;
-    height: 4px;
+    height: 5px;
 
     ::before,
     ::after {
       width: 40px;
-      height: 4px;
+      height: 5px;
     }
   }
 

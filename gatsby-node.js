@@ -35,6 +35,26 @@ exports.createPages = async ({ actions, graphql }) => {
               products_table
               excerpt
               certification
+              affiliate_header
+              affiliates
+              affiliates_list {
+                logo_organic_eu {
+                  url
+                  imgix_url
+                }
+                logo_organic_ukraine {
+                  url
+                  imgix_url
+                }
+                logo_organic_food_federation {
+                  url
+                  imgix_url
+                }
+                logo_organic_standard {
+                  url
+                  imgix_url
+                }
+              }
               products_list {
                 cereal_grains {
                   url
