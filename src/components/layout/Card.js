@@ -13,7 +13,7 @@ const Card = ({
   children,
 }) => {
   return (
-    <div className={`card ${className}`} onClick={onClick}>
+    <div className={`card ${className || ""}`} onClick={onClick}>
       <section>{children}</section>
       {title && (
         <div className="spacing-sm flex spacing-v-sm flex-column flex-center-vertical">

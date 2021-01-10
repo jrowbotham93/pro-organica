@@ -17,7 +17,9 @@ const Contact = ({ name, position, email, telephone, styles }) => {
             </a>
           </li>
           <li>
-            <a href={`tel:+${telephone}`}>{telephone}</a>
+            <a className="dark-darken" href={`tel:+${telephone}`}>
+              {telephone}
+            </a>
           </li>
         </ul>
       </div>

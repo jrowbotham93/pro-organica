@@ -7,7 +7,7 @@ const Image = ({ image, type, label = "Proorganica image", styles = "" }) => {
       {type === "fluid" ? (
         <Img alt={label} fluid={image} className={styles} />
       ) : type === "fixed" ? (
-        <Img alt={label} fluid={image} className={styles} />
+        <Img alt={label} fixed={image} className={styles} />
       ) : (
         <img alt={label} src={image} className={styles} />
       )}

@@ -1,10 +1,17 @@
 import React from "react";
 
-const Section = ({ id, title, spacing = "v-lg", description, children }) => {
+const Section = ({
+  id,
+  title,
+  className = "",
+  spacing = "v-lg",
+  description,
+  children,
+}) => {
   return (
     <section
       id={id}
-      className={`block-center spacing-general max-width spacing-${spacing}`}
+      className={`block-center flex flex-column spacing-general max-width spacing-${spacing} ${className}`}
     >
       {title && (
         <>

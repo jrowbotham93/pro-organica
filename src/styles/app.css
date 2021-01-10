@@ -825,6 +825,9 @@ h6 {
 .darken {
   color: var(--color-light-green);
 }
+.dark-darken {
+  color: var(--color-dark-green);
+}
 
 /* Necessary otherwise table doesnt fit on smaller screens
 (with this you can scroll horizontally) */

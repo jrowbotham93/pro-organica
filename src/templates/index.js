@@ -190,55 +190,55 @@ const Index = data => {
         id="contact"
         description={get_in_touch}
         title={get_in_touch_header}
+        className="flex-center-horizontal flex-center-vertical"
       >
-        <Grid className="grid-secondary spacing-v-lg">
+        <Grid className="grid-secondary">
           {addressList &&
             addressList.map(
               (
                 { address, country, city, name, building, postcode, street },
                 index
               ) => (
-                <Card key={`${index}-${name}`}>
-                  <Address
-                    building={building}
-                    street={street}
-                    name={name}
-                    postcode={postcode}
-                    city={city}
-                    country={country}
-                    address={address}
-                  />
-                </Card>
+                // <Card key={`${index}-${name}`}>
+                <Address
+                  building={building}
+                  street={street}
+                  name={name}
+                  postcode={postcode}
+                  city={city}
+                  country={country}
+                  address={address}
+                />
+                // </Card>
               )
             )}
         </Grid>
 
-        <Grid className="grid-secondary ">
+        <Grid className="grid-secondary spacing-v-lg">
           {contact_list &&
             findImageOwner(contactsList, contact_list).map(
               ({ card, name, image, position, email, telephone }, index) => {
-                return card ? (
+                return (
                   <Card key={`${index}-${name}`}>
-                    <Image
-                      label={`Image of ${name}, ${position} at ProOrganica`}
-                      image={image.imgix_url}
-                      styles="border-radius-top"
-                    />
-                    <Contact
-                      name={name}
-                      position={position}
-                      email={email}
-                      telephone={telephone}
-                    />
-                  </Card>
-                ) : (
-                  <Card key={`${index}-${name}`}>
-                    <Contact
-                      name={name}
-                      position={position}
-                      email={email}
-                      telephone={telephone}
-                    />
+                    <>
+                      {card ? (
+                        <div>
+                          <Image
+                            label={`Image of ${name}, ${position} at ProOrganica`}
+                            image={image.imgix_url}
+                            styles="border-radius-top"
+                          />
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      <Contact
+                        name={name}
+                        position={position}
+                        email={email}
+                        telephone={telephone}
+                      ></Contact>
+                    </>
                   </Card>
                 );
               }
