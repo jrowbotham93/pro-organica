@@ -92,8 +92,7 @@ const Index = data => {
               >
                 <Link to={`/${locale}/${slug}`.replace("/en-GB", "")}>
                   <Image
-                    type="fluid"
-                    image={metadata.main_image.local.childImageSharp.fluid}
+                    image={metadata.main_image.imgix_url}
                     alt="Links to content pages"
                     styles="border-radius-top"
                   />
@@ -199,8 +198,8 @@ const Index = data => {
                 { address, country, city, name, building, postcode, street },
                 index
               ) => (
-                // <Card key={`${index}-${name}`}>
                 <Address
+                  key={index}
                   building={building}
                   street={street}
                   name={name}
@@ -209,7 +208,6 @@ const Index = data => {
                   country={country}
                   address={address}
                 />
-                // </Card>
               )
             )}
         </Grid>

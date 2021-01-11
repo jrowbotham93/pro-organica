@@ -16,11 +16,7 @@ const Page = data => {
             <blockquote>{metadata.excerpt && metadata.excerpt}</blockquote>
             {metadata.main_image && (
               <figure className="page-feature-image spacing-v-md">
-                <Image
-                  type="fluid"
-                  label={title}
-                  image={metadata.main_image.local.childImageSharp.fluid}
-                />
+                <Image label={title} image={metadata.main_image.imgix_url} />
               </figure>
             )}
             <section className="page-full-content">

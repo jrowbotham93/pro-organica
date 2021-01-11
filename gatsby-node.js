@@ -101,24 +101,8 @@ exports.createPages = async ({ actions, graphql }) => {
                 url
               }
               main_image {
-                local {
-                  childImageSharp {
-                    fluid {
-                      src
-                      tracedSVG
-                      srcWebp
-                      srcSetWebp
-                      srcSet
-                      sizes
-                      presentationWidth
-                      presentationHeight
-                      originalName
-                      originalImg
-                      base64
-                      aspectRatio
-                    }
-                  }
-                }
+                imgix_url
+                url
               }
               home_banner_image {
                 url
