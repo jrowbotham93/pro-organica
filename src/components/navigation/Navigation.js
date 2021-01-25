@@ -117,7 +117,7 @@ const Hamburger = styled.div`
   }
 `;
 
-const Navigation = ({ data, navClass, setBackgroundOpacity, location }) => {
+const Navigation = ({ data, setBackgroundOpacity, location }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const locale = location ? "uk-UA" : "en-GB";
   const pages = data.allCosmicjsPages.edges.filter(({ node }) =>

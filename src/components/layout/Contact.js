@@ -4,7 +4,7 @@ const Contact = ({ name, position, email, telephone, styles }) => {
   return (
     <figure className="spacing-v-sm">
       <div className={`flex flex-wrap ${styles || ""}`}>
-        <ul className="text-small">
+        <ul>
           <li>{name}</li>
           <li>{position}</li>
           <li>

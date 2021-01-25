@@ -35,9 +35,11 @@ const NavItem = styled(Link)`
 `;
 
 const NavbarLinks = ({ pages }) => {
+  const ukrainian = window.location.pathname.includes("uk-UA");
   return (
     <>
-      <NavItem to="/">Home</NavItem>
+      <NavItem to="/">{ukrainian ? "Головна" : "Home"}</NavItem>
+      <NavItem to="/contact">{ukrainian ? "контакт" : "Contact"}</NavItem>
       {pages
         .filter(i => i.node.slug !== "home")
         .map((navItem, i) => {

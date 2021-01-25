@@ -19,7 +19,7 @@ const Section = ({
         </>
       )}
       {description && (
-        <p className="flex flex-center-horizontal text-align-center spacing-v-sm">
+        <p className="flex flex-center-horizontal text-align-center spacing-v-sm ">
           {description}
         </p>
       )}
