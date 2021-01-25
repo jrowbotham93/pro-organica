@@ -12,6 +12,7 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
   const currentPage = pathname.split("/");
   const locale = currentPage.some(i => i === "uk-UA");
   const currentLocale = locale ? "uk-UA" : "en-GB";
+  const ukrainian = pathname.includes("uk-UA");
 
   const localize = obj => {
     return obj.edges.filter(i => i.node.locale.includes(currentLocale));
@@ -84,8 +85,11 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
             </div>
             <div className="flex flex-column">
               <strong className="text-emphasis text-darken">Links</strong>
-              <Link to={`/#certification`}>Certification</Link>
-              <Link to={`/#contact`}>Contact </Link>
+              <Link to={`/certification`}>
+                {ukrainian ? "сертифікація" : "Certification"}
+              </Link>
+              <Link to="/">{ukrainian ? "Головна" : "Home"}</Link>
+              <Link to="/contact">{ukrainian ? "контакт" : "Contact"}</Link>
             </div>
           </Grid>
           <div className="flex footer-rights-reserved-container">
