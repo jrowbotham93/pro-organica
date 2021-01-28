@@ -144,42 +144,11 @@ exports.createPages = async ({ actions, graphql }) => {
                   url
                   imgix_url
                 }
-              }
-              certification_header
-              certification_eu {
-                url
-                imgix_url
-              }
-              certification_cor {
-                url
-                imgix_url
-              }
-              certification_uk {
-                imgix_url
-                url
-              }
-              certification_list {
-                certificate_cors {
-                  imgix_url
-                  url
-                }
-                certificate_eu {
-                  imgix_url
-                  url
-                }
-                certificate_uk {
-                  imgix_url
-                  url
-                }
-                certificate_cors_image {
+                pdf_organic_food_federation {
                   url
                   imgix_url
                 }
-                certificate_eu_image {
-                  url
-                  imgix_url
-                }
-                certificate_uk_image {
+                pdf_organic_standard {
                   imgix_url
                   url
                 }
