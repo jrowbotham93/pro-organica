@@ -1,6 +1,5 @@
 import React from "react";
-import { Layout, Section, Grid, Links, Card, Image, SEO } from "../components";
-import findImageOwner from "../utils/helper";
+import { Layout, Section, Grid, Links, Image, SEO } from "../components";
 
 const Certification = ({ pageContext }) => {
   const { certification } = pageContext;
@@ -10,10 +9,27 @@ const Certification = ({ pageContext }) => {
     },
   ] = certification;
 
-  const affiliateList = Object.entries(affiliates_list);
-  //   const contactsList = contact_list?.contact_list_details;
+  const {
+    logo_organic_food_federation,
+    pdf_organic_food_federation,
+    logo_organic_standard,
+    pdf_organic_standard,
+    logo_organic_eu,
+    logo_organic_ukraine,
+  } = affiliates_list;
 
-  console.log(affiliateList);
+  const federation = [
+    logo_organic_food_federation,
+    pdf_organic_food_federation,
+  ];
+  const standard = [logo_organic_standard, pdf_organic_standard];
+
+  const affiliateList = [
+    standard,
+    federation,
+    logo_organic_eu,
+    logo_organic_ukraine,
+  ];
 
   return (
     <Layout>
@@ -21,39 +37,25 @@ const Certification = ({ pageContext }) => {
         title={"Certification"}
         description={"Certification page with downloadable pdf certificates"}
       />
-      {/* <Section description={certiciationDesc} title={certification_header}>
-        <Grid id="certification" className="grid-primary">
-          {certsArray.map((certs, index) => {
-            return (
-              <Card key={index}>
-                <Links
-                  alt={`ProOrganica certifications`}
-                  href={certs.pdf.imgix_url}
-                  target="_blank"
-                >
-                  <Image image={certs.img.imgix_url} />
-                </Links>
-              </Card>
-            );
-          })}
-        </Grid>
-      </Section>
-      <hr /> */}
 
       <Section title={affiliate_header} description={affiliates}>
-        <Grid className="grid-secondary spacing-v-lg">
-          {affiliateList.map((affiliate, index) => {
-            return (
-              //   <Card
-              //     key={index}
-              //     // button
-              //     // label={"download certificate"}
-              //     className=""
-              //   >
-              <Image label="affiliate logo" image={affiliate[1].imgix_url} />
-              //   </Card>
-            );
-          })}
+        <Grid className="grid-tertiary spacing-v-lg">
+          {affiliateList.map((certs, index, array) => (
+            <>
+              {certs.length ? (
+                <Links
+                  key={index}
+                  alt={`ProOrganica certifications`}
+                  href={certs[1]?.imgix_url}
+                  target="_blank"
+                >
+                  <Image image={certs[0]?.imgix_url} />
+                </Links>
+              ) : (
+                <Image key={index} image={certs?.imgix_url} />
+              )}
+            </>
+          ))}
         </Grid>
       </Section>
     </Layout>

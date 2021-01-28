@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Layout, SEO, Grid, Section, Image, Card, Links } from "../components";
+import { Layout, SEO, Grid, Section, Image, Card } from "../components";
 import findImageOwner from "../utils/helper";
 
 const Index = ({ pageContext }) => {

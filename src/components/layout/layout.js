@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { Link, StaticQuery, graphql } from "gatsby";
-import { Navigation, Hero, Section, Header, Grid, Footer } from "..";
 
+import { Navigation, Hero, Section, Header, Grid, Footer } from "..";
 import "../../styles/app.css";
 
 const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
@@ -29,6 +29,7 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
         <html lang="en" />
         <body className={bodyClass} />
       </Helmet>
+
       <header className="header">
         <Hero home={isHome} opacity={overlay}>
           <Section>
@@ -68,13 +69,15 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
           </Section>
         </Hero>
       </header>
-      <main>{children}</main>
+
+      <main> {children}</main>
+
       <Footer>
         <Section spacing="v-md">
           <Grid className="grid-secondary">
             <div className="flex flex-column">
               {" "}
-              <strong className="text-emphasis">Site</strong>
+              <strong className="text-emphasis">ProOrganica</strong>
               {filterHomePage.map((i, key) => (
                 <span key={key}>
                   <Link to={`/${i.node.slug}`.replace("home", "")}>
@@ -84,11 +87,10 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
               ))}
             </div>
             <div className="flex flex-column">
-              <strong className="text-emphasis text-darken">Links</strong>
+              <strong className="text-emphasis text-darken">Company</strong>
               <Link to={`/certification`}>
                 {ukrainian ? "сертифікація" : "Certification"}
               </Link>
-              <Link to="/">{ukrainian ? "Головна" : "Home"}</Link>
               <Link to="/contact">{ukrainian ? "контакт" : "Contact"}</Link>
             </div>
           </Grid>
