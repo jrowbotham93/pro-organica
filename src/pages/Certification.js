@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, Section, Grid, Links, Image, SEO } from "../components";
 
 const Certification = ({ pageContext = {} }) => {
+  if (!pageContext) return;
   const { certification } = pageContext;
   const [
     {
