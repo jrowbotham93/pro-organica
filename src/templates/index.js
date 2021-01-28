@@ -18,8 +18,6 @@ const Index = ({ pageContext }) => {
 
   const productList = products_list?.product_list_details;
 
-  console.log(pageContext.pages);
-
   return (
     <Layout isHome={true}>
       <SEO title="Home" description="Homepage for proOrganica" />
