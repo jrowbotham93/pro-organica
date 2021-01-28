@@ -40,6 +40,10 @@ const NavbarLinks = ({ pages }) => {
     <>
       <NavItem to="/">{ukrainian ? "Головна" : "Home"}</NavItem>
       <NavItem to="/contact">{ukrainian ? "контакт" : "Contact"}</NavItem>
+      <NavItem to="/certification">
+        {ukrainian ? "Органічні сертифікати" : "Certification"}
+      </NavItem>
+
       {pages
         .filter(i => i.node.slug !== "home")
         .map((navItem, i) => {
