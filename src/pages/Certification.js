@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Section, Grid, Links, Image, SEO } from "../components";
 
-const Certification = ({ pageContext }) => {
+const Certification = ({ pageContext = {} }) => {
   const { certification } = pageContext;
   const [
     {

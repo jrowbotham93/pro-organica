@@ -16,7 +16,7 @@ const certificationLocalized = createLanguagesObject(langs);
 const homePage = path.resolve(`./src/templates/index.js`);
 const contentPage = path.resolve(`./src/templates/page.js`);
 const contactPage = path.resolve(`./src/pages/Contact.js`);
-const certificationPage = path.resolve(`./src/pages/Certification.js`);
+const certificationPage = path.resolve(`./src/pages/certification.js`);
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
