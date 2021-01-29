@@ -16,7 +16,13 @@ const Index = ({ pageContext }) => {
     },
   ] = pageContext.home;
 
-  const productList = products_list?.product_list_details;
+  const productList = products_list?.product_list_details.sort((a, b) => {
+    let productA = a.id.toLowerCase();
+    let productB = b.id.toLowerCase();
+    return productA < productB ? -1 : productA > productB ? 1 : 0;
+  });
+
+  console.log(productList);
 
   return (
     <Layout isHome={true}>
@@ -64,9 +70,9 @@ const Index = ({ pageContext }) => {
                     title={name}
                   >
                     <Image
-                      alt="product images"
+                      label={`${name} image`}
                       styles="border-radius-top"
-                      image={image.imgix_url}
+                      image={image && image?.imgix_url}
                     />
                   </Card>
                 );

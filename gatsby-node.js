@@ -178,7 +178,7 @@ exports.createPages = async ({ actions, graphql }) => {
                   url
                   imgix_url
                 }
-                grow_to_order {
+                source_to_order {
                   url
                   imgix_url
                 }
