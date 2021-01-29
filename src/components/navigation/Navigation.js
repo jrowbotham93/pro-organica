@@ -126,6 +126,7 @@ const Navigation = ({ data, setBackgroundOpacity, location }) => {
 
   return (
     <Nav
+      id="navigation"
       onClick={() => {
         setNavbarOpen(!navbarOpen);
         setBackgroundOpacity();
