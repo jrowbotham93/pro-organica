@@ -265,6 +265,7 @@ exports.createPages = async ({ actions, graphql }) => {
         contact: contactLocalized[language],
       },
     });
+
     // Create content pages (dynamically produced based on cosmic pages)
     [contentLocalized].forEach(pageData => {
       let parse = JSON.parse(JSON.stringify(pageData));

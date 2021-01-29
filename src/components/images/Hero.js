@@ -34,7 +34,8 @@ const Hero = ({ home, children, opacity }) => {
             allFile.edges[0].node.childImageSharp.fluid
           }
           preserveStackingContext={opacity}
-          fadeIn="eager"
+          fadeIn={false}
+          loading="eager"
         >
           {children}
         </BackgroundImage>

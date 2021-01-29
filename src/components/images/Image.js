@@ -5,9 +5,21 @@ const Image = ({ image, type, label = "Proorganica image", styles = "" }) => {
   return (
     <>
       {type === "fluid" ? (
-        <Img alt={label} fluid={image} className={styles} />
+        <Img
+          alt={label}
+          fluid={image}
+          fadeIn={false}
+          loading="eager"
+          className={styles}
+        />
       ) : type === "fixed" ? (
-        <Img alt={label} fixed={image} className={styles} />
+        <Img
+          alt={label}
+          fixed={image}
+          fadeIn={false}
+          loading="eager"
+          className={styles}
+        />
       ) : (
         <img alt={label} src={image} className={styles} />
       )}

@@ -15,14 +15,12 @@ const Index = ({ pageContext }) => {
       },
     },
   ] = pageContext.home;
-
+  console.log(pageContext);
   const productList = products_list?.product_list_details.sort((a, b) => {
     let productA = a.id.toLowerCase();
     let productB = b.id.toLowerCase();
     return productA < productB ? -1 : productA > productB ? 1 : 0;
   });
-
-  console.log(productList);
 
   return (
     <Layout isHome={true}>
