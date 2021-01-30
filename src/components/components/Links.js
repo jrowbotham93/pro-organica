@@ -1,6 +1,6 @@
 import React from "react";
-// import { Link } from "gatsby";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby";
+// import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const Links = ({
   styling,
@@ -15,14 +15,15 @@ const Links = ({
   return (
     <>
       {internal ? (
-        <AniLink
-          paintDrip={animate}
-          hex={"#98b802"}
+        <Link
+          // paintDrip={animate}
+          // hex={"#98b802"}
           className={styling}
           to={href}
+          alt={label}
         >
           {children}
-        </AniLink>
+        </Link>
       ) : (
         <a
           className={styling}
