@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Links } from "..";
 import UseAnimations from "react-useanimations";
 import arrowRightCircle from "react-useanimations/lib/arrowRightCircle";
@@ -14,18 +14,12 @@ const Card = ({
   arrow,
   children,
 }) => {
-  const [animate, setAnimation] = useState(false);
-  console.log(animate);
   return (
-    <div
-      className={`card ${className || ""}`}
-      onMouseEnter={() => setAnimation(true)}
-      onMouseLeave={() => setAnimation(false)}
-    >
+    <div className={`card ${className || ""}`}>
       <section>{children}</section>
       <div className="spacing-sm flex spacing-v-sm flex-column flex-center-vertical">
         {title && (
-          <h2 className="card-title spacing-v-sm flex flex-space-between">
+          <h2 className="card-title spacing-v-sm flex  flex-center-vertical">
             {title}{" "}
             {arrow && (
               <UseAnimations
@@ -33,7 +27,6 @@ const Card = ({
                 strokeColor={"var(--color-light-green)"}
                 wrapperStyle={{ marginLeft: 10 }}
                 animation={arrowRightCircle}
-                loop={animate}
               />
             )}
           </h2>
