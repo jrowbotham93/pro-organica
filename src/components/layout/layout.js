@@ -50,6 +50,7 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
                       : "uk-UA"
                   }
                   styling="a-white"
+                  animate={false}
                 >
                   Українська
                 </Links>
@@ -60,6 +61,7 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
                     ""
                   )}
                   styling="a-white"
+                  animate={false}
                 >
                   English
                 </Links>{" "}

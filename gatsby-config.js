@@ -14,6 +14,8 @@ module.exports = {
     siteUrl: `https://proorganica.com/`,
   },
   plugins: [
+    `gatsby-plugin-transition-link`,
+
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-fontawesome-css`,

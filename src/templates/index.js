@@ -36,9 +36,9 @@ const Index = ({ pageContext }) => {
                 internal
                 styling="a-black"
                 href={`/${locale}/${slug}`.replace("/en-GB", "")}
+                key={`${index}-${title}`}
               >
                 <Card
-                  key={`${index}-${title}`}
                   styling="text-align-center"
                   title={title}
                   className={"animate-hover"}

@@ -41,7 +41,7 @@ const Certification = ({ pageContext = {} }) => {
 
       <Section title={affiliate_header} description={affiliates}>
         <Grid className="grid-tertiary spacing-v-lg">
-          {affiliateList.map((certs, index, array) => (
+          {affiliateList.map((certs, index) => (
             <>
               {certs.length ? (
                 <Links
