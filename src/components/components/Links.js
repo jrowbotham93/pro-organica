@@ -14,7 +14,7 @@ const Links = ({
     <>
       {internal ? (
         <Link className={styling} alt={label} to={href}>
-          {label}
+          {children}
         </Link>
       ) : (
         <a

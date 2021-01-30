@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Layout, SEO, Grid, Section, Image, Card } from "../components";
+import { Layout, SEO, Grid, Section, Image, Card, Links } from "../components";
 import findImageOwner from "../utils/helper";
 
 const Index = ({ pageContext }) => {
@@ -32,21 +32,26 @@ const Index = ({ pageContext }) => {
         <Grid className="grid-primary">
           {pageContext.pages.map(({ title, locale, slug, metadata }, index) => {
             return (
-              <Card
-                key={`${index}-${title}`}
-                styling="text-align-center"
-                button={true}
-                label={title}
+              <Links
+                internal
+                styling="a-black"
                 href={`/${locale}/${slug}`.replace("/en-GB", "")}
               >
-                <Link to={`/${locale}/${slug}`.replace("/en-GB", "")}>
+                <Card
+                  key={`${index}-${title}`}
+                  styling="text-align-center"
+                  title={title}
+                  className={"animate-hover"}
+                  arrow
+                  href={`/${locale}/${slug}`.replace("/en-GB", "")}
+                >
                   <Image
                     image={metadata.main_image && metadata.main_image.imgix_url}
                     alt="Links to content pages"
                     styles="border-radius-top"
                   />
-                </Link>
-              </Card>
+                </Card>{" "}
+              </Links>
             );
           })}
         </Grid>

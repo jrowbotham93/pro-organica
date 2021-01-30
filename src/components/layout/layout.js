@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { Link, StaticQuery, graphql } from "gatsby";
 
-import { Navigation, Hero, Section, Header, Grid, Footer } from "..";
+import { Navigation, Hero, Section, Header, Grid, Footer, Links } from "..";
 import "../../styles/app.css";
 
 const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
@@ -40,25 +40,29 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
                 location={locale}
               />
               <div>
-                <Link
-                  to={
+                <Links
+                  internal
+                  href={
                     currentPage[1] === "uk-UA"
                       ? ""
                       : currentPage[1] !== "uk-UA"
                       ? `/uk-UA/${currentPage[1]}`
                       : "uk-UA"
                   }
+                  styling="a-white"
                 >
                   Українська
-                </Link>
-                <Link
-                  to={`/${currentPage[2] ? currentPage[2] : ""}`.replace(
+                </Links>
+                <Links
+                  internal
+                  href={`/${currentPage[2] ? currentPage[2] : ""}`.replace(
                     "undefined",
                     ""
                   )}
+                  styling="a-white"
                 >
                   English
-                </Link>{" "}
+                </Links>{" "}
               </div>
             </div>
             {isHome ? (
@@ -80,18 +84,24 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
               <strong className="text-emphasis">ProOrganica</strong>
               {filterHomePage.map((i, key) => (
                 <span key={key}>
-                  <Link to={`/${i.node.slug}`.replace("home", "")}>
+                  <Links
+                    internal
+                    styling="a-white"
+                    href={`/${i.node.slug}`.replace("home", "")}
+                  >
                     {i.node.title}
-                  </Link>
+                  </Links>
                 </span>
               ))}
             </div>
             <div className="flex flex-column">
               <strong className="text-emphasis text-darken">Company</strong>
-              <Link to={`/certification`}>
+              <Links internal styling="a-white" href={`/certification`}>
                 {ukrainian ? "сертифікація" : "Certification"}
-              </Link>
-              <Link to="/contact">{ukrainian ? "контакт" : "Contact"}</Link>
+              </Links>
+              <Links internal styling="a-white" href="/contact">
+                {ukrainian ? "контакт" : "Contact"}
+              </Links>
             </div>
           </Grid>
           <div className="flex footer-rights-reserved-container">

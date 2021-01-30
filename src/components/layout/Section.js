@@ -11,11 +11,14 @@ const Section = ({
   return (
     <section
       id={id}
-      className={`block-center flex flex-column spacing-general max-width spacing-${spacing} ${className}`}
+      className={`block-center flex flex-column  spacing-general max-width spacing-${spacing} ${className}`}
     >
       {title && (
         <>
-          <h1 className="flex flex-center-horizontal">{title}</h1> <hr />
+          <h1 className="flex flex-center-horizontal text-align-center">
+            {title}
+          </h1>{" "}
+          <hr />
         </>
       )}
       {description && (
