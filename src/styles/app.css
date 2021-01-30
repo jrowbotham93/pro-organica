@@ -460,6 +460,7 @@ blockquote cite a {
 a {
   text-decoration: none;
   font-weight: var(--font-bold);
+  color: var(--color-light-green);
 }
 
 .a-white {
