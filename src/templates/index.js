@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import { Layout, SEO, Grid, Section, Image, Card, Links } from "../components";
 import findImageOwner from "../utils/helper";
 
@@ -16,10 +15,11 @@ const Index = ({ pageContext }) => {
     },
   ] = pageContext.home;
 
+  console.log(products_list.product_list_details);
+
   const productList = products_list?.product_list_details.sort((a, b) => {
-    let productA = a.id.toLowerCase();
-    let productB = b.id.toLowerCase();
-    return productA < productB ? -1 : productA > productB ? 1 : 0;
+    console.log(a.order);
+    return a.order < b.order ? -1 : a.order > b.order ? 1 : 0;
   });
 
   return (
@@ -58,7 +58,7 @@ const Index = ({ pageContext }) => {
       </Section>
       <hr />
       <Section description={products} title={product_header}>
-        <Grid className="grid-primary">
+        <Grid className="grid-primary" id="products">
           {products_list &&
             productList &&
             findImageOwner(productList, products_list).map(

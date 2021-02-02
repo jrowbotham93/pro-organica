@@ -1,11 +1,12 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
+import styled from "styled-components";
 
 //  pass down opacity state which is set in navigation components
 //  the gatsby bg image uses 0.99 opacity which makes the full page nav
 //  transparent. Use the preserveStackingContext to toggle between 0.99 & 1 opacity
-const Hero = ({ home, children, opacity }) => {
+const BackgroundSection = ({ home, children, opacity }) => {
   const { allFile } = useStaticQuery(graphql`
     query {
       allFile(
@@ -45,5 +46,13 @@ const Hero = ({ home, children, opacity }) => {
     </>
   );
 };
+
+const Hero = styled(BackgroundSection)`
+  width: 100%;
+  background-position: bottom center;
+  background-repeat: repeat-y;
+  background-size: cover;
+  height: 100vh;
+`;
 
 export default Hero;

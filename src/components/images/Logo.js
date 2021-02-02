@@ -4,6 +4,7 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 const LogoWrap = styled.div`
   flex: 0 1 36px;
+  z-index: 5;
 
   @media (max-width: 768px) and (orientation: landscape) {
     flex: 0 1 18px;
@@ -32,6 +33,8 @@ const Logo = () => {
           width: data.file.childImageSharp.fluid.presentationWidth,
           height: data.file.childImageSharp.fluid.presentationHeight,
         }}
+        fadeIn={false}
+        loading="eager"
       />{" "}
     </LogoWrap>
   );

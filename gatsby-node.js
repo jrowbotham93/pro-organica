@@ -203,6 +203,7 @@ exports.createPages = async ({ actions, graphql }) => {
                   id
                   name
                   action
+                  order
                 }
               }
               main_image {
