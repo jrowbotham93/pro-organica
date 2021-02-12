@@ -833,14 +833,9 @@ h6 {
   justify-content: center;
   align-items: center;
   /* tame the gatsby image */
-  padding: 0 200px;
+  padding: 100px;
 }
 
-@media (min-width: 20em) {
-  .site-banner {
-    padding: 0;
-  }
-}
 .site-banner > * {
   flex-grow: 1;
 }

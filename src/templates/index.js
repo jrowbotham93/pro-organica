@@ -15,10 +15,7 @@ const Index = ({ pageContext }) => {
     },
   ] = pageContext.home;
 
-  console.log(products_list.product_list_details);
-
   const productList = products_list?.product_list_details.sort((a, b) => {
-    console.log(a.order);
     return a.order < b.order ? -1 : a.order > b.order ? 1 : 0;
   });
 

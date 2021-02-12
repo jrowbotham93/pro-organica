@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
-import { Link, StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 
 import { Navigation, Hero, Section, Header, Grid, Footer, Links } from "..";
 import "../../styles/app.css";
