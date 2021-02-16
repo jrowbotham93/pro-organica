@@ -25,10 +25,11 @@ const Index = ({ pageContext }) => {
       <Section
         description={home_banner_description}
         title={what_do_we_do_header}
-      >
+      > 
         <Grid className="grid-primary">
           {pageContext.pages.map(({ title, locale, slug, metadata }, index) => {
-            return (
+
+            return slug !== 'products' && (
               <Links
                 internal
                 styling="a-black"
