@@ -61,6 +61,7 @@ const Index = ({ pageContext }) => {
             productList &&
             findImageOwner(productList, products_list).map(
               ({ name, image, description, action }, index) => {
+                console.log(action);
                 return (
                   <Card
                     href="contact"

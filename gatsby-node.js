@@ -11,15 +11,37 @@ const {
 const homeLocalized = createLanguagesObject(langs);
 const contentLocalized = createLanguagesObject(langs);
 const contactLocalized = createLanguagesObject(langs);
+const productsLocalized = createLanguagesObject(langs);
 const certificationLocalized = createLanguagesObject(langs);
 
 const homePage = path.resolve(`./src/templates/index.js`);
 const contentPage = path.resolve(`./src/templates/page.js`);
 const contactPage = path.resolve(`./src/templates/contact.js`);
 const certificationPage = path.resolve(`./src/templates/certification.js`);
+const productsPage = path.resolve(`./src/templates/products.js`);
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
+
+  const productsPageData = await graphql(`
+  {
+    allCosmicjsPages(filter: { slug: { regex: "/products/" } }) {
+          edges {
+            node {
+              locale
+              slug
+              title
+              metadata {
+                products_shop {
+                  product_description
+                  product_name
+                }
+              }
+            }
+          }
+        }
+    }`);
+
 
   const contactPageData = await graphql(`
     {
@@ -204,6 +226,7 @@ exports.createPages = async ({ actions, graphql }) => {
                   name
                   action
                   order
+                  link
                 }
               }
               main_image {
@@ -228,11 +251,13 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const extractData = ({ localize, query } = {}) => {
     return query.data.allCosmicjsPages.edges.forEach(({ node }) => {
+      if (node.locale === null) return;
       localize[node.locale].push(node);
     });
   };
 
   extractData({ localize: contactLocalized, query: contactPageData });
+  extractData({ localize: productsLocalized, query: productsPageData });
   extractData({ localize: contentLocalized, query: contentPageData });
   extractData({
     localize: certificationLocalized,
@@ -267,6 +292,8 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     });
 
+
+
     // Create content pages (dynamically produced based on cosmic pages)
     [contentLocalized].forEach(pageData => {
       let parse = JSON.parse(JSON.stringify(pageData));
@@ -275,6 +302,8 @@ exports.createPages = async ({ actions, graphql }) => {
         value
           .filter(i => i.locale === language)
           .forEach(i => {
+            console.log(i.slug);
+            if (i.slug === 'products') return;
             createPage({
               path: localizeUrl(language, defaultLanguage, `/${i.slug}`),
               component: contentPage,
@@ -285,5 +314,16 @@ exports.createPages = async ({ actions, graphql }) => {
           });
       }
     });
+
+
+    // Create products page
+    createPage({
+      path: localizeUrl(language, defaultLanguage, `/products`),
+      component: productsPage,
+      context: {
+        products: productsLocalized[language],
+      },
+    });
+    
   });
 };
