@@ -39,7 +39,7 @@ const NavbarLinks = ({ pages }) => {
   return (
     <>
       <NavItem to="/">{ukrainian ? "Головна" : "Home"}</NavItem>
-      <NavItem to="/contact">{ukrainian ? "Контакт" : "Contact"}</NavItem>
+      <NavItem to="/contact">{ukrainian ? "Контакти" : "Contact"}</NavItem>
       <NavItem to="/certification">
         {ukrainian ? "Органічні сертифікати" : "Certification"}
       </NavItem>
