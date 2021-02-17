@@ -99,10 +99,10 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
             <div className="flex flex-column">
               <strong className="text-emphasis text-darken">Company</strong>
               <Links internal styling="a-white" href={`/certification`}>
-                {ukrainian ? "сертифікація" : "Certification"}
+                {ukrainian ? "Сертифікація" : "Certification"}
               </Links>
               <Links internal styling="a-white" href="/contact">
-                {ukrainian ? "контакт" : "Contact"}
+                {ukrainian ? "Контакти" : "Contact"}
               </Links>
             </div>
           </Grid>
