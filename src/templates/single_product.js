@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { SEO, Layout, Image, Section } from "../components";
+import { SEO, Layout, Image, Section, Links } from "../components";
 
 const Page = data => {
  const product = data.pageContext.product;
 
+ const buttonText = data.pageContext.parent.locale === 'en-GB' ? "Contact us to learn more" : "Зв'яжіться з нами, щоб дізнатися більше.";
 
   return (
     <Layout>
@@ -28,6 +29,15 @@ const Page = data => {
             />
           </section>
         </article>
+
+        <Links
+            styling="spacing-v-sm green-button text-bold text-align-center button-primary flex flex-center-vertical"
+            href='/contact'
+            internal
+            alt={buttonText}
+          >
+            {buttonText}
+          </Links>
       </Section>
     </Layout>
   );

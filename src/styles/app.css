@@ -470,11 +470,9 @@ a {
   color: var(--color-med-black);
 }
 
-li {
-  list-style: disc;
-  margin-bottom: 0.5em;
-}
 small,
+ul,
+li,
 .button-primary {
   font-weight: var(--font-normal);
   opacity: var(--lighten-text);
@@ -483,36 +481,48 @@ small,
 
 @media (min-width: 25em) {
   small,
+  ul,
+  li,
   .button-primary {
     font-size: calc(var(--font-xx-small) * 1.1);
   }
 }
 @media (min-width: 37.5em) {
   small,
+  ul,
+  li,
   .button-primary {
     font-size: calc(var(--font-xx-small) * 1.2);
   }
 }
 @media (min-width: 48em) {
   small,
+  ul,
+  li,
   .button-primary {
     font-size: calc(var(--font-xx-small) * 1.3);
   }
 }
 @media (min-width: 60em) {
   small,
+  ul,
+  li,
   .button-primary {
     font-size: calc(var(--font-xx-small) * 1.4);
   }
 }
 @media (min-width: 85.375em) {
   small,
+  ul,
+  li,
   .button-primary {
     font-size: calc(var(--font-xx-small) * 1.5);
   }
 }
 @media (min-width: 120em) {
   small,
+  ul,
+  li,
   .button-primary {
     font-size: calc(var(--font-xx-small) * 1.6);
   }
@@ -525,32 +535,32 @@ p {
 }
 
 @media (min-width: 25em) {
-  p, ul {
+  p {
     font-size: calc(var(--font-small) * 1.1);
   }
 }
 @media (min-width: 37.5em) {
-  p, ul {
+  p {
     font-size: calc(var(--font-small) * 1.2);
   }
 }
 @media (min-width: 48em) {
-  p, ul {
+  p {
     font-size: calc(var(--font-small) * 1.3);
   }
 }
 @media (min-width: 60em) {
-  p, ul {
+  p {
     font-size: calc(var(--font-small) * 1.4);
   }
 }
 @media (min-width: 85.375em) {
-  p, ul {
+  p {
     font-size: calc(var(--font-small) * 1.5);
   }
 }
 @media (min-width: 120em) {
-  p, ul {
+  p {
     font-size: calc(var(--font-small) * 1.6);
   }
 }
@@ -908,6 +918,26 @@ h6 {
 .text-emphasis {
   font-weight: var(--font-bold);
   color: var(--color-off-white);
+}
+
+.text-bold {
+  font-weight: var(--font-bold);
+}
+.page-full-content ul {
+  padding-left: 4em;
+}
+
+.green-button {
+  background:  var(--color-light-green);
+  color: var(--color-off-white);
+  font-weight: bold;
+  font-size: 1.2;
+}
+
+.page-full-content li {
+  font-size:calc(1.3em);
+  list-style: disc;
+  margin-bottom: 0.5em;
 }
 .darken {
   color: var(--color-light-green);

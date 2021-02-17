@@ -344,6 +344,7 @@ exports.createPages = async ({ actions, graphql }) => {
                 component: singleProductPage,
                 context: {
                   product: e,
+                  parent: i,
                 },
               });
             });
