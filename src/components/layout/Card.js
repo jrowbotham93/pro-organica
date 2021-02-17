@@ -17,24 +17,28 @@ const Card = ({
   return (
     <div className={`card ${className || ""}`}>
       <section>{children}</section>
-      <div className="spacing-sm flex spacing-v-sm flex-column flex-center-vertical">
+      <div className="card-description spacing-sm flex spacing-v-sm flex-column flex-center-vertical">
         {title && (
-          <h2 className="card-title spacing-v-sm flex  flex-center-vertical"
+          <h2 className="card-title spacing-v-sm flex   "
             dangerouslySetInnerHTML={{ __html: title }}
-          >
-            {arrow && (
-              <UseAnimations
-                size={46}
-                strokeColor={"var(--color-light-green)"}
-                wrapperStyle={{ marginLeft: 10 }}
-                animation={arrowRightCircle}
-              />
-            )}
-          </h2>
-        )}
+          ></h2>
+          )}
+
+          {false && arrow && (
+            <div className="Arrow">
+            <UseAnimations
+              size={46}
+              strokeColor={"var(--color-light-green)"}
+              wrapperStyle={{ marginLeft: 10 }}
+              animation={arrowRightCircle}
+            />
+            </div>
+          )}
+
+    
         {button && (
           <Links
-            styling="spacing-v-sm button-primary flex flex-center-vertical"
+            styling="card-description-text spacing-v-sm button-primary flex flex-center-vertical"
             alt={label}
             label={label}
             href={href}
@@ -46,7 +50,7 @@ const Card = ({
         )}
 
         {description && (
-          <small className="spacing-sm card-description">{description}</small>
+          <small className="spacing-sm card-description-small">{description}</small>
         )}
       </div>
     </div>

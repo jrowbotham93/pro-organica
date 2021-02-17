@@ -774,10 +774,24 @@ h6 {
 /* Grid */
 .grid-primary {
   display: grid;
+  grid-auto-rows: 1fr; 
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
+.grid-primary > a {
+  display: flex;
+}
+
+.grid-primary .card-description {
+  padding: 0.5em 1em;
+  font-size: 0.8em;
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
+.card {display: flex; flex-direction: column;}
 @media (max-width: 65em) {
   .grid-primary {
     grid-template-columns: repeat(2, 1fr);
@@ -879,7 +893,7 @@ h6 {
   background: var(--color-white);
   opacity: 0.7;
   color: var(--color-black);
-  padding: 0.5rem 4rem;
+  padding: 0.5rem 3rem;
   margin-bottom: 2rem;
 }
 .button-primary:active {
