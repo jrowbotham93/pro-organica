@@ -16,7 +16,6 @@ const Page = data => {
 
           <Grid className="grid-primary">
           {products.metadata.products_shop.map(({ product_name, product_photo, id }, index) => {
-
             return (
               <Links
                 internal
