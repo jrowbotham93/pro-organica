@@ -14,11 +14,13 @@ const Index = ({ pageContext }) => {
       },
     },
   ] = pageContext.home;
-
+   
   const productList = products_list?.product_list_details.sort((a, b) => {
     return a.order < b.order ? -1 : a.order > b.order ? 1 : 0;
   });
 
+  const newsStr = pageContext.home[0].locale === 'en-GB' ? "News" : "Новини";
+  const newsPostStr = pageContext.home[0].locale === 'en-GB' ? "Visit Proorganica at Biofach Vivaness 2021": "Презентація Proorganica на Biofach Vivaness 2021";
   return (
     <Layout isHome={true}>
       <SEO title="Home" description="Homepage for proOrganica" />
@@ -54,34 +56,77 @@ const Index = ({ pageContext }) => {
           })}
         </Grid>
       </Section>
-      <hr />
+
       <Section description={products} title={product_header}>
-        <Grid className="grid-primary" id="products">
+
+        <Grid className="grid-primary" id="products" >
           {products_list &&
             productList &&
             findImageOwner(productList, products_list).map(
               ({ name, image, description, action }, index) => {
-                console.log(action);
-                return (
-                  <Card
-                    href="contact"
-                    button={action}
-                    label={description}
-                    key={`${index}-${name}`}
-                    description={action ? "" : description}
-                    title={name}
-                  >
-                    <Image
-                      label={`${name} image`}
-                      styles="border-radius-top"
-                      image={image && image?.imgix_url}
-                    />
-                  </Card>
-                );
+
+                if (index === 0 && pageContext.home[0].locale === 'en-GB') {
+                  return (
+                    <Links
+                    internal
+                    styling="a-black"
+                    href={`products/`.replace("/en-GB", "")}
+                    key='products'
+                     >
+                      <Card
+                        href="contact"
+                        button={action}
+                        label={description}
+                        key={`${index}-${name}`}
+                        description={action ? "" : description}
+                        title={name}
+                      >
+                        <Image
+                          label={`${name} image`}
+                          styles="border-radius-top"
+                          image={image && image?.imgix_url}
+                        />
+                      </Card>
+                    </Links>
+                  );
+                } else {
+                  return (
+                    <Card
+                      href="contact"
+                      button={action}
+                      label={description}
+                      key={`${index}-${name}`}
+                      description={action ? "" : description}
+                      title={name}
+                    >
+                      <Image
+                        label={`${name} image`}
+                        styles="border-radius-top"
+                        image={image && image?.imgix_url}
+                      />
+                    </Card>
+                  );
+                }
               }
             )}
         </Grid>
       </Section>
+
+      <Section title={newsStr}>
+              <Card
+                      href="https://biofach.de"
+                      title={newsPostStr} 
+                      key="contact"
+                      arrow
+                    >
+                      <Image
+                        label={`image`}
+                        styles="border-radius-top"
+                        image="https://imgix.cosmicjs.com/ff3fa180-70af-11eb-87a2-9be5e90cdf74-biofach20212x-80.jpg"
+                      />
+              </Card>
+      </Section>
+
     </Layout>
   );
 };

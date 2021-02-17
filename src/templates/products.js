@@ -6,6 +6,7 @@ const Page = data => {
 
   const products = data.pageContext.products[0];
 
+
   return (
     <Layout>
       <SEO title={products.title} />
@@ -14,24 +15,23 @@ const Page = data => {
           <h1 className="page-title">{products.title}</h1>
 
           <Grid className="grid-primary">
-          {products.metadata.products_shop.map(({ product_name, product_image }, index) => {
+          {products.metadata.products_shop.map(({ product_name, product_photo, id }, index) => {
 
             return (
               <Links
                 internal
                 styling="a-black"
-                href={`/${products.locale}/1`.replace("/en-GB", "")}
+                href={`/${products.locale}/products/${id}`.replace("/en-GB", "")}
                 key={`${index}-${product_name}`}
               >
                 <Card
                   styling="text-align-center"
                   title={product_name}
                   className={"animate-hover"}
-                  arrow
                   href={`/${products.locale}/${1}`.replace("/en-GB", "")}
                 >
                   <Image
-                    image={product_image && product_image.imgix_url}
+                    image={product_photo && product_photo.imgix_url}
                     alt="Links to content pages"
                     styles="border-radius-top"
                   />
