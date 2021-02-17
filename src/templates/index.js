@@ -20,7 +20,7 @@ const Index = ({ pageContext }) => {
   });
 
   const newsStr = pageContext.home[0].locale === 'en-GB' ? "News" : "Новини";
-  const newsPostStr = pageContext.home[0].locale === 'en-GB' ? "Visit Proorganica at Biofach Vivaness 2021": "Презентація Proorganica на Biofach Vivaness 2021";
+  const newsPostStr = pageContext.home[0].locale === 'en-GB' ? "Visit us at BIOFACH / VIVANESS 2021 eSPECIAL": "Завітайте до нас на BIOFACH / VIVANESS 2021 eSPECIAL";
   return (
     <Layout isHome={true}>
       <SEO title="Home" description="Homepage for proOrganica" />
@@ -92,8 +92,8 @@ const Index = ({ pageContext }) => {
                 } else {
                   return (
                     <Card
-                      href="contact"
                       button={action}
+                      href={pageContext.home[0].locale === 'en-GB'?'/contact':'https://proorganica.prom.ua/ua/'}
                       label={description}
                       key={`${index}-${name}`}
                       description={action ? "" : description}
