@@ -17,9 +17,9 @@ const Card = ({
   return (
     <div className={`card ${className || ""}`}>
       <section>{children}</section>
-      <div className="card-description spacing-sm flex spacing-v-sm flex-column flex-center-vertical">
+      <div className="card-description spacing-sm flex spacing-v-sm flex-column ">
         {title && (
-          <h2 className="card-title spacing-v-sm flex   "
+          <h2 className="card-title spacing-v-sm spacing-sm flex   "
             dangerouslySetInnerHTML={{ __html: title }}
           ></h2>
           )}
