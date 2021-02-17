@@ -129,7 +129,6 @@ const Index = ({ pageContext }) => {
               </Card>
             </a>
       </Section>
-
     </Layout>
   );
 };
