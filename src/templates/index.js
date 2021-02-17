@@ -94,7 +94,7 @@ const Index = ({ pageContext }) => {
                   return (
                     <Card
                       button={action}
-                      href={pageContext.home[0].locale === 'en-GB'?'/contact':'https://proorganica.prom.ua/ua/'}
+                      href={pageContext.home[0].locale === 'en-GB' ? '/contact' : 'https://proorganica.prom.ua/ua/'}
                       label={description}
                       key={`${index}-${name}`}
                       description={action ? "" : description}
