@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { SEO, Layout, Image, Section, Grid, Links, Card } from "../components";
 
 const Page = data => {
-
+console.log(data.pageContext);
   const products = data.pageContext.products[0];
-
+  const purityStr =  data.pageContext.products[0].locale === 'en-GB'?'Purity 99.9%':'Чистота 99.9%';
 
   return (
     <Layout>
@@ -25,7 +25,7 @@ const Page = data => {
               >
                 <Card
                   styling="text-align-center"
-                  title={product_name}
+                  title={`${product_name} <br/> ${purityStr}`}
                   className={"animate-hover"}
                   href={`/${products.locale}/${1}`.replace("/en-GB", "")}
                 >

@@ -19,8 +19,9 @@ const Card = ({
       <section>{children}</section>
       <div className="spacing-sm flex spacing-v-sm flex-column flex-center-vertical">
         {title && (
-          <h2 className="card-title spacing-v-sm flex  flex-center-vertical">
-            {title}{" "}
+          <h2 className="card-title spacing-v-sm flex  flex-center-vertical"
+            dangerouslySetInnerHTML={{ __html: title }}
+          >
             {arrow && (
               <UseAnimations
                 size={46}
