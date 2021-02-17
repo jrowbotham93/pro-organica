@@ -20,7 +20,7 @@ const Index = ({ pageContext }) => {
   });
 
   const newsStr = pageContext.home[0].locale === 'en-GB' ? "News" : "Новини";
-  const newsPost = { 'title': pageContext.home[0].locale === 'en-GB' ? "Visit us at BIOFACH / VIVANESS 2021 eSPECIAL": "Завітайте до нас на BIOFACH / VIVANESS 2021 eSPECIAL", 'description' : pageContext.home[0].locale === 'en-GB' ? "Join our presentation in ZOOM on February 18th, 2021, 2:00 PM (CET)": "Презентація ProOrganica в ZOOM відбудеться 18 лютого 2021 о 15:00 за київським часом"};
+  const newsPost = { 'title': pageContext.home[0].locale === 'en-GB' ? "Visit us at BIOFACH / VIVANESS 2021 eSPECIAL": "Завітайте до нас на BIOFACH / VIVANESS 2021 eSPECIAL", 'description' : pageContext.home[0].locale === 'en-GB' ? "Join our presentation online on February 18th, 2021, 2:00 PM (CET).": "Презентація ProOrganica онлайн відбудеться 18 лютого 2021 о 15:00 за київським часом."};
 
   return (
     <Layout isHome={true}>
@@ -114,12 +114,13 @@ const Index = ({ pageContext }) => {
       </Section>
 
       <Section title={newsStr}>
-        <a href="https://us04web.zoom.us/j/72799578698?pwd=WEp4cURpcWV1SzdxRlNGM3BtWjlPQT09">
               <Card
                       href="https://us04web.zoom.us/j/72799578698?pwd=WEp4cURpcWV1SzdxRlNGM3BtWjlPQT09"
                       title={newsPost.title} 
                       description={newsPost.description}
                       key="contact"
+                      button="ZOOM Link"
+                      label="ZOOM Link"
                     >
                       <Image
                         label={`image`}
@@ -127,7 +128,6 @@ const Index = ({ pageContext }) => {
                         image="https://imgix.cosmicjs.com/ff3fa180-70af-11eb-87a2-9be5e90cdf74-biofach20212x-80.jpg"
                       />
               </Card>
-            </a>
       </Section>
     </Layout>
   );
