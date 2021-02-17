@@ -934,6 +934,22 @@ h6 {
   font-size: 1.2;
 }
 
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mt-1 {
+  margin-top: 5rem;
+}
 .page-full-content li {
   font-size:calc(1.3em);
   list-style: disc;

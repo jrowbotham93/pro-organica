@@ -12,10 +12,10 @@ const Page = data => {
       <Section>
         <article className="spacing-v-sm">
 
-        { slug === 'about-is' ? (<iframe title="About ProOrganica" width="560" height="315" src="https://www.youtube.com/embed/ZRItBquIwQA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>):(<span></span>)}
           <h1 className="page-title">{title && title}</h1>
           <blockquote>{metadata.excerpt && metadata.excerpt}</blockquote>
-          {metadata.main_image && (
+          { slug === 'about' ? (<div className="videoWrapper mt-1"><iframe title="About ProOrganica" src="https://www.youtube.com/embed/ZRItBquIwQA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> ) :(<span></span>)}
+          {metadata.main_image && slug !== 'about' && (
             <figure className="page-feature-image spacing-v-md">
               <Image
                 label={title}
