@@ -21,6 +21,8 @@ const Index = ({ pageContext }) => {
 
   const newsStr = pageContext.home[0].locale === 'en-GB' ? "News" : "Новини";
   const newsPostStr = pageContext.home[0].locale === 'en-GB' ? "Visit us at BIOFACH / VIVANESS 2021 eSPECIAL": "Завітайте до нас на BIOFACH / VIVANESS 2021 eSPECIAL";
+  const newsPostDescr = pageContext.home[0].locale === 'en-GB' ? "Join our presentation in ZOOM on February 18th, 2021, 2:00 PM (CET)": "Презентація ProOrganica в ZOOM відбудеться 18 лютого 2021 о 15:00 за київським часом";
+
   return (
     <Layout isHome={true}>
       <SEO title="Home" description="Homepage for proOrganica" />
@@ -113,11 +115,12 @@ const Index = ({ pageContext }) => {
       </Section>
 
       <Section title={newsStr}>
+        <a href="https://us04web.zoom.us/j/72799578698?pwd=WEp4cURpcWV1SzdxRlNGM3BtWjlPQT09">
               <Card
-                      href="https://biofach.de"
+                      href="https://us04web.zoom.us/j/72799578698?pwd=WEp4cURpcWV1SzdxRlNGM3BtWjlPQT09"
                       title={newsPostStr} 
+                      description={newsPostDescr}
                       key="contact"
-                      arrow
                     >
                       <Image
                         label={`image`}
@@ -125,6 +128,7 @@ const Index = ({ pageContext }) => {
                         image="https://imgix.cosmicjs.com/ff3fa180-70af-11eb-87a2-9be5e90cdf74-biofach20212x-80.jpg"
                       />
               </Card>
+            </a>
       </Section>
 
     </Layout>
