@@ -20,8 +20,7 @@ const Index = ({ pageContext }) => {
   });
 
   const newsStr = pageContext.home[0].locale === 'en-GB' ? "News" : "Новини";
-  const newsPostStr = pageContext.home[0].locale === 'en-GB' ? "Visit us at BIOFACH / VIVANESS 2021 eSPECIAL": "Завітайте до нас на BIOFACH / VIVANESS 2021 eSPECIAL";
-  const newsPostDescr = pageContext.home[0].locale === 'en-GB' ? "Join our presentation in ZOOM on February 18th, 2021, 2:00 PM (CET)": "Презентація ProOrganica в ZOOM відбудеться 18 лютого 2021 о 15:00 за київським часом";
+  const newsPost = { 'title': pageContext.home[0].locale === 'en-GB' ? "Visit us at BIOFACH / VIVANESS 2021 eSPECIAL": "Завітайте до нас на BIOFACH / VIVANESS 2021 eSPECIAL", 'description' : pageContext.home[0].locale === 'en-GB' ? "Join our presentation in ZOOM on February 18th, 2021, 2:00 PM (CET)": "Презентація ProOrganica в ZOOM відбудеться 18 лютого 2021 о 15:00 за київським часом"};
 
   return (
     <Layout isHome={true}>
@@ -118,8 +117,8 @@ const Index = ({ pageContext }) => {
         <a href="https://us04web.zoom.us/j/72799578698?pwd=WEp4cURpcWV1SzdxRlNGM3BtWjlPQT09">
               <Card
                       href="https://us04web.zoom.us/j/72799578698?pwd=WEp4cURpcWV1SzdxRlNGM3BtWjlPQT09"
-                      title={newsPostStr} 
-                      description={newsPostDescr}
+                      title={newsPost.title} 
+                      description={newsPost.description}
                       key="contact"
                     >
                       <Image
