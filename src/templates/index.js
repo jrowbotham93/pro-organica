@@ -125,7 +125,7 @@ const Index = ({ pageContext }) => {
                       <Image
                         label={`image`}
                         styles="border-radius-top"
-                        image="https://imgix.cosmicjs.com/ff3fa180-70af-11eb-87a2-9be5e90cdf74-biofach20212x-80.jpg"
+                        image="https://imgix.cosmicjs.com/71710710-712a-11eb-87a2-9be5e90cdf74-biofach20212x-80.jpg"
                       />
               </Card>
       </Section>

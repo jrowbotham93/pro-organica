@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { SEO, Layout, Image, Section } from "../components";
 
 const Page = data => {
-  const { content, title, metadata } =
+  const { content, title, metadata, slug } =
     data.pageContext && data.pageContext.page;
 
   return (
@@ -11,6 +11,8 @@ const Page = data => {
       <SEO title={title} description={metadata.excerpt && metadata.excerpt} />
       <Section>
         <article className="spacing-v-sm">
+
+        { slug === 'about-is' ? (<iframe title="About ProOrganica" width="560" height="315" src="https://www.youtube.com/embed/ZRItBquIwQA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>):(<span></span>)}
           <h1 className="page-title">{title && title}</h1>
           <blockquote>{metadata.excerpt && metadata.excerpt}</blockquote>
           {metadata.main_image && (
