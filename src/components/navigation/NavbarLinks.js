@@ -34,27 +34,30 @@ const NavItem = styled(Link)`
   }
 `;
 
+function buildLink(slug) {
+  if (window.location.pathname.includes("uk-UA")) {
+    return `/uk-UA/${slug}`;
+  } 
+  return `/${slug}`;
+}
+
 const NavbarLinks = ({ pages }) => {
   const ukrainian = window.location.pathname.includes("uk-UA");
   return (
     <>
-      <NavItem to="/">{ukrainian ? "Головна" : "Home"}</NavItem>
-      <NavItem to="/contact">{ukrainian ? "Контакти" : "Contact"}</NavItem>
-      <NavItem to="/certification">
+      <NavItem to={buildLink('')}>{ukrainian ? "Головна" : "Home"}</NavItem>
+      <NavItem to={buildLink('contact')}>{ukrainian ? "Контакти" : "Contact"}</NavItem>
+      <NavItem to={buildLink('certification')}>
         {ukrainian ? "Органічні сертифікати" : "Certification"}
       </NavItem>
 
       {pages
-        .filter(i => i.node.slug !== "home")
+        .filter(i => i.node.slug !== "home" && !(ukrainian && i.node.slug === 'products'))
         .map((navItem, i) => {
           return (
             <NavItem
               // HACKY: check to see whether Ukrainan in the url and then append uk-UA / leave empty for GB
-              to={`${
-                window.location.pathname.split("/")[1] === "uk-UA"
-                  ? "/uk-UA"
-                  : ""
-              }/${navItem.node.slug}`.replace("en-GB", "")}
+              to={buildLink(`${navItem.node.slug}`)}
               key={i}
               aria-current={navItem.node.title}
             >
