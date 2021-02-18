@@ -781,6 +781,7 @@ h6 {
 
 .grid-primary > a {
   display: flex;
+  min-width: 0;
 }
 
 .grid-primary .card-description {
