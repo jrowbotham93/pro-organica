@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { StaticQuery, graphql } from "gatsby";
 
-import { Navigation, Hero, Section, Grid, Footer, Links } from "..";
+import { Navigation, Hero, Section, Header, Grid, Footer, Links } from "..";
 import "../../styles/app.css";
 
 const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
@@ -69,6 +69,7 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
             </div>
             {isHome ? (
               <div className="site-banner">
+                <Header />
               </div>
             ) : null}
           </Section>
