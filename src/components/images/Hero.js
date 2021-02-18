@@ -1,5 +1,5 @@
 import React from "react";
-import intro from "../../images/intro.svg";
+import logo from "../../images/logo.svg";
 
 //  pass down opacity state which is set in navigation components
 //  the gatsby bg image uses 0.99 opacity which makes the full page nav
@@ -9,7 +9,7 @@ const Hero = ({ home, children, opacity }) => {
       <div>
         {children} 
         <div className="HomeHero">
-          <img src={intro} class="HomeHero__Image" />
+          <img src={logo} class="HomeHero__Image" alt="ProOrganica" />
         </div>
       </div>
 

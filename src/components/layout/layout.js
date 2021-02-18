@@ -32,8 +32,7 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
       </Helmet>
 
       <header className="header">
-
-
+        
         <Hero home={isHome} opacity={overlay}>
           <Section>
             <div className="flex flex-center flex-space-between">

@@ -793,22 +793,24 @@ h6 {
   position: relative;
 }
 
-.HomeHero {
-  height: 70vh;
-  background: url(https://imgix.cosmicjs.com/170595a0-71ea-11eb-87a2-9be5e90cdf74-bg-2.jpg) no-repeat;
+.header {
+  background-image: url("https://proorganica-m.netlify.app/static/46f013567c254dbc977ff51ac9df0e42/b2131/proorganica-home-hero.jpg");
   background-size: cover;
-  position: relative;
-  display: flex;
-  align-content: center;
-  justify-content: center;
   background-position-y: center;
   background-position-x: center;
 }
 
+.HomeHero {
+  height: 75vh;
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
 .HomeHero__Image {
-  width: 80%;
+  width: 40%;
   height: auto;
-  margin-top: -4%;
 }
 
 .card {display: flex; flex-direction: column;}
@@ -887,7 +889,7 @@ h6 {
 }
 .header {
   border-bottom: 3px var(--color-light-grey) solid;
-  background: var(--color-light-green);
+  background-color: var(--color-light-green);
 }
 .header a {
   /* font-size: var(--font-small); */
