@@ -11,9 +11,6 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
   const { pathname } = useLocation();
   let currentPage = pathname.split("/");
 
-  if (currentPage.search('products') > -1 ) {
-    currentPage = '/';
-  }
   const locale = currentPage.some(i => i === "uk-UA");
   const currentLocale = locale ? "uk-UA" : "en-GB";
   const ukrainian = pathname.includes("uk-UA");
