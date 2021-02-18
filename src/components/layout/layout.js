@@ -9,7 +9,11 @@ import "../../styles/app.css";
 const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
   const [overlay, setOverlay] = useState(false);
   const { pathname } = useLocation();
-  const currentPage = pathname.split("/");
+  let currentPage = pathname.split("/");
+
+  if (currentPage.findIndex('products') > -1 ) {
+    currentPage = '/';
+  }
   const locale = currentPage.some(i => i === "uk-UA");
   const currentLocale = locale ? "uk-UA" : "en-GB";
   const ukrainian = pathname.includes("uk-UA");
