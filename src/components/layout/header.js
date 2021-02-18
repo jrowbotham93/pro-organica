@@ -15,7 +15,7 @@ const Header = () => {
     }
   `);
 
-  return <Img style="display:none" fluid={data.file.childImageSharp.fluid} />;
+  return <Img fluid={data.file.childImageSharp.fluid} />;
 };
 
 export default Header;
