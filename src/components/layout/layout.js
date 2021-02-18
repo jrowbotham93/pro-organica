@@ -69,7 +69,6 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
             </div>
             {isHome ? (
               <div className="site-banner">
-                <Header />
               </div>
             ) : null}
           </Section>
