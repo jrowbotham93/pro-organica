@@ -793,7 +793,26 @@ h6 {
   position: relative;
 }
 
+.HomeHero {
+  height: 70vh;
+  background: url(https://imgix.cosmicjs.com/170595a0-71ea-11eb-87a2-9be5e90cdf74-bg-2.jpg) no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-position-y: center;
+  background-position-x: center;
+}
+
+.HomeHero__Image {
+  width: 80%;
+  height: auto;
+  margin-top: -4%;
+}
+
 .card {display: flex; flex-direction: column;}
+
 @media (max-width: 65em) {
   .grid-primary {
     grid-template-columns: repeat(2, 1fr);
@@ -801,6 +820,12 @@ h6 {
 }
 
 @media (max-width: 48em) {
+
+  .HomeHero__Image {
+    width: 100%;
+    height: auto;
+  }
+
   .grid-primary {
     grid-template-columns: 1fr;
   }

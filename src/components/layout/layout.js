@@ -31,6 +31,8 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
       </Helmet>
 
       <header className="header">
+
+
         <Hero home={isHome} opacity={overlay}>
           <Section>
             <div className="flex flex-center flex-space-between">
@@ -67,11 +69,6 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
                 </Links>{" "}
               </div>
             </div>
-            {isHome ? (
-              <div className="site-banner">
-                <Header />
-              </div>
-            ) : null}
           </Section>
         </Hero>
       </header>
