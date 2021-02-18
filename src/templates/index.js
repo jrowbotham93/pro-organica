@@ -19,9 +19,6 @@ const Index = ({ pageContext }) => {
     return a.order < b.order ? -1 : a.order > b.order ? 1 : 0;
   });
 
-  const newsStr = pageContext.home[0].locale === 'en-GB' ? "News" : "Новини";
-  const newsPost =  { 'title': pageContext.home[0].locale === 'en-GB' ? "Visit us at BIOFACH / VIVANESS 2021 eSPECIAL": "Завітайте до нас на BIOFACH / VIVANESS 2021 eSPECIAL", 'description' : pageContext.home[0].locale === 'en-GB' ? "Join our presentation online on February 18th, 2021, 12:00 PM (CET).": "Презентація ProOrganica онлайн відбудеться 18 лютого 2021 о 13:00 за київським часом."};
-
   return (
     <Layout isHome={true}>
       <SEO title="Home" description="Homepage for proOrganica" />
@@ -113,22 +110,7 @@ const Index = ({ pageContext }) => {
         </Grid>
       </Section>
 
-      <Section title={newsStr}>
-              <Card
-                      href="https://us02web.zoom.us/j/81375358041?pwd=MTQ0VzJyN29XU1piV01wMTB6VDhLdz09"
-                      title={newsPost.title} 
-                      description={newsPost.description}
-                      key="contact"
-                      button="ZOOM Link"
-                      label="ZOOM Link"
-                    >
-                      <Image
-                        label={`image`}
-                        styles="border-radius-top"
-                        image="https://imgix.cosmicjs.com/71710710-712a-11eb-87a2-9be5e90cdf74-biofach20212x-80.jpg"
-                      />
-              </Card>
-      </Section>
+
     </Layout>
   );
 };
