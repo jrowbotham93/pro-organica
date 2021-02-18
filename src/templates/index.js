@@ -115,7 +115,7 @@ const Index = ({ pageContext }) => {
 
       <Section title={newsStr}>
               <Card
-                      href="https://us04web.zoom.us/j/72799578698?pwd=WEp4cURpcWV1SzdxRlNGM3BtWjlPQT09"
+                      href="https://us02web.zoom.us/j/81375358041?pwd=MTQ0VzJyN29XU1piV01wMTB6VDhLdz09"
                       title={newsPost.title} 
                       description={newsPost.description}
                       key="contact"
