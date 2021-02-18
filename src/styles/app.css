@@ -644,7 +644,7 @@ h2 {
 
 @media (min-width: 85.375em) {
   h2 {
-    font-size: calc(var(--font-medium) * 1.6);
+    font-size: calc(var(--font-medium) * 1.2);
   }
 }
 
