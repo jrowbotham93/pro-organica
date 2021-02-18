@@ -76,7 +76,7 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
         </Hero>
       </header>
 
-      <main> {children}</main>
+      <main>{children}</main>
 
       <Footer>
         <Section spacing="v-md">
