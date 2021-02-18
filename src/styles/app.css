@@ -801,7 +801,7 @@ h6 {
 }
 
 .HomeHero {
-  height: 75vh;
+  height: 78vh;
   position: relative;
   display: flex;
   align-content: center;
@@ -811,6 +811,7 @@ h6 {
 .HomeHero__Image {
   width: 40%;
   height: auto;
+  margin-top: -14rem;
 }
 
 .card {display: flex; flex-direction: column;}
@@ -824,8 +825,13 @@ h6 {
 @media (max-width: 48em) {
 
   .HomeHero__Image {
-    width: 100%;
+    width: 70%;
     height: auto;
+    margin-top: -8rem;
+  }
+
+  .HomeHero {
+    height: 25vh;
   }
 
   .grid-primary {
