@@ -63,7 +63,7 @@ const Index = ({ pageContext }) => {
             findImageOwner(productList, products_list).map(
               ({ name, image, description, action }, index) => {
 
-                if (index === 0 && pageContext.home[0].locale === 'en-GB') {
+                if (index === 0) {
                   return (
                     <Links
                     internal

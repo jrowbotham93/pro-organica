@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { SEO, Layout, Image, Section, Grid, Links, Card } from "../components";
 
 const Page = data => {
-console.log(data.pageContext);
+
   const products = data.pageContext.products[0];
   const purityStr =  data.pageContext.products[0].locale === 'en-GB'?'Purity 99.9%':'Чистота 99.9%';
 
@@ -15,6 +15,9 @@ console.log(data.pageContext);
           <h1 className="page-title">{products.title}</h1>
           <Grid className="grid-primary">
           {products.metadata.products_shop.map(({ product_name, product_photo, id }, index) => {
+
+            if (data.pageContext.products[0].locale === 'en-GB') {
+
             return (
               <Links
                 internal
@@ -35,7 +38,23 @@ console.log(data.pageContext);
                 </Card>{" "}
               </Links>
             );
-          })}
+            } else {
+
+            return (
+              <Card
+                styling="text-align-center"
+                title={`${product_name} <br/> ${purityStr}`}
+                className={"animate-hover"}
+              >
+                <Image
+                  image={product_photo && product_photo.imgix_url}
+                  alt="Links to content pages"
+                  styles="border-radius-top"
+                />
+              </Card>);
+           };
+          })
+          }
         </Grid>
 
 
