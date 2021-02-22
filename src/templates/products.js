@@ -13,7 +13,6 @@ console.log(data.pageContext);
       <Section>
         <article className="spacing-v-sm">
           <h1 className="page-title">{products.title}</h1>
-
           <Grid className="grid-primary">
           {products.metadata.products_shop.map(({ product_name, product_photo, id }, index) => {
             return (
