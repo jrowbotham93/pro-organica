@@ -21,6 +21,7 @@ const Page = data => {
               />
             </figure>
           )}
+          
           <section className="page-full-content">
             <section
               className="oad-external-scripts"
