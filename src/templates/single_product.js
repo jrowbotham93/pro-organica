@@ -13,7 +13,6 @@ const Page = data => {
       <Section>
         <article className="spacing-v-sm">
           <h1 className="page-title">{product.product_name }</h1>
-
           {product.product_photo && (
             <figure className="page-feature-image spacing-v-md">
               <Image
