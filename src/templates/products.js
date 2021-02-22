@@ -27,7 +27,6 @@ console.log(data.pageContext);
                   styling="text-align-center"
                   title={`${product_name} <br/> ${purityStr}`}
                   className={"animate-hover"}
-                  href={`/${products.locale}/${1}`.replace("/en-GB", "")}
                 >
                   <Image
                     image={product_photo && product_photo.imgix_url}
