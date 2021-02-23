@@ -55,7 +55,6 @@ const Page = data => {
            };
           })
           }
-          
         </Grid>
 
 
