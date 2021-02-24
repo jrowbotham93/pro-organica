@@ -806,6 +806,12 @@ h6 {
   display: flex;
   align-content: center;
   justify-content: center;
+  z-index: 0;
+}
+
+.HomeHero__Nav {
+  z-index: 1000;
+  position: relative;
 }
 
 .HomeHero__Image {

@@ -35,7 +35,7 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
 
         <Hero home={isHome} opacity={overlay}>
           <Section>
-            <div className="flex flex-center flex-space-between">
+            <div className="HomeHero__Nav flex flex-center flex-space-between">
               <Navigation
                 setBackgroundOpacity={() => setOverlay(!overlay)}
                 overlay={overlay}
