@@ -9,7 +9,7 @@ const Hero = ({ home, children, opacity }) => {
       <div>
         {children} 
         <div className="HomeHero">
-          <img src={logo} class="HomeHero__Image" alt="ProOrganica" />
+          <img src={logo} className="HomeHero__Image" alt="ProOrganica" />
         </div>
       </div>
 
