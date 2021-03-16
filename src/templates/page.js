@@ -33,7 +33,7 @@ const Page = data => {
       </Section>
     </Layout>
   );
-};
+}; 
 
 Page.propTypes = {
   data: PropTypes.shape({
