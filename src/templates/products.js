@@ -54,7 +54,7 @@ const Page = data => {
               </Card>);
            };
           })
-          }
+          } 
         </Grid>
 
 
