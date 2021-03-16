@@ -30,7 +30,7 @@ const Index = ({ pageContext }) => {
           {pageContext.pages.map(({ title, locale, slug, metadata }, index) => {
 
             return slug !== 'products' && (
-              <Links
+              <Links 
                 internal
                 styling="a-black"
                 href={`/${locale}/${slug}`.replace("/en-GB", "")}
