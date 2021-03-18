@@ -5,7 +5,7 @@ import { SEO, Layout, Image, Section, Grid, Links, Card } from "../components";
 const Page = data => {
 
   const products = data.pageContext.products[0];
-  const purityStr =  data.pageContext.products[0].locale === 'en-GB'?'Purity 99.9%':'Чистота 99.9%';
+  const purityStr = data.pageContext.products[0].locale === 'en-GB'?'Purity 99.9%':'Чистота 99.9%';
 
   return (
     <Layout>
