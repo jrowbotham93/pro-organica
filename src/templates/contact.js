@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Layout,
+  Layout, 
   Section,
   Grid,
   SEO,
