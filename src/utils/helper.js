@@ -13,7 +13,9 @@ const findImageOwner = (arr1, arr2) => {
 
 
 export function buildLink(slug) {
-  if (window.location.pathname.includes("uk-UA")) {
+  const windowGlobal = typeof window !== 'undefined' && window;
+
+  if (windowGlobal && windowGlobal.location.pathname.includes("uk-UA")) {
     return `/uk-UA/${slug}`;
   } 
   return `/${slug}`;
