@@ -52,7 +52,7 @@ const NavbarLinks = ({ pages }) => {
       </NavItem>
 
       {pages
-        .filter(i => i.node.slug !== "home" && !(ukrainian && i.node.slug === 'products'))
+        .filter(i => i.node.slug !== "home")
         .map((navItem, i) => {
           return (
             <NavItem
