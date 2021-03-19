@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { StaticQuery, graphql } from "gatsby";
+import { buildLink } from "../../utils/helper";
 
 import { Navigation, Hero, Section, Grid, Footer, Links } from "..";
 import "../../styles/app.css";
@@ -86,7 +87,7 @@ const DefaultLayout = ({ children, bodyClass, isHome, data }) => {
                   <Links
                     internal
                     styling="a-white"
-                    href={`/${i.node.slug}`.replace("home", "")}
+                    href={buildLink(i.node.slug)}
                   >
                     {i.node.title}
                   </Links>

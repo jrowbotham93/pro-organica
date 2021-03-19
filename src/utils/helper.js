@@ -9,4 +9,14 @@ const findImageOwner = (arr1, arr2) => {
     }
   });
 };
+
+
+
+export function buildLink(slug) {
+  if (window.location.pathname.includes("uk-UA")) {
+    return `/uk-UA/${slug}`;
+  } 
+  return `/${slug}`;
+}
+
 export default findImageOwner;

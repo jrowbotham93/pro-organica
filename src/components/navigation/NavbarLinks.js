@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { window } from "browser-monads";
+import { buildLink } from "../../utils/helper";
 
 const NavItem = styled(Link)`
   text-decoration: none;
@@ -33,13 +34,6 @@ const NavItem = styled(Link)`
     z-index: 6;
   }
 `;
-
-function buildLink(slug) {
-  if (window.location.pathname.includes("uk-UA")) {
-    return `/uk-UA/${slug}`;
-  } 
-  return `/${slug}`;
-}
 
 const NavbarLinks = ({ pages }) => {
   const ukrainian = window.location.pathname.includes("uk-UA");
